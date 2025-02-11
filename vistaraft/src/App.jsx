@@ -9,8 +9,6 @@ import Terms from "./components/Terms/Terms";
 import Contact from "./components/Contact/Contact";
 import Cancellation from "./components/Cancellation/Cancellation";
 import About from "./components/About/About";
-import Jan from "./components/Jan/Jan";
-import Feb from "./components/Feb/Feb";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Feedback from "./components/Feedback/Feedback";
 
@@ -28,8 +26,6 @@ function App() {
             <Route path="/cancellation" element={<Cancellation />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/about" element={<About />} />
-            <Route path="/jan" element={<Jan />} />
-            <Route path="/feb" element={<Feb />} />
             <Route path="/feedback" element={<Feedback />} />
           </Routes>
           <Footer />

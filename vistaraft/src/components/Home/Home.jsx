@@ -1,14 +1,14 @@
 import Card from "../Card/Card";
 import Hero from "../Hero/Hero";
-import SubHero from "../subHero/SubHero";
-import photo1 from "../../assets/photo1.jpg";
-import photo2 from "../../assets/photo2.jpg";
-import photo3 from "../../assets/photo3.jpg";
-import photo4 from "../../assets/photo4.jpg";
-import photo5 from "../../assets/photo5.jpg";
-import photo6 from "../../assets/photo6.jpg";
-import photo7 from "../../assets/photo7.jpg";
-import photo8 from "../../assets/photo8.jpg";
+import Manali from "../../assets/Manali.png";
+import Shimla from "../../assets/Shimla.jpg";
+import Kashmir from "../../assets/Kashmir.jpg";
+import Kerela from "../../assets/Kerela.jpg";
+import Mcleodganj from "../../assets/Mcleodganj.jpg";
+import chardham from "../../assets/chardham.jpg";
+import dalhousie from "../../assets/dalhousie.jpg";
+import ChoptaChandrashila from "../../assets/ChoptaChandrashila.jpg";
+import SubHero from "../../components/SubHero/SubHero";
 
 function Home() {
   return (
@@ -34,14 +34,14 @@ function Home() {
 
       {/* Card Grid Section with More Padding */}
       <div className="grid grid-cols-1 xs:grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5 px-12">
-        <Card photo={photo1} />
-        <Card photo={photo2} />
-        <Card photo={photo3} />
-        <Card photo={photo4} />
-        <Card photo={photo5} />
-        <Card photo={photo6} />
-        <Card photo={photo7} />
-        <Card photo={photo8} />
+        <Card photo={Shimla}heading={"Shimla"}description={"Delhi to Shimla"} />
+        <Card photo={Kashmir}heading={"Kashmir"}description={"Delhi to Kashmir"} />
+        <Card photo={Kerela}heading={"Kerela"}description={"Kochi to Kerela"} />
+        <Card photo={Manali}heading={"Manali"}description={"Delhi to Manali"} />
+        <Card photo={Mcleodganj}heading={"Mcleodganj"}description={"Delhi to Mcleodganj"} />
+        <Card photo={chardham}heading={"Char Dham"}description={"Delhi to Char Dham"} />
+        <Card photo={dalhousie}heading={"Dalhousie"}description={"Delhi to Dalhousie"} />
+        <Card photo={ChoptaChandrashila}heading={"Chopta Chandrashila"}description={"Delhi to Chandrashila"} />
       </div>
 
       <br />

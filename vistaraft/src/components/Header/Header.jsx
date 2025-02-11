@@ -2,7 +2,8 @@ import logo from "@/assets/logoVista.jpg";
 
 function Header() {
   return (
-    <nav className="sticky top-0 left-0 w-full bg-opacity-90 backdrop-blur-md bg-gray-900 border-b border-gray-800 z-50">
+    <nav className="sticky top-0 left-0 w-full bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900 bg-opacity-95 backdrop-blur-md border-b border-transparent z-50">
+
       <div className="max-w-screen-xl flex justify-between items-center mx-auto p-4">
         {/* Logo and Brand Name */}
         <a href="/" className="flex items-center space-x-3 rtl:space-x-reverse">
