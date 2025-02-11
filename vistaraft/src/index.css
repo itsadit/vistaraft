@@ -1,0 +1,116 @@
+/* ==================== */
+/* Global Styles         */
+/* ==================== */
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: dark; /* Enforce dark mode */
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #242424;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+  font-weight: 500;
+  color: #00CED1; /* Match navbar hover color */
+  text-decoration: inherit;
+}
+a:hover {
+  color: #00a5a8; /* Slightly darker shade for hover */
+}
+
+body {
+  margin: 0;
+  display: flex;
+  min-width: 320px;
+  min-height: 100vh;
+}
+
+h1 {
+  font-size: 3.2em;
+  line-height: 1.1;
+}
+
+button {
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: #1a1a1a;
+  cursor: pointer;
+  transition: border-color 0.25s;
+  color: white; /* Ensure text is visible */
+}
+button:hover {
+  border-color: #00CED1; /* Match navbar hover color */
+}
+button:focus,
+button:focus-visible {
+  outline: 4px auto #00CED1; /* Match navbar hover color */
+}
+
+/* ==================== */
+/* Header Styles         */
+/* ==================== */
+.nav-link {
+  position: relative;
+  text-decoration: none;
+  color: white;
+  transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+  color: #00CED1; /* Change text color on hover */
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px; /* Thickness of the underline */
+  background-color: #00CED1; /* Match hover color */
+  transition: width 0.3s ease;
+}
+
+.nav-link:hover::after {
+  width: 100%; /* Expand the underline to full width on hover */
+}
+
+/* ==================== */
+/* Footer Styles         */
+/* ==================== */
+.footer-link {
+  position: relative;
+  text-decoration: none;
+  color: #9ca3af; /* Gray-400 */
+  transition: color 0.3s ease;
+}
+
+.footer-link:hover {
+  color: #00CED1; /* Cyan */
+}
+
+.footer-link::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: #00CED1; /* Cyan */
+  transition: width 0.3s ease;
+}
+
+.footer-link:hover::after {
+  width: 100%; /* Expand underline on hover */
+}
