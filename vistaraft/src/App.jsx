@@ -1,6 +1,6 @@
 import "./App.css";
 //components
-
+import Payment from "./components/Payment/Payment";
 import Footer from "./components/Footer/Footer";
 import Header from "./components/Header/Header";
 import Home from "./components/Home/Home";
@@ -21,6 +21,7 @@ function App() {
           <Header />
           <Routes>
             <Route path="/" element={<Home />} />
+            <Route path="/payment" element={<Payment />} />
             <Route path="/terms" element={<Terms />} />
             <Route path="/privacy" element={<Privacy />} />
             <Route path="/cancellation" element={<Cancellation />} />
