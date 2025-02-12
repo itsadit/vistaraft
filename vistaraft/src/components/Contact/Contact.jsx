@@ -71,7 +71,7 @@ function Contact() {
             <FaFacebook />
           </a>
           <a 
-            href="https://wa.me/+91 8384076491" 
+            href="https://wa.me/+918384076491" 
             target="_blank" 
             rel="noopener noreferrer"
             className="text-green-500 text-4xl transition-transform duration-300 hover:scale-125"
