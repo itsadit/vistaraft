@@ -1,5 +1,6 @@
 import logo from "@/assets/logoVista.jpg";
 import "./Footer.css";
+import { Link } from "react-router-dom";
 
 function Footer() {
   return (
@@ -7,21 +8,21 @@ function Footer() {
       <div className="w-full max-w-screen-xl mx-auto p-8 md:py-12">
         <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center">
           {/* Logo and Brand */}
-          <a href="/" className="flex items-center space-x-4 rtl:space-x-reverse mb-6 sm:mb-0">
+          <Link to="/" className="flex items-center space-x-4 rtl:space-x-reverse mb-6 sm:mb-0">
             <img src={logo} className="h-12" alt="Vistaraft Logo" />
             <span className="text-3xl font-bold text-white">Vistaraft</span>
-          </a>
+          </Link>
 
           {/* Navigation Links */}
           <ul className="flex flex-wrap justify-center sm:justify-end items-center text-base font-semibold text-gray-300">
             <li>
-              <a href="/Feedback" className="footer-link me-6 hover:text-white transition duration-300">Feedback</a>
+              <Link to="/Feedback" className="footer-link me-6 hover:text-white transition duration-300">Feedback</Link>
             </li>
             <li>
-              <a href="/privacy" className="footer-link me-6 hover:text-white transition duration-300">Privacy Policy</a>
+              <Link to="/privacy" className="footer-link me-6 hover:text-white transition duration-300">Privacy Policy</Link>
             </li>
             <li>
-              <a href="/cancellation" className="footer-link me-6 hover:text-white transition duration-300">Cancellation</a>
+              <Link to="/cancellation" className="footer-link me-6 hover:text-white transition duration-300">Cancellation</Link>
             </li>
           </ul>
         </div>
@@ -31,7 +32,7 @@ function Footer() {
 
         {/* Copyright */}
         <span className="block text-base text-gray-400 text-center">
-          © 2025 <a href="/Terms" className="footer-link font-semibold hover:text-white transition duration-300">Vistaraft™</a>. All Rights Reserved.
+          © 2025 <Link to="/Terms" className="footer-link font-semibold hover:text-white transition duration-300">Vistaraft™</Link>. All Rights Reserved.
         </span>
       </div>
     </footer>
