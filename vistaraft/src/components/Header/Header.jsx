@@ -2,6 +2,15 @@ import logo from "@/assets/logoVista.jpg";
 import {Link} from "react-router-dom";
 
 function Header() {
+  const toggleNavbar = () => {
+    const navbar = document.getElementById('navbar-default');
+    const isExpanded = navbar.classList.contains('hidden');
+    if (isExpanded) {
+      navbar.classList.remove('hidden');
+    } else {
+      navbar.classList.add('hidden');
+    }
+  };
   return (
     <nav className="sticky top-0 left-0 w-full bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900 bg-opacity-95 backdrop-blur-md border-b border-transparent z-50">
 
@@ -16,11 +25,13 @@ function Header() {
 
         {/* Mobile Menu Button */}
         <button
+        id="navBtn"
           data-collapse-toggle="navbar-default"
           type="button"
           className="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-400 rounded-lg md:hidden hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-gray-600"
           aria-controls="navbar-default"
           aria-expanded="false"
+          onClick={toggleNavbar}
         >
           <span className="sr-only">Open main menu</span>
           <svg
@@ -73,7 +84,7 @@ function Header() {
             </li>
             <li>
               <Link
-                href="/contact"
+                to="/contact"
                 className="nav-link block py-2 px-3 text-white hover:text-cyan-300 rounded-md relative overflow-hidden transition-all duration-300 md:p-0"
               >
                 Contact Us
