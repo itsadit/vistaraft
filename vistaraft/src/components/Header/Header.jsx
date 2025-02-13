@@ -1,4 +1,5 @@
 import logo from "@/assets/logoVista.jpg";
+import {Link} from "react-router-dom";
 
 function Header() {
   return (
@@ -43,41 +44,41 @@ function Header() {
         <div className="hidden w-full md:block md:w-auto" id="navbar-default">
           <ul className="font-medium flex flex-col p-4 md:p-0 mt-4 rounded-lg md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0">
             <li>
-              <a
-                href="/"
+              <Link
+                to="/"
                 className="nav-link block py-2 px-3 text-white hover:text-cyan-300 rounded-md relative overflow-hidden transition-all duration-300 md:p-0"
                 aria-current="page"
               >
                 Home
                 <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-cyan-300 transition-all duration-300 group-hover:w-full"></span>
-              </a>
+              </Link>
             </li>
             <li>
-              <a
-                href="tel:+8384076491"
+              <Link
+                to="tel:+8384076491"
                 className="nav-link block py-2 px-3 text-white hover:text-cyan-300 rounded-md relative overflow-hidden transition-all duration-300 md:p-0"
               >
                 Call Us
                 <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-cyan-300 transition-all duration-300 group-hover:w-full"></span>
-              </a>
+              </Link>
             </li>
             <li>
-              <a
-                href="/about"
+              <Link
+                to="/about"
                 className="nav-link block py-2 px-3 text-white hover:text-cyan-300 rounded-md relative overflow-hidden transition-all duration-300 md:p-0"
               >
                 About Us
                 <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-cyan-300 transition-all duration-300 group-hover:w-full"></span>
-              </a>
+              </Link>
             </li>
             <li>
-              <a
+              <Link
                 href="/contact"
                 className="nav-link block py-2 px-3 text-white hover:text-cyan-300 rounded-md relative overflow-hidden transition-all duration-300 md:p-0"
               >
                 Contact Us
                 <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-cyan-300 transition-all duration-300 group-hover:w-full"></span>
-              </a>
+              </Link>
             </li>
           </ul>
         </div>
