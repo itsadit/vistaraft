@@ -403,25 +403,37 @@ const destinations = [
       "Travel insurance"
     ],
     "itenary": [
-      {
-        "day": 1,
-        "stay": "Resort",
-        "meals": "Welcome drink",
-        "activity": "Arrival and check-in, explore local attractions, cultural performances"
-      },
-      {
-        "day": 2,
-        "stay": "Resort",
-        "meals": "Breakfast, Dinner",
-        "activity": "Holi celebrations, playing with colors, DJ night, local market exploration"
-      },
-      {
-        "day": 3,
-        "stay": "None (Departure)",
-        "meals": "Breakfast",
-        "activity": "Morning temple visit, departure for Delhi"
-      }
-    ]
+    {
+      "day": 1,
+      "heading": "Arrival & Cultural Experience",
+      "description": [
+        "Arrive at the resort and complete check-in formalities.",
+        "Explore local attractions and enjoy scenic views.",
+        "Experience cultural performances in the evening.",
+        "You will be welcomed with a refreshing drink."
+      ]
+    },
+    {
+      "day": 2,
+      "heading": "Holi Celebrations & Festivities",
+      "description": [
+        "Celebrate Holi with vibrant colors and music.",
+        "Enjoy a lively DJ night with festive beats.",
+        "Explore the local market for souvenirs and delicacies.",
+        "You will be provided with breakfast and dinner."
+      ]
+    },
+    {
+      "day": 3,
+      "heading": "Temple Visit & Departure",
+      "description": [
+        "Visit a temple in the morning for blessings.",
+        "Check out from the resort and prepare for departure.",
+        "Return journey to Delhi.",
+        "You will be served breakfast."
+      ]
+    }
+  ]
   },
   {
     "heading": "MANALI-KASOL-KHEERGANGA TRIP (Delhi to Delhi)",
@@ -451,49 +463,72 @@ const destinations = [
       "Paragliding"
     ],
     "itenary": [
-      {
-        "day": 0,
-        "stay": "Overnight Journey in Volvo/Tempo",
-        "meals": "Dinner (Self-paid)",
-        "activity": "Depart from Delhi, overnight bus journey"
-      },
-      {
-        "day": 1,
-        "stay": "Hotel in Manali",
-        "meals": "Dinner",
-        "activity": "Local sightseeing - Hadimba Temple, Mall Road, Tibetan Monastery"
-      },
-      {
-        "day": 2,
-        "stay": "Hotel in Manali",
-        "meals": "Breakfast, Dinner",
-        "activity": "Solang Valley adventure sports, snow activities, photography"
-      },
-      {
-        "day": 3,
-        "stay": "Swiss Camps in Kasol",
-        "meals": "Breakfast, Dinner",
-        "activity": "Kasol exploration, cafe hopping, Parvati River walk, bonfire night"
-      },
-      {
-        "day": 4,
-        "stay": "Alpine Camps in Kheerganga",
-        "meals": "Breakfast, Dinner",
-        "activity": "Trek to Kheerganga, hot water springs bath, sunset point"
-      },
-      {
-        "day": 5,
-        "stay": "Overnight Journey to Delhi",
-        "meals": "Breakfast",
-        "activity": "Trek down to Barshaini, return journey to Delhi"
-      },
-      {
-        "day": 6,
-        "stay": "Arrival in Delhi",
-        "meals": "None",
-        "activity": "End of trip"
-      }
-    ]
+    {
+      "day": 0,
+      "heading": "Overnight Journey to Manali",
+      "description": [
+        "Depart from Delhi by Volvo/Tempo for an overnight journey.",
+        "Travel comfortably through scenic routes.",
+        "Dinner will be self-paid."
+      ]
+    },
+    {
+      "day": 1,
+      "heading": "Exploring Manali",
+      "description": [
+        "Arrive in Manali and check into the hotel.",
+        "Visit Hadimba Temple, Mall Road, and Tibetan Monastery.",
+        "You will be served dinner."
+      ]
+    },
+    {
+      "day": 2,
+      "heading": "Adventure in Solang Valley",
+      "description": [
+        "Experience adventure sports and snow activities at Solang Valley.",
+        "Enjoy scenic photography and breathtaking views.",
+        "You will be provided with breakfast and dinner."
+      ]
+    },
+    {
+      "day": 3,
+      "heading": "Kasol Exploration & Bonfire Night",
+      "description": [
+        "Travel to Kasol and check into Swiss Camps.",
+        "Explore local cafes, walk along the Parvati River, and enjoy nature.",
+        "Experience a bonfire night.",
+        "You will be served breakfast and dinner."
+      ]
+    },
+    {
+      "day": 4,
+      "heading": "Trek to Kheerganga",
+      "description": [
+        "Start a scenic trek to Kheerganga.",
+        "Take a relaxing bath in the natural hot water springs.",
+        "Witness the mesmerizing sunset from the top.",
+        "Stay overnight in alpine camps.",
+        "You will be provided with breakfast and dinner."
+      ]
+    },
+    {
+      "day": 5,
+      "heading": "Trek Down & Return Journey",
+      "description": [
+        "Trek down to Barshaini.",
+        "Begin the return journey to Delhi.",
+        "You will be served breakfast."
+      ]
+    },
+    {
+      "day": 6,
+      "heading": "Arrival in Delhi",
+      "description": [
+        "Reach Delhi, marking the end of the trip.",
+        "No meals provided."
+      ]
+    }
+  ]
   },
   {
     "heading": "Char Dham",
@@ -520,72 +555,111 @@ const destinations = [
       "Any extra transportation services availed"
     ],
     "itenary": [
-      {
-        "day": 1,
-        "stay": "Delhi / Haridwar to Barkot",
-        "activity": "Overnight journey via Dehradun & Mussoorie, visit Shashtra Dhara, Prakashwer Temple, Kempty Fall",
-        "meals": "Dinner"
-      },
-      {
-        "day": 2,
-        "stay": "Barkot",
-        "activity": "Arrival, rest, and preparation for Yamunotri trek",
-        "meals": "Breakfast, Dinner"
-      },
-      {
-        "day": 3,
-        "stay": "Barkot - Yamunotri Dham - Barkot",
-        "activity": "Yamunotri Darshan, trek 6 km, visit temple, Divya Shila, Surya Kund",
-        "meals": "Breakfast, Packed Lunch, Dinner"
-      },
-      {
-        "day": 4,
-        "stay": "Barkot - Uttarkashi",
-        "activity": "Travel to Uttarkashi, visit Vishwanath Temple",
-        "meals": "Breakfast, Dinner"
-      },
-      {
-        "day": 5,
-        "stay": "Uttarkashi - Gangotri - Uttarkashi",
-        "activity": "Gangotri Darshan, visit Bhagirathi River, Harsil Village, Surya Kund",
-        "meals": "Breakfast, Packed Lunch, Dinner"
-      },
-      {
-        "day": 6,
-        "stay": "Uttarkashi - Guptkashi",
-        "activity": "Travel via Mandakini River, overnight stay",
-        "meals": "Breakfast, Dinner"
-      },
-      {
-        "day": 7,
-        "stay": "Guptkashi - Sonprayag - Kedarnath",
-        "activity": "Trek 20 km to Kedarnath, temple visit, overnight stay",
-        "meals": "Breakfast, Packed Lunch, Dinner"
-      },
-      {
-        "day": 8,
-        "stay": "Kedarnath - Sonprayag",
-        "activity": "Morning darshan, trek down to Sonprayag, overnight stay",
-        "meals": "Breakfast, Dinner"
-      },
-      {
-        "day": 9,
-        "stay": "Sonprayag - Badrinath",
-        "activity": "Travel to Badrinath, visit Pandukeshwar",
-        "meals": "Breakfast, Dinner"
-      },
-      {
-        "day": 10,
-        "stay": "Badrinath - Rishikesh - Haridwar",
-        "activity": "Morning darshan, travel to Rishikesh, attend Ganga Aarti",
-        "meals": "Breakfast, Dinner"
-      },
-      {
-        "day": 11,
-        "stay": "Rishikesh - Neelkanth - Delhi",
-        "activity": "Visit Neelkanth Temple, return to Delhi",
-        "meals": "Breakfast"
-      }
+    {
+      "day": 1,
+      "heading": "Journey from Delhi / Haridwar to Barkot",
+      "description": [
+        "Overnight journey via Dehradun & Mussoorie.",
+        "Visit Shashtra Dhara, Prakashwer Temple, and Kempty Falls.",
+        "You will be served dinner."
+      ]
+    },
+    {
+      "day": 2,
+      "heading": "Arrival at Barkot & Preparation for Yamunotri",
+      "description": [
+        "Arrive and take time to rest.",
+        "Prepare for the upcoming trek to Yamunotri.",
+        "You will be provided with breakfast and dinner."
+      ]
+    },
+    {
+      "day": 3,
+      "heading": "Yamunotri Dham Visit",
+      "description": [
+        "Trek 6 km to Yamunotri.",
+        "Visit the temple, Divya Shila, and Surya Kund.",
+        "Return to Barkot.",
+        "You will receive breakfast, a packed lunch, and dinner."
+      ]
+    },
+    {
+      "day": 4,
+      "heading": "Travel from Barkot to Uttarkashi",
+      "description": [
+        "Travel to Uttarkashi.",
+        "Visit the famous Vishwanath Temple.",
+        "You will be served breakfast and dinner."
+      ]
+    },
+    {
+      "day": 5,
+      "heading": "Gangotri Darshan & Sightseeing",
+      "description": [
+        "Visit Gangotri for darshan.",
+        "Explore Bhagirathi River, Harsil Village, and Surya Kund.",
+        "Return to Uttarkashi.",
+        "You will be provided with breakfast, a packed lunch, and dinner."
+      ]
+    },
+    {
+      "day": 6,
+      "heading": "Journey from Uttarkashi to Guptkashi",
+      "description": [
+        "Travel via the scenic Mandakini River.",
+        "Overnight stay in Guptkashi.",
+        "You will receive breakfast and dinner."
+      ]
+    },
+    {
+      "day": 7,
+      "heading": "Trek from Guptkashi to Kedarnath",
+      "description": [
+        "Begin a 20 km trek to Kedarnath.",
+        "Visit the sacred Kedarnath temple.",
+        "Overnight stay in Kedarnath.",
+        "You will be provided with breakfast, a packed lunch, and dinner."
+      ]
+    },
+    {
+      "day": 8,
+      "heading": "Return from Kedarnath to Sonprayag",
+      "description": [
+        "Attend the morning darshan at Kedarnath.",
+        "Trek down to Sonprayag.",
+        "Overnight stay in Sonprayag.",
+        "You will be served breakfast and dinner."
+      ]
+    },
+    {
+      "day": 9,
+      "heading": "Travel from Sonprayag to Badrinath",
+      "description": [
+        "Travel to Badrinath.",
+        "Visit Pandukeshwar en route.",
+        "You will be provided with breakfast and dinner."
+      ]
+    },
+    {
+      "day": 10,
+      "heading": "Badrinath Darshan & Rishikesh Ganga Aarti",
+      "description": [
+        "Attend the morning darshan at Badrinath.",
+        "Travel to Rishikesh.",
+        "Witness the sacred Ganga Aarti.",
+        "Travel to Haridwar.",
+        "You will be served breakfast and dinner."
+      ]
+    },
+    {
+      "day": 11,
+      "heading": "Visit Neelkanth Temple & Return to Delhi",
+      "description": [
+        "Visit the revered Neelkanth Temple.",
+        "Return to Delhi to conclude your journey.",
+        "You will be provided with breakfast."
+      ]
+    }
     ]
   }
 ]
@@ -603,9 +677,8 @@ const destinationSchema = new mongoose.Schema({
   exclusions: [String],
   itenary: [{
     day: Number,
-    stay: String,
-    meals: String,
-    activity: String
+    heading: String,
+    description: [String]
   }]
 });
 

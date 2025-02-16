@@ -5,13 +5,18 @@ import axios from "axios";
 import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { useTheme } from "../ThemeContext/ThemeContext";
+import { ChevronDown, ChevronUp } from "lucide-react";
 
 
 
 function Payment() {
   const { mode } = useTheme();
   const navigate = useNavigate();
-  
+  const [openDay, setOpenDay] = useState(null);
+
+  const toggleDay = (day) => {
+    setOpenDay(openDay === day ? null : day);
+  };
   const [selectedDestination, setSelectedDestination] = useState(null);
 
   const location = useLocation();
@@ -24,13 +29,13 @@ function Payment() {
       fetch(`${import.meta.env.VITE_HOST}/api/destinations?heading=${encodeURIComponent(heading)}`)
         .then((response) => response.json())
         .then((data) => {
-          console.log("Fetched Data:", data); // Debugging
+          
           setSelectedDestination(data);
         })
         .catch((error) => console.error("Error fetching destination:", error));
     }
   }, [heading]); 
-  console.log(selectedDestination)
+
     const [name, setName] = useState("");
     const [email, setEmail] = useState("");
     const [pricing, setPricing] = useState({
@@ -169,46 +174,37 @@ function Payment() {
           className="w-full pl-8 "
         >
           {/* Itinerary Slide */}
-          {/* Itinerary Slide */}
-<div className={`${mode==='dark'?'bg-gray-900':'bg-gray-100'} shadow-2xl rounded-2xl p-6 border border-gray-700`}>
-  <h2 className="text-2xl md:text-3xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-500 text-center">
-    Day Wise Itinerary
-  </h2>
-  
-  <div className="overflow-x-auto">
-    <table className="w-full mt-4 border border-gray-700 text-sm md:text-base">
-      <thead>
-        <tr className="bg-gray-800 text-white">
-          <th className="p-2">Day</th>
-          <th className="p-2">Stay</th>
-          <th className="p-2">Activity</th>
-          <th className="p-2">Meals</th>
-        </tr>
-      </thead>
-      <tbody>
-        {selectedDestination?.itenary.slice(0, showAll ? selectedDestination.itenary.length : 5).map((item, index) => (
-          <tr key={index} className="border border-gray-700 text-center">
-            <td className="p-2">{item.day}</td>
-            <td className="p-2 font-semibold">{item.stay}</td>
-            <td className="p-2">{item.activity}</td>
-            <td className="p-2">{item.meals}</td>
-          </tr>
+          <div className={`${mode==='dark'?'bg-gray-900':'bg-gray-100'} shadow-2xl rounded-2xl p-6 border border-gray-700`}>
+      <h2 className="text-2xl md:text-3xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-500 text-center">
+        Day Wise Plan
+      </h2>
+
+      <div className="mt-4">
+        {selectedDestination?.itenary.map((item, index) => (
+          <div key={index} className="border-b border-gray-700 mb-2">
+            <button
+              onClick={() => toggleDay(item.day)}
+              className="w-full flex justify-between items-center p-6 text-left bg-gradient-to-r from-blue-500 to-purple-600 text-white font-semibold text-lg rounded-lg shadow-lg"
+            >
+              <span>Day {item.day}: {item.heading}</span>
+              {openDay === item.day ? <ChevronUp size={24} /> : <ChevronDown size={24} />}
+            </button>
+            {openDay === item.day && (
+              <motion.ul
+                initial={{ opacity: 0, height: 0 }}
+                animate={{ opacity: 1, height: "auto" }}
+                exit={{ opacity: 0, height: 0 }}
+                className={`p-6  rounded-lg text-left ${mode==='dark'?'bg-gray-900 text-gray-200':'!bg-gray-100 text-gray-900'}`}
+              >
+                {item.description.map((desc, i) => (
+                  <li key={i} className="mb-2 list-disc list-inside">{desc}</li>
+                ))}
+              </motion.ul>
+            )}
+          </div>
         ))}
-      </tbody>
-    </table>
-  </div>
-
-  {/* See More Button */}
-  {selectedDestination?.itenary.length > 5 && (
-    <button
-      onClick={() => setShowAll(!showAll)}
-      className="mt-4 w-full px-6 py-2 text-lg font-medium bg-gradient-to-r from-blue-500 to-purple-600 rounded-lg shadow-lg"
-    >
-      {showAll ? "See Less" : "See More"}
-    </button>
-  )}
-</div>
-
+      </div>
+    </div>
 
           {/* Inclusions & Exclusions Slide */}
           <div className={`${mode==='dark'?'bg-gray-900':'bg-gray-100'} shadow-2xl rounded-2xl p-6 border border-gray-700`}>
@@ -229,7 +225,7 @@ function Payment() {
       </div>
 
       {/* Right Section - Pricing & Selection */}
-      <div className="w-full lg:w-1/2 flex justify-center mt-8 lg:mt-0">
+      <div className="w-full lg:w-1/2 flex justify-center mt-8 lg:mt-0 ">
         <motion.div
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}
