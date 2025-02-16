@@ -1,8 +1,10 @@
 import { FaInstagram, FaFacebook, FaWhatsapp, FaMapMarkerAlt, FaEnvelope, FaPhone } from "react-icons/fa";
+import { useTheme } from "../ThemeContext/ThemeContext";
 
 function Contact() {
+  const {mode} = useTheme();
   return (
-    <div className="max-w-3xl mx-auto px-6 py-12 text-center text-gray-900 dark:text-white">
+    <div className={`max-w-screen mx-auto px-6 py-12 text-center ${mode==='light'?'!bg-gray-100': 'bg-gray-900'} ${mode==='dark'?'text-white':'!text-gray-900'}`}>
       
       {/* Address Section */}
       <div className="mb-8">

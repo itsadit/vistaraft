@@ -1,18 +1,28 @@
+import { useEffect, useState } from "react";
+import { motion } from "framer-motion";
 import Card from "../Card/Card";
 import Hero from "../Hero/Hero";
-import Manali from "../../assets/Manali.png";
-import Shimla from "../../assets/Shimla.jpg";
-import Kashmir from "../../assets/Kashmir.jpg";
-import Kerela from "../../assets/Kerela.jpg";
-import Mcleodganj from "../../assets/Mcleodganj.jpg";
-import chardham from "../../assets/chardham.jpg";
-import dalhousie from "../../assets/dalhousie.jpg";
-import ChoptaChandrashila from "../../assets/ChoptaChandrashila.jpg";
 import SubHero from "../../components/SubHero/SubHero";
+import { useTheme } from "../ThemeContext/ThemeContext";
 
 function Home() {
+  const [destinations, setDestinations] = useState([]);
+  const [visibleCount, setVisibleCount] = useState(4); // Start with 4 cards
+  const {mode} = useTheme();
+  useEffect(() => {
+    fetch(`${import.meta.env.VITE_HOST}/api/destinations`)
+      .then((response) => response.json())
+      .then((data) => setDestinations(data))
+      .catch((error) => console.error("Error fetching destinations:", error));
+  }, []);
+
+  // Show more destinations
+  const handleLoadMore = () => {
+    setVisibleCount((prevCount) => prevCount + 4); // Load 4 more on each click
+  };
+
   return (
-    <div className="w-full overflow-hidden font-poppins bg-gradient-to-b from-gray-900 to-gray-800 text-white">
+    <div className={`w-full overflow-hidden font-poppins ${mode==='light'?'!bg-gray-100': 'bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900'} ${mode==='dark'?'text-white':'!text-gray-900'}`}>
       {/* Hero Section */}
       <div className="relative w-full h-screen">
         <Hero />
@@ -32,16 +42,34 @@ function Home() {
       </h1>
 
       {/* Grid Container for Cards */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 px-8 pb-12">
-        <Card photo={Shimla} heading={"Shimla"} description={"❄️ Snow-capped mountains & scenic valleys"} />
-        <Card photo={Kashmir} heading={"Kashmir"} description={"🏞️ Experience the paradise of India"} />
-        <Card photo={Kerela} heading={"Kerela"} description={"🌿 Lush backwaters & exotic wildlife"} />
-        <Card photo={Manali} heading={"Manali"} description={"🏔️ Adventure, trekking & snowy peaks"} />
-        <Card photo={Mcleodganj} heading={"Mcleodganj"} description={"🛕 Spiritual vibes & mountain tranquility"} />
-        <Card photo={chardham} heading={"Char Dham"} description={"🛤️ A divine pilgrimage journey"} />
-        <Card photo={dalhousie} heading={"Dalhousie"} description={"🌲 A charming hill station escape"} />
-        <Card photo={ChoptaChandrashila} heading={"Chopta Chandrashila"} description={"⛺ Stunning treks & serene beauty"} />
+      <div id="discover" className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 px-8 pb-12">
+        {destinations.slice(0, visibleCount).map((destination, index) => (
+          <motion.div
+            key={destination.id}
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.5, delay: index * 0.1 }}
+          >
+            <Card
+              heading={destination.heading}
+              description={destination.description}
+              photo={destination.photo}
+            />
+          </motion.div>
+        ))}
       </div>
+
+      {/* Load More Button */}
+      {visibleCount < destinations.length && (
+        <motion.button
+          onClick={handleLoadMore}
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.95 }}
+          className="block mx-auto mb-12 px-6 py-3 text-lg font-semibold text-white bg-gradient-to-r from-blue-500 to-teal-500 rounded-lg shadow-lg"
+        >
+          See More
+        </motion.button>
+      )}
     </div>
   );
 }

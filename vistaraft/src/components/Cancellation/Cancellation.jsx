@@ -1,8 +1,11 @@
 import { FaExclamationTriangle, FaCalendarTimes, FaEnvelope, FaInfoCircle } from "react-icons/fa";
+import { useTheme } from "../ThemeContext/ThemeContext";
 
 function Cancellation() {
+  const {mode} = useTheme();
   return (
-    <div className="max-w-3xl mx-auto px-6 py-12 text-center text-gray-900 dark:text-white">
+    <div className={`overflow-hidden ${mode==='light'?'!bg-gray-100': 'bg-gray-900'}`}>
+      <div className={`max-w-3xl mx-auto px-6 py-12 text-center ${mode==='dark'?'text-white':'!text-gray-900'}`}>
       {/* Title */}
       <h1 className="text-5xl font-bold mb-6 transition-transform duration-300 hover:scale-105">
         <FaCalendarTimes className="inline text-red-500" /> Cancellation Policy
@@ -14,7 +17,7 @@ function Cancellation() {
       </p>
 
       {/* Key Points */}
-      <div className="mb-8 p-6 border border-gray-300 rounded-lg bg-gray-50 dark:bg-gray-800">
+      <div className={`mb-8 p-6 border border-gray-300 rounded-lg ${mode==='light'?'!bg-gray-200': 'bg-gray-800'}`}>
         <h2 className="text-3xl font-semibold mb-4 flex items-center justify-center gap-2">
           <FaExclamationTriangle className="text-yellow-500" /> Key Points
         </h2>
@@ -23,7 +26,7 @@ function Cancellation() {
       </div>
 
       {/* Cancellation Fees */}
-      <div className="mb-8 p-6 border border-gray-300 rounded-lg bg-gray-50 dark:bg-gray-800">
+      <div className={`mb-8 p-6 border border-gray-300 rounded-lg ${mode==='light'?'!bg-gray-200': 'bg-gray-800'}`}>
         <h2 className="text-3xl font-semibold mb-4 flex items-center justify-center gap-2">
           <FaInfoCircle className="text-blue-500" /> Cancellation Fees
         </h2>
@@ -35,7 +38,7 @@ function Cancellation() {
       </div>
 
       {/* Unforeseen Circumstances */}
-      <div className="mb-8 p-6 border border-gray-300 rounded-lg bg-gray-50 dark:bg-gray-800">
+      <div className={`mb-8 p-6 border border-gray-300 rounded-lg ${mode==='light'?'!bg-gray-200': 'bg-gray-800'}`}>
         <h2 className="text-3xl font-semibold mb-4 flex items-center justify-center gap-2">
           <FaExclamationTriangle className="text-red-500" /> Unforeseen Circumstances
         </h2>
@@ -46,7 +49,7 @@ function Cancellation() {
       </div>
 
       {/* Contact for Cancellations */}
-      <div className="p-6 border border-gray-300 rounded-lg bg-gray-50 dark:bg-gray-800">
+      <div className={`p-6 border border-gray-300 rounded-lg ${mode==='light'?'!bg-gray-200': 'bg-gray-800'}`}>
         <h2 className="text-3xl font-semibold mb-4 flex items-center justify-center gap-2">
           <FaEnvelope className="text-green-500" /> Cancellation Requests
         </h2>
@@ -56,6 +59,7 @@ function Cancellation() {
         </p>
         <p className="mt-4 text-lg">Refunds, if applicable, will be processed within <strong>7 business days</strong> to the original payment method.</p>
       </div>
+    </div>
     </div>
   );
 }
