@@ -10,16 +10,7 @@ function Header() {
   const { mode, themeToggler } = useTheme();
   const [isExpanded, setIsExpanded] = useState(false);
   const toggleNavbar = () => {
-    const navbar = document.getElementById('navbar-default');
-    const isExpanded = navbar.classList.contains('hidden');
-    if (isExpanded) {
-      navbar.classList.remove('hidden');
-      setIsExpanded(true);
-    } else {
-      navbar.classList.add('hidden');
-      setIsExpanded(false);
-    }
-
+    setIsExpanded(!isExpanded);
   };
 
 const toggleSpan = () => {
@@ -31,16 +22,67 @@ const toggleSpan = () => {
   }
 };
   return (
-    <nav className={`sticky  top-0 left-0 w-full ${mode==='light'?'bg-gray-300': 'bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900'} bg-opacity-95 backdrop-blur-md border-b border-transparent z-50`}>
-
-      <div className="max-w-screen-xl flex justify-between items-center mx-auto p-4">
+    <nav
+      className={`sticky top-0 left-0 w-full ${
+        mode === "light"
+          ? "bg-gray-300"
+          : "bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900"
+      } bg-opacity-95 backdrop-blur-md border-b border-transparent z-50`}
+    >
+      <div className="max-w-screen-xl flex justify-between items-center mx-auto p-3">
         {/* Logo and Brand Name */}
-        <Link to="/" className="flex items-center space-x-3 rtl:space-x-reverse">
-          <img src={import.meta.env.VITE_LOGO} className="h-10" alt="Vistaraft Logo" />
-          <span className={`self-center text-2xl font-semibold whitespace-nowrap ${mode==='dark'?'text-white':'text-gray-900'}`}>
+        <Link to="/" className="flex items-center space-x-3">
+          <img
+            src={import.meta.env.VITE_LOGO}
+            className="h-16"
+            alt="Vistaraft Logo"
+          />
+          <span
+            className={`text-2xl font-semibold whitespace-nowrap ${
+              mode === "dark" ? "text-white" : "text-gray-900"
+            }`}
+          >
             Vistaraft
           </span>
         </Link>
+
+        {/* Navigation Links */}
+        <div className="hidden md:flex items-center space-x-8">
+          <Link
+            to="/"
+            className={`nav-link text-lg transition duration-300 ${
+              mode === "dark" ? "text-white" : "!text-gray-900"
+            } hover:text-cyan-300`}
+          >
+            Home
+          </Link>
+          <Link
+            to="tel:+8384076491"
+            className={`nav-link text-lg transition duration-300 ${
+              mode === "dark" ? "text-white" : "!text-gray-900"
+            } hover:text-cyan-300`}
+          >
+            Call Us
+          </Link>
+          <Link
+            to="/about"
+            className={`nav-link text-lg transition duration-300 ${
+              mode === "dark" ? "text-white" : "!text-gray-900"
+            } hover:text-cyan-300`}
+          >
+            About Us
+          </Link>
+          <Link
+            to="/contact"
+            className={`nav-link text-lg transition duration-300 ${
+              mode === "dark" ? "text-white" : "!text-gray-900"
+            } hover:text-cyan-300`}
+          >
+            Contact Us
+          </Link>
+        </div>
+
+        {/* Dark Mode Toggle Button */}
         <button 
       onClick={themeToggler} 
       className={`ml-4 p-2 rounded-lg transition-all ${mode==='light'?'!bg-gray-100': 'bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900'} ${mode==='dark'?'text-white':'!text-gray-900'} duration-300 focus:outline-none focus:ring-2 focus:ring-cyan-500`}
@@ -49,71 +91,37 @@ const toggleSpan = () => {
     </button>
 
         {/* Mobile Menu Button */}
-        <div className="flex-col justify-end ">
-        <div className="flex justify-end ">
         <button
-        id="navBtn"
-          data-collapse-toggle="navbar-default"
-          type="button"
-          className="md:hidden w-10 pb-2 pl-0 pr-0 h-10 hover:border-none bg-cyan-600 rounded-lg focus:outline-none focus:ring-0"
-          aria-controls="navbar-default"
-          aria-expanded="false"
+          className={`md:hidden ml-4 p-2 focus:outline-none ${mode==='light'?'!bg-gray-100': 'bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900'}`}
           onClick={toggleNavbar}
-          style={{backgroundImage: `url(${!isExpanded?import.meta.env.VITE_MENU:import.meta.env.VITE_CROSS})`,backgroundPosition: 'center',backgroundSize: 'cover', backgroundColor: 'transparent'}}
         >
-          
-          
+          <img
+            src={
+              !isExpanded
+                ? import.meta.env.VITE_MENU
+                : import.meta.env.VITE_CROSS
+            }
+            className="h-8 w-8"
+            alt="Menu Toggle"
+          />
         </button>
-        </div>
-          
-
-        {/* Navigation Links */}
-        <div className="hidden  md:block" id="navbar-default">
-          <ul className="w-full font-medium flex flex-col p-2 md:p-0 mt-4 rounded-lg md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0">
-            <li className="w-auto">
-              <Link
-                to="/"
-                id="homeBtn"
-                className={`nav-link block text-right py-2 px-3 ${mode === 'dark' ? 'text-white' : '!text-gray-900'} hover:text-cyan-300 rounded-md relative overflow-hidden transition-all duration-300 md:p-0`}
-
-                aria-current="page"
-                onClick={toggleSpan}
-              >
-                Home
-                <span id="homeSpan" className="hidden absolute bottom-0 left-0 w-0 h-0.5 bg-cyan-300 transition-all duration-300 w-full"></span>
-              </Link>
-            </li>
-            <li className="w-auto">
-              <Link
-                to="tel:+8384076491"
-                className={`nav-link block text-right py-2 px-3 ${mode==='dark'?'text-white':'!text-gray-900'} hover:text-cyan-300 rounded-md relative overflow-hidden transition-all duration-300 md:p-0`}
-              >
-                Call Us
-                <span className="hidden absolute bottom-0 left-0 w-0 h-0.5 bg-cyan-300 transition-all duration-300 group-hover:w-full"></span>
-              </Link>
-            </li>
-            <li className="w-auto">
-              <Link
-                to="/about"
-                className={`nav-link block text-right py-2 px-3 ${mode==='dark'?'text-white':'!text-gray-900'} hover:text-cyan-300 rounded-md relative overflow-hidden transition-all duration-300 md:p-0`}
-              >
-                About Us
-                <span className="absolute bottom-0  left-0 w-0 h-0.5 bg-cyan-300 transition-all duration-300 group-hover:w-full"></span>
-              </Link>
-            </li>
-            <li className="w-auto">
-              <Link
-                to="/contact"
-                className={`nav-link block py-2 px-3 text-right ${mode==='dark'?'text-white':'!text-gray-900'} hover:text-cyan-300 rounded-md relative overflow-hidden transition-all duration-300 md:p-0`}
-              >
-                Contact Us
-                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-cyan-300 transition-all duration-300 group-hover:w-full"></span>
-              </Link>
-            </li>
-          </ul>
-        </div>
-        </div>
       </div>
+
+      {/* Mobile Navigation Menu */}
+      {isExpanded && (
+        <div className={`md:hidden text-white p-4 space-y-4 ${mode==='light'?'!bg-gray-100': 'bg-gray-900'}`}>
+          <Link to="/" className={`block ${mode==='dark'?'!text-white':'!text-gray-900'} hover:text-cyan-300 transition duration-300`}>Home</Link>
+          <Link to="tel:+8384076491" className={`block ${mode==='dark'?'!text-white':'!text-gray-900'} hover:text-cyan-300 transition duration-300`}>
+            Call Us
+          </Link>
+          <Link to="/about" className={`block ${mode==='dark'?'!text-white':'!text-gray-900'} hover:text-cyan-300 transition duration-300`}>
+            About Us
+          </Link>
+          <Link to="/contact" className={`block ${mode==='dark'?'!text-white':'!text-gray-900'} hover:text-cyan-300 transition duration-300`}>
+            Contact Us
+          </Link>
+        </div>
+      )}
     </nav>
   );
 }
