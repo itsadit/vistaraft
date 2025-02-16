@@ -1,11 +1,14 @@
 import { FaInstagram, FaFacebook, FaWhatsapp, FaGlobe, FaMapMarkerAlt } from "react-icons/fa";
+import { useTheme } from "../ThemeContext/ThemeContext";
 
 function About() {
+  const {mode} = useTheme();
   return (
-    <div className="max-w-4xl mx-auto px-6 py-12 text-center text-gray-900 dark:text-white">
+    <div className={`overflow-hidden max-w-screen max-h-screen ${mode==='light'?'!bg-gray-100': 'bg-gray-900'} ${mode==='dark'?'text-white':'!text-gray-900'}`}>
+    <div className={`max-w-2xl mx-auto px-6 py-12 text-center `}>
       {/* Header Section */}
       <h1 className="text-5xl font-bold mb-6">About Vistaraft</h1>
-      <p className="text-lg text-gray-600 dark:text-gray-300">
+      <p className={`text-lg ${mode==='dark'?'text-gray-300':'text-gray-600'}`}>
         Explore the world with <strong>Vistaraft</strong>, your trusted travel companion for unforgettable adventures. 
         Whether it's a serene getaway or an adrenaline-packed expedition, we make every journey special.
       </p>
@@ -13,7 +16,7 @@ function About() {
       {/* Who We Are Section */}
       <div className="mt-12">
         <h2 className="text-4xl font-semibold mb-4">Who We Are</h2>
-        <p className="text-lg text-gray-600 dark:text-gray-300">
+        <p className={`text-lg ${mode==='dark'?'text-gray-300':'text-gray-600'}`}>
           At <strong>Vistaraft</strong>, we specialize in crafting unique travel experiences. From breathtaking landscapes to hidden gems, we bring travelers together to explore the wonders of the world.
         </p>
       </div>
@@ -21,7 +24,7 @@ function About() {
       {/* Why Choose Us Section */}
       <div className="mt-12">
         <h2 className="text-4xl font-semibold mb-4">Why Choose Us?</h2>
-        <ul className="text-lg text-gray-600 dark:text-gray-300 space-y-3">
+        <ul className={`text-lg t${mode==='dark'?'text-gray-300':'text-gray-600'} space-y-3`}>
           <li>✅ Expertly curated travel packages</li>
           <li>✅ Hassle-free booking & seamless experiences</li>
           <li>✅ Passionate & knowledgeable tour guides</li>
@@ -55,6 +58,7 @@ function About() {
           </a>
         </div>
       </div>
+    </div>
     </div>
   );
 }

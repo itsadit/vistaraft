@@ -1,8 +1,13 @@
+import React from "react";
+import { useTheme } from "../ThemeContext/ThemeContext";
+
 function Privacy() {
+  const { mode } = useTheme();
   return (
-    <div className="max-w-4xl mx-auto px-6 py-12 text-center text-gray-900 dark:text-white">
+    <div className={`overflow-hidden ${mode==='light'?'!bg-gray-100': 'bg-gray-900'} `}>
+      <div className={`max-w-4xl mx-auto px-6 py-12 text-center ${mode==='dark'?'text-white':'!text-gray-900'}`}>
       {/* Title */}
-      <h1 className="text-5xl font-extrabold mb-6 transition-transform duration-300 hover:scale-105">
+      <h1 className={`text-5xl font-extrabold mb-6 transition-transform duration-300 hover:scale-105`}>
         Privacy Policy
       </h1>
 
@@ -27,7 +32,7 @@ function Privacy() {
         </section>
 
         <section>
-          <h2 className="text-xl font-semibold text-green-600 border-b-2 border-green-500 pb-2 mb-2">
+          <h2 className="text-xl font-semibold text-green-700 border-b-2 border-green-500 pb-2 mb-2">
             User Information
           </h2>
           <p>
@@ -51,7 +56,7 @@ function Privacy() {
         </section>
 
         <section>
-          <h2 className="text-xl font-semibold text-green-600 border-b-2 border-green-500 pb-2 mb-2">
+          <h2 className="text-xl font-semibold text-green-700 border-b-2 border-green-500 pb-2 mb-2">
             Cookies and Tracking
           </h2>
           <p>
@@ -68,7 +73,7 @@ function Privacy() {
         </section>
 
         <section>
-          <h2 className="text-xl font-semibold text-green-600 border-b-2 border-green-500 pb-2 mb-2">
+          <h2 className="text-xl font-semibold text-green-700 border-b-2 border-green-500 pb-2 mb-2">
             Links to Other Websites
           </h2>
           <p>
@@ -115,6 +120,7 @@ function Privacy() {
           </ul>
         </section>
       </div>
+    </div>
     </div>
   );
 }

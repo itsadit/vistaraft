@@ -1,16 +1,25 @@
 import { motion } from "framer-motion";
+import { Link, useNavigate } from "react-router-dom";
+import {Link as Linky}  from 'react-scroll';
+const bgImage = import.meta.env.VITE_BG_IMAGE;
 
 function Hero() {
+
+  const navigate = useNavigate();
+
   return (
     <section
       className="relative flex items-center justify-center text-center min-h-screen bg-cover bg-center bg-no-repeat"
       style={{
         backgroundImage:
-          "url('https://images.pexels.com/photos/147411/italy-mountains-dawn-daybreak-147411.jpeg?cs=srgb&dl=pexels-pixabay-147411.jpg&fm=jpg')",
+          `url(${bgImage})`,
+          backgroundSize: "cover",
+  backgroundPosition: "center",
+  height: "100vh",
       }}
     >
-      {/* Background Overlay (Reduced Opacity & Pointer Events Fixed) */}
-      <div className="absolute inset-0 bg-black/20 backdrop-blur-[2px] pointer-events-none"></div>
+      {/* Background Overlay - Fixed by adding `pointer-events-none` */}
+      <div className="absolute inset-0   pointer-events-none"></div>
 
       <div className="relative px-4 mx-auto max-w-screen-xl py-24 lg:py-56 text-white">
         {/* Animated Heading */}
@@ -23,11 +32,12 @@ function Hero() {
         >
           <span className="bg-gradient-to-r from-blue-400 via-cyan-300 to-emerald-400 bg-clip-text text-transparent">
             Wander Beyond Limits
-          </span>{" "}
+          </span>
           <br />
-          <span className="bg-gradient-to-r from-blue-400 via-cyan-300 to-emerald-400 font-extrabold bg-clip-text text-transparent ml-4">Live the Journey</span>
+          <span className="bg-gradient-to-r from-blue-400 via-cyan-300 to-emerald-400 font-extrabold bg-clip-text text-transparent ml-4">
+            Live the Journey
+          </span>
         </motion.h1>
-
 
         {/* Animated Subtext */}
         <motion.p
@@ -36,26 +46,27 @@ function Hero() {
           transition={{ duration: 1, delay: 0.3 }}
           viewport={{ once: false, amount: 0.3 }}
           className="text-lg font-normal text-gray-200 lg:text-xl px-6 py-3 
-    bg-black/10 backdrop-blur-md rounded-lg shadow-lg drop-shadow-md"
+            bg-black/10 backdrop-blur-md rounded-lg shadow-lg drop-shadow-md"
         >
           Here at <span className="font-bold text-white">Vistaraft</span>, we
           focus on making the most memorable trip for You.
         </motion.p>
 
-        {/* Add margin-top to create spacing between subtext and buttons */}
+        {/* Buttons Container */}
         <motion.div
           initial={{ opacity: 0, scale: 0.8 }}
           whileInView={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.7, delay: 0.5 }}
-          viewport={{ once: false, amount: 0.3 }}
           className="flex flex-col space-y-4 sm:flex-row sm:justify-center sm:space-y-0 mt-2"
         >
-          {/* Start Booking Button (Fixed Hover) */}
-          <a
-            href="#"
-            className="relative group inline-flex justify-center items-center py-3 px-6 text-lg font-semibold text-white rounded-lg 
-    bg-gradient-to-r from-blue-950 to-green-700 border border-white
-    transition-all duration-300 hover:from-blue-700 hover:to-green-600 hover:scale-110 focus:ring-4 focus:ring-blue-300"
+          {/* Start Booking Button */}
+          <motion.button
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            onClick={() => navigate("/booking")}
+            className="relative z-10 inline-flex justify-center items-center py-3 px-6 text-lg font-semibold text-white rounded-lg 
+              bg-gradient-to-r from-blue-950 to-green-700 border border-white cursor-pointer
+              transition-all duration-300 hover:from-blue-700 hover:to-green-600 focus:ring-4 focus:ring-blue-300"
           >
             Start Booking
             <svg
@@ -73,18 +84,20 @@ function Hero() {
                 d="M1 5h12m0 0L9 1m4 4L9 9"
               />
             </svg>
-          </a>
+          </motion.button>
 
-          {/* Discover Button (Fixed Hover) */}
-          <a
-            href="#"
-            className="relative inline-flex justify-center items-center py-3 px-6 sm:ml-4 text-lg font-medium text-white rounded-lg border border-white 
-    transition-all duration-300 hover:border-gray-400 hover:bg-gray-100/10 hover:scale-110 focus:ring-4 focus:ring-gray-400"
+          {/* Discover Button */}
+          <Linky
+            to="subhero"
+            smooth={true}
+            duration={500}
+            offset={-50}
+            className="relative z-10 inline-flex justify-center items-center py-3 px-6 sm:ml-4 text-lg font-medium text-white rounded-lg border border-white 
+              transition-all duration-300 hover:border-gray-400 hover:bg-gray-100/10 hover:scale-110 focus:ring-4 focus:ring-gray-400"
           >
             Discover
-          </a>
+          </Linky>
         </motion.div>
-
       </div>
     </section>
   );
