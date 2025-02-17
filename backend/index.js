@@ -706,7 +706,7 @@ app.get("/api/destinations", async (req, res) => {
       res.json(destinations);
     }
   } catch (error) {
-    res.status(500).json({ message: "Error fetching data", error });
+    res.status(500).json({ message: "Error fetching data Aditya", error });
   }
 });
 

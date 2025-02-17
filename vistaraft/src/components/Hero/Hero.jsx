@@ -87,7 +87,7 @@ function Hero() {
           </motion.button>
 
           {/* Discover Button */}
-          <Linky
+          {/* <Linky
             to="subhero"
             smooth={true}
             duration={500}
@@ -96,7 +96,7 @@ function Hero() {
               transition-all duration-300 hover:border-gray-400 hover:bg-gray-100/10 hover:scale-110 focus:ring-4 focus:ring-gray-400"
           >
             Discover
-          </Linky>
+          </Linky> */}
         </motion.div>
       </div>
     </section>

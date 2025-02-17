@@ -1,9 +1,8 @@
-import logo from "@/assets/logoVista.jpg";
 import {Link, useLocation} from "react-router-dom";
 import menu from "@/assets/menu.png";
 import { useState } from "react";
 import { useTheme } from "../ThemeContext/ThemeContext";
-
+import logo2 from "../../../public/LOGO2.png";
 
 function Header() {
   const location = useLocation();
@@ -33,7 +32,7 @@ const toggleSpan = () => {
         {/* Logo and Brand Name */}
         <Link to="/" className="flex items-center space-x-3">
           <img
-            src={import.meta.env.VITE_LOGO}
+            src={logo2}
             className="h-16"
             alt="Vistaraft Logo"
           />
