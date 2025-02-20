@@ -69,7 +69,7 @@ function SubHero() {
             <p className="text-gray-500 text-lg">Elite Transport Services</p>
           </div>
           <div>
-            <span className="text-blue-700 font-bold text-2xl">32M+</span>
+            <span className="text-blue-700 font-bold text-2xl">3k+</span>
             <p className="text-gray-500 text-lg">Happy Travelers</p>
           </div>
         </div>

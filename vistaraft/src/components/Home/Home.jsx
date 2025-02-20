@@ -8,7 +8,7 @@ import { useTheme } from "../ThemeContext/ThemeContext";
 function Home() {
   const [destinations, setDestinations] = useState([]);
   const [visibleCount, setVisibleCount] = useState(4); // Start with 4 cards
-  const {mode} = useTheme();
+  const { mode } = useTheme();
   useEffect(() => {
     fetch(`${import.meta.env.VITE_HOST}/api/destinations`)
       .then((response) => response.json())
@@ -22,7 +22,7 @@ function Home() {
   };
 
   return (
-    <div className={`w-full overflow-hidden font-poppins ${mode==='light'?'!bg-gray-100': 'bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900'} ${mode==='dark'?'text-white':'!text-gray-900'}`}>
+    <div className={`w-full overflow-hidden font-poppins ${mode === 'light' ? '!bg-gray-100' : 'bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900'} ${mode === 'dark' ? 'text-white' : '!text-gray-900'}`}>
       {/* Hero Section */}
       <div className="relative w-full h-screen">
         <Hero />
@@ -42,7 +42,7 @@ function Home() {
       </h1>
 
       {/* Grid Container for Cards */}
-      <div id="discover" className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 px-8 pb-12">
+      <div id="discover" className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-auto-fit gap-8 px-8 pb-12 max-w-screen-lg mx-auto">
         {destinations.slice(0, visibleCount).map((destination, index) => (
           <motion.div
             key={destination.id}

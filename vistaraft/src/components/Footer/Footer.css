@@ -1,25 +1,26 @@
 .footer-link {
-    position: relative;
-    text-decoration: none;
-    color: #9ca3af; /* Gray-400 */
-    transition: color 0.3s ease;
-  }
-  
-  .footer-link:hover {
-    color: #00CED1; /* Cyan */
-  }
-  
-  .footer-link::after {
-    content: '';
-    position: absolute;
-    bottom: -2px;
-    left: 0;
-    width: 0;
-    height: 2px;
-    background-color: #00CED1; /* Cyan */
-    transition: width 0.3s ease;
-  }
-  
-  .footer-link:hover::after {
-    width: 100%; /* Expand underline on hover */
-  }
+  position: relative;
+  text-decoration: none;
+  color: #4b5563; /* Slate-700 */
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.footer-link:hover {
+  color: #ff5733; /* Vibrant Orange-Red */
+  transform: scale(1.02); /* Slightly enlarge the text on hover */
+}
+
+.footer-link::after {
+  content: "";
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: #ff5733; /* Vibrant Orange-Red */
+  transition: width 0.3s ease;
+}
+
+.footer-link:hover::after {
+  width: 100%; /* Expand underline on hover */
+}
