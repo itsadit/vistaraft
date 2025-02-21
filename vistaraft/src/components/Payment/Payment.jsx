@@ -300,7 +300,7 @@ function Payment() {
         </motion.div>
       </div>
     </div>
-    <div className={` shadow-2xl rounded-2xl mx-12 flex lg:flex-row justify-around flex-col items-start min-h-screen p-4 pt-8 gap-8 ${mode === "light" ? "!bg-gray-100 text-black" : "bg-gray-900 text-white"}`}>
+    <div className={` shadow-2xl rounded-2xl lg:mx-12 flex lg:flex-row justify-around flex-col items-start min-h-screen p-4 pt-8 gap-8 ${mode === "light" ? "!bg-gray-100 text-black" : "bg-gray-900 text-white"}`}>
       <div className="shd mb-5 things__to__carry w-full">
         <div className="my-4  about__tab__buttons Mon_font w-full flex">
           <button className={`bg-gradient-to-r from-blue-500 to-purple-600 w-1/3 mx-8 ${activeTab === "cancellation" ? "active" : ""}`} onClick={() => setActiveTab("cancellation")}>Cancellation Policy</button>
@@ -311,7 +311,7 @@ function Payment() {
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.6, ease: "easeOut" }}
-          className="mx-20 w-6/7 justify-center"
+          className="lg:mx-20 mx-10 w-6/7 justify-center"
         >
           {renderContent()}
         </motion.div>
