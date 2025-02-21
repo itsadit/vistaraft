@@ -60,10 +60,56 @@ function Payment() {
   // const toggleDayWisePlan =()=>{
   //   toggleSection("itineary");
   // }
+  const [activeTab, setActiveTab] = useState("cancellation");
+
+  const renderContent = () => {
+    switch (activeTab) {
+      case "cancellation":
+        return (
+          <div className=" shadow-2xl rounded-2xl p-3 mb-5 show__content">
+            <h6 className="Mon_font mb-2"><strong>No Refund shall be made with respect to the initial booking amount for any cancellations. However,</strong></h6>
+            <div className="Mon_font m-0 mb-3">
+              <ul className="m-0 p-0">
+                <li className="my-2" style={{ fontWeight: 400 }}><small>• If cancellations are made 30 days before the start date of the trip, 50% of the Advance amount will be charged as cancellation fees.</small></li>
+                <li className="my-2" style={{ fontWeight: 400 }}><small>• If cancellations are made 15-30 days before the start date of the trip, 75% of the Advance amount will be charged as cancellation fees.</small></li>
+                <li className="my-2" style={{ fontWeight: 400 }}><small>• If cancellations are made within 0-15 days before the start date of the trip, 100% of the Advance amount will be charged as cancellation fees.</small></li>
+                <li className="my-2" style={{ fontWeight: 400 }}><small>• In the case of unforeseen weather conditions or government restrictions, certain activities may be cancelled and in such cases, the operator will try his best to provide an alternate feasible activity. However, no refund will be provided for the same.</small></li>
+              </ul>
+            </div>
+          </div>
+        );
+      case "terms":
+        return (
+          <div className="shadow-2xl rounded-2xl p-3 mb-5 content">
+            <div className="Mon_font m-0 mb-3">
+              <ul className="m-0 p-0">
+                <li className="mb-3" style={{ fontWeight: 500 }}><strong>•</strong><small> Full Payment of the trip cost must be made before the trip begins.</small></li>
+              </ul>
+            </div>
+          </div>
+        );
+      case "things":
+        return (
+          <div className=" shadow-2xl rounded-2xl p-3 mb-5 content">
+            <h6 className="Mon_font mb-2"><strong>Things to Carry:</strong></h6>
+            <div className="Mon_font m-0 mb-3">
+              <ul className="m-0 p-0">
+                {selectedDestination?.things.map((item, index) => (
+                  <li key={index} className="my-2" style={{ fontWeight: 400 }}><small>• {item}</small></li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        );
+      default:
+        return null;
+    }
+  };
   return (
+    <div className={`${mode === "light" ? "!bg-gray-100" : "bg-gray-900 text-white"}`}>
     <div className={`flex lg:flex-row justify-around flex-col items-start min-h-screen p-4 pt-8 gap-8 ${mode === "light" ? "!bg-gray-100" : "bg-gray-900 text-white"}`}>
       {/* Left Side - Trip Details */}
-      <div className="lg:mx-8 w-full lg:w-1/2 space-y-8">
+      <div className="lg:mx-20 w-full lg:w-1/2 space-y-8">
       <div className={`flex justify-around ${mode==='dark'?'bg-gray-900 text-white':'!bg-white !text-gray-900'} p-6 rounded-2xl`}>
         {/* Days of Trip */}
         <div className="flex flex-col items-center">
@@ -211,6 +257,24 @@ function Payment() {
         </motion.div>
       </div>
     </div>
+    <div className={` shadow-2xl rounded-2xl mx-12 flex lg:flex-row justify-around flex-col items-start min-h-screen p-4 pt-8 gap-8 ${mode === "light" ? "!bg-gray-100 text-black" : "bg-gray-900 text-white"}`}>
+      <div className="shd mb-5 things__to__carry w-full">
+        <div className="my-4  about__tab__buttons Mon_font w-full flex">
+          <button className={`bg-gradient-to-r from-blue-500 to-purple-600 w-1/3 mx-8 ${activeTab === "cancellation" ? "active" : ""}`} onClick={() => setActiveTab("cancellation")}>Cancellation Policy</button>
+          <button className={`bg-gradient-to-r from-blue-500 to-purple-600 w-1/3 mx-lg-4 mx-8 ${activeTab === "terms" ? "active" : ""}`} onClick={() => setActiveTab("terms")}>Terms and Conditions</button>
+          <button className={`bg-gradient-to-r from-blue-500 to-purple-600 w-1/3 mx-8 ${activeTab === "things" ? "active" : ""}`} onClick={() => setActiveTab("things")}>Things to Carry</button>
+        </div>
+        <motion.div
+          initial={{ opacity: 0, scale: 0.8 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
+          className="mx-20 w-6/7 justify-center"
+        >
+          {renderContent()}
+        </motion.div>
+      </div>
+    </div>
+   </div>
   );
 }
 

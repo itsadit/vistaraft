@@ -465,6 +465,186 @@ app.post("/api/payments", async (req, res) => {
 //     }
 //   ]
 // }];
+const destinations = [
+  {
+    "heading": "MANALI-KASOL-KHEERGANGA TRIP",
+    "description": "An adventurous journey through Manali, Kasol, and Kheerganga with trekking, sightseeing, bonfire nights, and cultural exploration.",
+    "photo": "https://res.cloudinary.com/djvhd1shh/image/upload/v1739619547/Manali_gtvq0r.png",
+    "quadPrice": 0,
+    "TriPrice": 10000,
+    "doubPrice": 12000,
+    "singlePrice": 15000,
+    "inclusions": [
+      "Traveling DELHI-MANALI-DELHI (Semi-Sleeper Volvo / Super Deluxe Tempo)",
+      "Sightseeing & Transfers by Private Vehicle",
+      "Hotel stay in Manali (2 Nights)",
+      "Luxury Swiss camping in Kasol & Kheerganga with Bonfire & DJ (2 Nights)",
+      "Meals (4 Breakfasts & 4 Dinners) - Veg/NonVeg Unlimited Buffet",
+      "All transfers as per itinerary",
+      "All toll taxes",
+      "Driver allowance with parking charges",
+      "Local guided treks"
+    ],
+    "exclusions": [
+      "Anything else that is not mentioned in the inclusions",
+      "Personal expenses such as tips, telephone calls, laundry, medication etc.",
+      "Any Monument entry fees/Camera Fees",
+      "Any Adventure Sport",
+      "River rafting",
+      "Paragliding"
+    ],
+    "itenary": [
+      {
+        "day": 1,
+        "heading": "Overnight Journey to Manali",
+        "description": [
+          "Depart from Delhi by Volvo/Tempo for an overnight journey.",
+          "Travel comfortably through scenic routes.",
+          "Dinner will be self-paid."
+        ]
+      },
+      {
+        "day": 2,
+        "heading": "Exploring Manali",
+        "description": [
+          "Arrive in Manali and check into the hotel.",
+          "Visit Hadimba Temple, Mall Road, and Tibetan Monastery.",
+          "You will be served dinner."
+        ]
+      }
+    ],
+    "things": [
+      "Trekking Shoes",
+      "Warm Clothes",
+      "Sunscreen",
+      "Water Bottle",
+      "Personal Medication",
+      "Power Bank",
+      "Backpack"
+    ]
+  },
+  {
+    "heading": "Char Dham",
+    "description": "Embark on a sacred journey through the four revered shrines of Yamunotri, Gangotri, Kedarnath, and Badrinath. Experience spiritual bliss, breathtaking Himalayan landscapes, and a deep connection to India's rich cultural heritage.",
+    "photo": "https://res.cloudinary.com/djvhd1shh/image/upload/v1739619546/chardham_wsx7kj.jpg",
+    "quadPrice": 15000,
+    "TriPrice": 18000,
+    "doubPrice": 20000,
+    "singlePrice": 25000,
+    "inclusions": [
+      "Shikara Ride",
+      "Meals (Breakfast & Dinner) as mentioned in itinerary.",
+      "SUV/Tempo traveler/Coach/Volvo Vehicle for transfers and sightseeing as per mentioned above",
+      "Transfers as per itinerary",
+      "All toll taxes",
+      "Driver allowance with parking charges",
+      "Memories of a Lifetime",
+      "Temple visits with guided experiences"
+    ],
+    "exclusions": [
+      "Anything else that is not mentioned in the inclusions",
+      "Personal expenses such as tips, telephone calls, laundry, medication etc.",
+      "Any Adventure Sport",
+      "Any extra transportation services availed"
+    ],
+    "itenary": [
+      {
+        "day": 1,
+        "heading": "Journey from Delhi / Haridwar to Barkot",
+        "description": [
+          "Overnight journey via Dehradun & Mussoorie.",
+          "Visit Shashtra Dhara, Prakashwer Temple, and Kempty Falls.",
+          "You will be served dinner."
+        ]
+      },
+      {
+        "day": 2,
+        "heading": "Arrival at Barkot & Preparation for Yamunotri",
+        "description": [
+          "Arrive and take time to rest.",
+          "Prepare for the upcoming trek to Yamunotri.",
+          "You will be provided with breakfast and dinner."
+        ]
+      }
+    ],
+    "things": [
+      "Comfortable Trekking Shoes",
+      "Raincoat",
+      "Woolen Clothes",
+      "Torchlight",
+      "Dry Fruits & Snacks",
+      "Personal Medicines",
+      "Power Bank"
+    ]
+  },
+  {
+    "heading": "Pushkar Holi Festival Trip",
+    "description": "Experience the world-famous Pushkar Holi celebration with music, colors, and unforgettable memories. Enjoy sightseeing, pool parties, and an EDM night in the heart of Pushkar.",
+    "photo": "https://res.cloudinary.com/djvhd1shh/image/upload/v1739619547/pushkarholi_e9thqu.jpg",
+    "quadPrice": 8500,
+    "TriPrice": 9000,
+    "doubPrice": 9500,
+    "singlePrice": 0,
+    "inclusions": [
+      "Transfers from Delhi to Delhi",
+      "Accommodation for 2 Nights in Pushkar Resort",
+      "4 Meals: Day 1 (Dinner), Day 2 (Breakfast + Dinner), Day 3 (Breakfast)",
+      "Colors for Holi Celebration",
+      "DJ & Pool Party",
+      "All Required Permits",
+      "Trip Buddy for Assistance",
+      "Medical Kit with the Trip Buddy",
+      "Driver Night Charges, Toll Taxes, Parking Charges",
+      "Complimentary Holi T-shirt",
+      "Refreshments on the Bus",
+      "Traditional Thandai for an Authentic Holi Experience"
+    ],
+    "exclusions": [
+      "5% GST",
+      "Snacks and Extra Drinks/Food",
+      "Tickets for Any Sightseeing or Extra Activities Outside the Camp Area",
+      "Medical Services Apart from Basic First Aid",
+      "Travel Insurance and Other Benefits",
+      "Anything Not Mentioned in the Inclusions",
+      "Cost Escalation Due to Unforeseen Reasons like Weather, Road Conditions, or Landslides"
+    ],
+    "itenary": [
+      {
+        "day": 1,
+        "heading": "Departure from Delhi to Pushkar",
+        "description": [
+          "AC Volvo with Recliner Seats",
+          "Evening departure from Delhi",
+          "En route pit stop for dinner",
+          "Overnight journey to Pushkar with games, music, and an interactive introduction session led by the trip captain",
+          "Visit Ajmer Sharif Dargah en route (depending on the schedule) to seek blessings"
+        ]
+      },
+      {
+        "day": 2,
+        "heading": "Arrival and Holika Dahan",
+        "description": [
+          "Morning check-in at the resort with a welcome drink",
+          "Freshen up and join a pool party",
+          "Local sightseeing:",
+          "  - Savitri Mata Temple (Cable car ride with panoramic views)",
+          "  - Brahma Temple (One of the world’s rarest temples dedicated to Lord Brahma)",
+          "  - Sacred Ghats (Experience the spiritual essence of Pushkar)",
+          "In the evening, witness the Holika Dahan, embracing the festive spirit"
+        ]
+      }
+    ],
+    "things": [
+      "White Clothes for Holi",
+      "Sunglasses",
+      "Waterproof Phone Pouch",
+      "Power Bank",
+      "Skin & Hair Protection (Coconut Oil, Sunscreen)",
+      "Extra Pair of Clothes",
+      "Comfortable Footwear"
+    ]
+  }
+]
 
 
 
@@ -482,7 +662,8 @@ const destinationSchema = new mongoose.Schema({
     day: Number,
     heading: String,
     description: [String]
-  }]
+  }],
+  things:[String]
 });
 
 const Destination = mongoose.model("Destination", destinationSchema, "destinations");
