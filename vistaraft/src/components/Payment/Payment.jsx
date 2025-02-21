@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 import { ChevronDown, ChevronUp } from "lucide-react";
-import TripDetail from "../Tripdetail/Tripdetail";
+// import TripDetail from "../Tripdetail/Tripdetail";
 import { useTheme } from "../ThemeContext/ThemeContext";
 
 
@@ -57,19 +57,43 @@ function Payment() {
       [type]: prev[type] > 0 ? prev[type] - 1 : 0,
     }));
   };
-
+  // const toggleDayWisePlan =()=>{
+  //   toggleSection("itineary");
+  // }
   return (
-    <div className={`flex lg:flex-row flex-col items-start min-h-screen p-4 pt-8 gap-8 ${mode === "light" ? "!bg-gray-100" : "bg-gray-900 text-white"}`}>
+    <div className={`flex lg:flex-row justify-around flex-col items-start min-h-screen p-4 pt-8 gap-8 ${mode === "light" ? "!bg-gray-100" : "bg-gray-900 text-white"}`}>
       {/* Left Side - Trip Details */}
-      <div className="w-full lg:w-2/3 space-y-8">
-        <TripDetail />
+      <div className="lg:mx-8 w-full lg:w-1/2 space-y-8">
+      <div className={`flex justify-around ${mode==='dark'?'bg-gray-900 text-white':'!bg-white !text-gray-900'} p-6 rounded-2xl`}>
+        {/* Days of Trip */}
+        <div className="flex flex-col items-center">
+          <i className="fa-regular fa-clock text-blue-400 text-3xl"></i>
+          <p className="mt-2 text-gray-400">Days of Trip</p>
+          <h2 className="text-xl font-bold">2N-3D</h2>
+        </div>
+  
+        {/* Pickup & Drop */}
+        <div className="flex flex-col items-center">
+          <i className="fa-solid fa-location-dot text-blue-400 text-3xl"></i>
+          <p className="mt-2 text-gray-400">Pickup & Drop</p>
+          <h2 className="text-xl font-bold">Delhi</h2>
+        </div>
+  
+        {/* Buttons */}
+        <div className="flex mt-4 space-x-4">
+          <button className="bg-blue-600 px-4 py-2 rounded-lg" onClick={() => toggleSection("itinerary")}>
+            Day Wise Plan
+          </button>
+          <button className="bg-gray-700 px-4 py-2 rounded-lg" onClick={() => toggleSection("inclusions_exclusions")}>Inclusions & Excl.</button>
+        </div>
+      </div>
 
         {/* Collapsible Sections */}
         <div className="space-y-4">
           {/* Day Wise Plan */}
           <div className="border border-gray-700 shadow-lg rounded-2xl">
             <button
-              onClick={() => toggleSection("itinerary")}
+              // onClick={() => toggleSection("itinerary")}
               className="w-full flex justify-between items-center p-6 text-left bg-gradient-to-r from-blue-500 to-purple-600 text-white font-semibold text-lg rounded-t-2xl"
             >
               <span>📅 Day Wise Plan</span>
@@ -80,7 +104,7 @@ function Payment() {
                 initial={{ opacity: 0, height: 0 }}
                 animate={{ opacity: 1, height: "auto" }}
                 exit={{ opacity: 0, height: 0 }}
-                className="p-6 bg-gray-900 text-gray-300 rounded-b-2xl"
+                className={`p-6 ${mode === "dark" ? "bg-gray-900 text-gray-300" : "!bg-gray-100 !text-gray-700"} rounded-b-2xl`}
               >
                 {selectedDestination?.itenary.map((item, index) => (
                   <div key={index} className="mb-4">
@@ -99,7 +123,7 @@ function Payment() {
           {/* Inclusions & Exclusions */}
           <div className="border border-gray-700 shadow-lg rounded-2xl">
             <button
-              onClick={() => toggleSection("inclusions_exclusions")}
+              
               className="w-full flex justify-between items-center p-6 text-left bg-gradient-to-r from-green-500 to-teal-600 text-white font-semibold text-lg rounded-t-2xl"
             >
               <span>✅ Inclusions & ❌ Exclusions</span>
@@ -110,7 +134,7 @@ function Payment() {
                 initial={{ opacity: 0, height: 0 }}
                 animate={{ opacity: 1, height: "auto" }}
                 exit={{ opacity: 0, height: 0 }}
-                className="p-6 bg-gray-900 text-gray-300 rounded-b-2xl"
+                className={`p-6   ${mode === "dark" ? "bg-gray-900 text-gray-300" : "!bg-gray-100 !text-gray-700"} rounded-b-2xl`}
               >
                 <h2 className="text-xl font-bold text-green-400">✔️ Trip Inclusions</h2>
                 <ul className="list-disc list-inside ml-4 mt-2 text-gray-400">
@@ -131,7 +155,7 @@ function Payment() {
       </div>
 
       {/* Right Side - Pricing & Payment Section */}
-      <div className="w-full lg:w-1/3 flex justify-center">
+      <div className="w-full lg:w-1/2 flex justify-center">
         <motion.div
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}
@@ -149,10 +173,10 @@ function Payment() {
                 <span className="font-semibold text-blue-500">{type.charAt(0).toUpperCase() + type.slice(1)} Sharing</span>
                 <div className="flex items-center gap-3">
                   <button onClick={() => handleDecrement(type)} className="px-3 py-1 rounded-lg bg-gray-300 text-black">-</button>
-                  <span>{pricing[type]}</span>
+                  <span className={`${mode === "dark" ? " text-white" : "!text-black"}`}>{pricing[type]}</span>
                   <button onClick={() => handleIncrement(type)} className="px-3 py-1 rounded-lg bg-gray-300 text-black">+</button>
                 </div>
-                <span className="text-gray-800">₹ {prices[type]}</span>
+                <span className={`${mode === "dark" ? " text-white" : "!text-black"}`}>₹ {prices[type]}</span>
               </div>
             ))}
 
