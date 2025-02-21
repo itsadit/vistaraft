@@ -106,7 +106,50 @@ function Payment() {
     }
   };
   return (
+
     <div className={`${mode === "light" ? "!bg-gray-100" : "bg-gray-900 text-white"}`}>
+      <section
+            className="relative flex items-center justify-center text-center min-h-screen bg-cover bg-center bg-no-repeat"
+            style={{
+              backgroundImage:
+                `url(${selectedDestination?.cover})`,
+                backgroundSize: "cover",
+        backgroundPosition: "center",
+        height: "100vh",
+            }}
+          >
+            {/* Background Overlay - Fixed by adding `pointer-events-none` */}
+            <div className="absolute inset-0   pointer-events-none"></div>
+      
+            <div className="relative px-4 mx-auto max-w-screen-xl py-24 lg:py-56 text-white">
+              {/* Animated Heading */}
+              <motion.h1
+                initial={{ opacity: 0, y: -50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 1 }}
+                viewport={{ once: false, amount: 0.3 }}
+                className="mb-4 text-3xl font-extrabold md:text-5xl lg:text-6xl text-white drop-shadow-md"
+              >
+                <span className="bg-white bg-clip-text text-transparent">
+                  {selectedDestination?.heading}
+                </span>
+              </motion.h1>
+      
+              {/* Animated Subtext */}
+              <motion.p
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 1, delay: 0.3 }}
+                viewport={{ once: false, amount: 0.3 }}
+                className="text-lg font-normal text-gray-200 lg:text-xl px-6 py-3 
+                  bg-black/10 backdrop-blur-md rounded-lg shadow-lg drop-shadow-md"
+              >
+                {selectedDestination?.description}
+              </motion.p>
+      
+
+            </div>
+          </section>
     <div className={`flex lg:flex-row justify-around flex-col items-start min-h-screen p-4 pt-8 gap-8 ${mode === "light" ? "!bg-gray-100" : "bg-gray-900 text-white"}`}>
       {/* Left Side - Trip Details */}
       <div className="lg:mx-20 w-full lg:w-1/2 space-y-8">
