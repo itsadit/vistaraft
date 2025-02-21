@@ -1,11 +1,14 @@
 import React, { useEffect, useState } from "react";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 import { ChevronDown, ChevronUp } from "lucide-react";
 import TripDetail from "../Tripdetail/Tripdetail";
 import { useTheme } from "../ThemeContext/ThemeContext";
 
+
+
 function Payment() {
+  const navigate = useNavigate();
   const { mode } = useTheme();
   const location = useLocation();
   const queryParams = new URLSearchParams(location.search);
@@ -158,12 +161,29 @@ function Payment() {
             <p className="text-sm text-gray-400">(Inclusive of all taxes)</p>
           </div>
 
-          <button
+          <motion.button
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
             className="mt-6 w-full px-6 py-3 text-lg font-medium text-white bg-gradient-to-r from-blue-500 to-purple-600 rounded-lg shadow-lg"
-            onClick={() => totalPrice > 0 ? alert("Proceeding with ₹" + totalPrice) : alert("Select a package first!")}
+            onClick={() => {
+              if (totalPrice === 0) {
+                alert("Please select a package to proceed");
+                return;
+              }
+              alert("Please pay ₹" + totalPrice + " to proceed");
+              const queryParams = new URLSearchParams({
+                heading: selectedDestination.heading,
+                totalPrice,
+                quad: pricing.quad,
+                triple: pricing.triple,
+                double: pricing.double,
+                single: pricing.single,
+              }).toString();
+              navigate(`/process?${queryParams}`);
+            }}
           >
             Proceed to Payment
-          </button>
+          </motion.button>
         </motion.div>
       </div>
     </div>
