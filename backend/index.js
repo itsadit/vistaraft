@@ -580,63 +580,87 @@ const destinations = [
     ]
   },
   {
-    "heading": "Pushkar Holi Festival Trip",
-    "description": "Experience the world-famous Pushkar Holi celebration with music, colors, and unforgettable memories. Enjoy sightseeing, pool parties, and an EDM night in the heart of Pushkar.",
-    "photo": "https://res.cloudinary.com/djvhd1shh/image/upload/v1739619547/pushkarholi_e9thqu.jpg",
-    "cover": "https://media-cdn.tripadvisor.com/media/photo-s/09/f5/31/84/pushkar-lake.jpg",
-    "quadPrice": 8500,
-    "TriPrice": 9000,
-    "doubPrice": 9500,
-    "singlePrice": 0,
-    "inclusions": [
-      "Transfers from Delhi to Delhi",
-      "Accommodation for 2 Nights in Pushkar Resort",
-      "4 Meals: Day 1 (Dinner), Day 2 (Breakfast + Dinner), Day 3 (Breakfast)",
-      "Colors for Holi Celebration",
-      "DJ & Pool Party",
-      "All Required Permits",
-      "Trip Buddy for Assistance",
-      "Medical Kit with the Trip Buddy",
-      "Driver Night Charges, Toll Taxes, Parking Charges",
-      "Complimentary Holi T-shirt",
-      "Refreshments on the Bus",
-      "Traditional Thandai for an Authentic Holi Experience"
-    ],
-    "exclusions": [
-      "5% GST",
-      "Snacks and Extra Drinks/Food",
-      "Tickets for Any Sightseeing or Extra Activities Outside the Camp Area",
-      "Medical Services Apart from Basic First Aid",
-      "Travel Insurance and Other Benefits",
-      "Anything Not Mentioned in the Inclusions",
-      "Cost Escalation Due to Unforeseen Reasons like Weather, Road Conditions, or Landslides"
-    ],
-    "itenary": [
-      {
-        "day": 1,
-        "heading": "Departure from Delhi to Pushkar",
-        "description": [
-          "AC Volvo with Recliner Seats",
-          "Evening departure from Delhi",
-          "En route pit stop for dinner",
-          "Overnight journey to Pushkar with games, music, and an interactive introduction session led by the trip captain",
-          "Visit Ajmer Sharif Dargah en route (depending on the schedule) to seek blessings"
-        ]
-      },
-      {
-        "day": 2,
-        "heading": "Arrival and Holika Dahan",
-        "description": [
-          "Morning check-in at the resort with a welcome drink",
-          "Freshen up and join a pool party",
-          "Local sightseeing:",
-          "  - Savitri Mata Temple (Cable car ride with panoramic views)",
-          "  - Brahma Temple (One of the world’s rarest temples dedicated to Lord Brahma)",
-          "  - Sacred Ghats (Experience the spiritual essence of Pushkar)",
-          "In the evening, witness the Holika Dahan, embracing the festive spirit"
-        ]
-      }
-    ],
+    
+  
+      "heading": "Pushkar Holi Festival Trip",
+      "description": "Experience the world-famous Pushkar Holi celebration with music, colors, and unforgettable memories. Enjoy sightseeing, pool parties, and an EDM night in the heart of Pushkar.",
+      "photo": "https://res.cloudinary.com/djvhd1shh/image/upload/v1739619547/pushkarholi_e9thqu.jpg",
+      "quadPrice": 8500,
+      "TriPrice": 9000,
+      "doubPrice": 9500,
+      "singlePrice": 0,
+      "inclusions": [
+        "Transfers from Delhi to Delhi",
+        "Accommodation for 2 Nights in Pushkar Resort",
+        "4 Meals: Day 1 (Dinner), Day 2 (Breakfast + Dinner), Day 3 (Breakfast)",
+        "Colors for Holi Celebration",
+        "DJ & Pool Party",
+        "All Required Permits",
+        "Trip Buddy for Assistance",
+        "Medical Kit with the Trip Buddy",
+        "Driver Night Charges, Toll Taxes, Parking Charges",
+        "Complimentary Holi T-shirt",
+        "Refreshments on the Bus",
+        "Traditional Thandai for an Authentic Holi Experience"
+      ],
+      "exclusions": [
+        "5% GST",
+        "Snacks and Extra Drinks/Food",
+        "Tickets for Any Sightseeing or Extra Activities Outside the Camp Area",
+        "Medical Services Apart from Basic First Aid",
+        "Travel Insurance and Other Benefits",
+        "Anything Not Mentioned in the Inclusions",
+        "Cost Escalation Due to Unforeseen Reasons like Weather, Road Conditions, or Landslides"
+      ],
+      "itenary": [
+        {
+          "day": 1,
+          "heading": "Departure from Delhi to Pushkar",
+          "description": [
+            "AC Volvo with Recliner Seats",
+            "Evening departure from Delhi",
+            "En route pit stop for dinner",
+            "Overnight journey to Pushkar with games, music, and an interactive introduction session led by the trip captain",
+            "Visit Ajmer Sharif Dargah en route (depending on the schedule) to seek blessings"
+          ]
+        },
+        {
+          "day": 2,
+          "heading": "Arrival and Holika Dahan",
+          "description": [
+            "Morning check-in at the resort with a welcome drink",
+            "Freshen up and join a pool party",
+            "Local sightseeing:",
+            "  - Savitri Mata Temple (Cable car ride with panoramic views)",
+            "  - Brahma Temple (One of the world’s rarest temples dedicated to Lord Brahma)",
+            "  - Sacred Ghats (Experience the spiritual essence of Pushkar)",
+            "In the evening, witness the Holika Dahan, embracing the festive spirit"
+          ]
+        },
+        {
+          "day": 3,
+          "heading": "The Grand Holi Celebration",
+          "description": [
+            "Wake up to a vibrant morning and collect a complimentary Holi T-shirt",
+            "Enjoy a delicious breakfast with engaging conversations",
+            "Join a pool party with colors and music",
+            "Celebrate Holi in the streets of Pushkar with travelers from around the world",
+            "Visit Mela Ground for the biggest Holi festival with fire brigades used as water toys",
+            "Return to the resort, freshen up, and prepare for an electrifying EDM Night at the Mela Ground",
+            "End the day with a delightful dinner and DJ party at the resort"
+          ]
+        },
+        {
+          "day": 4,
+          "heading": "Departure to Delhi",
+          "description": [
+            "Wake up to breathtaking views of Savitri Mata Temple hills",
+            "Freshen up and enjoy a relaxing breakfast",
+            "Bid farewell to Pushkar and embark on the journey back to Delhi",
+            "Say goodbye to newfound friends and cherished memories"
+          ]
+        }
+      ],
     "things": [
       "White Clothes for Holi",
       "Sunglasses",
@@ -646,8 +670,10 @@ const destinations = [
       "Extra Pair of Clothes",
       "Comfortable Footwear"
     ]
-  }
-]
+
+
+}
+];
 
 
 

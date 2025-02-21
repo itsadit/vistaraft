@@ -35,6 +35,7 @@ function Payment() {
     pricing.triple * prices.triple;
 
   useEffect(() => {
+    window.scrollTo(0,0);
     if (heading) {
       fetch(`${import.meta.env.VITE_HOST}/api/destinations?heading=${encodeURIComponent(heading)}`)
         .then((response) => response.json())
