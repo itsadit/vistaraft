@@ -21,18 +21,22 @@ function Payment() {
     single: 0,
     double: 0,
     triple: 0,
+    quad: 0
   });
 
   const prices = {
-    single: 5000,
-    double: 4500,
-    triple: 4000,
+    single: selectedDestination?.singlePrice,
+    double: selectedDestination?.doubPrice,
+    triple: selectedDestination?.TriPrice,
+    quad: selectedDestination?.quadPrice
   };
 
   const totalPrice =
     pricing.single * prices.single +
     pricing.double * prices.double +
-    pricing.triple * prices.triple;
+    pricing.triple * prices.triple +
+    pricing.quad * prices.quad;
+
 
   useEffect(() => {
     window.scrollTo(0,0);
@@ -81,7 +85,7 @@ function Payment() {
         );
       case "terms":
         return (
-          <div className="shadow-2xl rounded-2xl p-3 mb-5 content">
+          <div className="shadow-2xl rounded-2xl p-3 mb-2 content">
             <div className="Mon_font m-0 mb-3">
               <ul className="m-0 p-0">
                 <li className="mb-3" style={{ fontWeight: 500 }}><strong>•</strong><small> Full Payment of the trip cost must be made before the trip begins.</small></li>
@@ -91,7 +95,7 @@ function Payment() {
         );
       case "things":
         return (
-          <div className=" shadow-2xl rounded-2xl p-3 mb-5 content">
+          <div className=" shadow-2xl rounded-2xl p-3 mb-2 content">
             <h6 className="Mon_font mb-2"><strong>Things to Carry:</strong></h6>
             <div className="Mon_font m-0 mb-3">
               <ul className="m-0 p-0">
@@ -154,7 +158,7 @@ function Payment() {
     <div className={`flex lg:flex-row justify-around flex-col items-start min-h-screen p-4 pt-8 gap-8 ${mode === "light" ? "!bg-gray-100" : "bg-gray-900 text-white"}`}>
       {/* Left Side - Trip Details */}
       <div className="lg:mx-20 w-full lg:w-1/2 space-y-8">
-      <div className={`flex justify-around ${mode==='dark'?'bg-gray-900 text-white':'!bg-white !text-gray-900'} p-6 rounded-2xl`}>
+      <div className={`lg:flex justify-around ${mode==='dark'?'bg-gray-900 text-white':'!bg-white !text-gray-900'} p-6 rounded-2xl`}>
         {/* Days of Trip */}
         <div className="flex flex-col items-center">
           <i className="fa-regular fa-clock text-blue-400 text-3xl"></i>
@@ -170,7 +174,7 @@ function Payment() {
         </div>
   
         {/* Buttons */}
-        <div className="flex mt-4 space-x-4">
+        <div className="flex mt-4 justify-center space-x-4">
           <button className="bg-blue-600 px-4 py-2 rounded-lg" onClick={() => toggleSection("itinerary")}>
             Day Wise Plan
           </button>
@@ -187,7 +191,7 @@ function Payment() {
               className="w-full flex justify-between items-center p-6 text-left bg-gradient-to-r from-blue-500 to-purple-600 text-white font-semibold text-lg rounded-t-2xl"
             >
               <span>📅 Day Wise Plan</span>
-              {openSection === "itinerary" ? <ChevronUp size={24} /> : <ChevronDown size={24} />}
+              {openSection === "itinerary" }
             </button>
             {openSection === "itinerary" && (
               <motion.div
@@ -217,7 +221,7 @@ function Payment() {
               className="w-full flex justify-between items-center p-6 text-left bg-gradient-to-r from-green-500 to-teal-600 text-white font-semibold text-lg rounded-t-2xl"
             >
               <span>✅ Inclusions & ❌ Exclusions</span>
-              {openSection === "inclusions_exclusions" ? <ChevronUp size={24} /> : <ChevronDown size={24} />}
+              {openSection === "inclusions_exclusions" }
             </button>
             {openSection === "inclusions_exclusions" && (
               <motion.div
@@ -301,12 +305,12 @@ function Payment() {
         </motion.div>
       </div>
     </div>
-    <div className={` shadow-2xl rounded-2xl lg:mx-12 flex lg:flex-row justify-around flex-col items-start min-h-screen p-4 pt-8 gap-8 ${mode === "light" ? "!bg-gray-100 text-black" : "bg-gray-900 text-white"}`}>
+    <div className={` shadow-2xl rounded-2xl lg:mx-12 flex lg:flex-row justify-around flex-col justify-center min-h-screen p-4 pt-8 gap-8 ${mode === "light" ? "!bg-gray-100 text-black" : "bg-gray-900 text-white"}`}>
       <div className="shd mb-5 things__to__carry w-full">
-        <div className="my-4  about__tab__buttons Mon_font w-full flex">
-          <button className={`bg-gradient-to-r from-blue-500 to-purple-600 w-1/3 mx-8 ${activeTab === "cancellation" ? "active" : ""}`} onClick={() => setActiveTab("cancellation")}>Cancellation Policy</button>
-          <button className={`bg-gradient-to-r from-blue-500 to-purple-600 w-1/3 mx-lg-4 mx-8 ${activeTab === "terms" ? "active" : ""}`} onClick={() => setActiveTab("terms")}>Terms and Conditions</button>
-          <button className={`bg-gradient-to-r from-blue-500 to-purple-600 w-1/3 mx-8 ${activeTab === "things" ? "active" : ""}`} onClick={() => setActiveTab("things")}>Things to Carry</button>
+        <div className="my-4 mx-6 about__tab__buttons Mon_font w-full lg:flex items-center">
+          <button className={`bg-gradient-to-r from-blue-500 to-purple-600 mb-2 lg:w-1/3 w-2/3 mx-8 ${activeTab === "cancellation" ? "active" : ""}`} onClick={() => setActiveTab("cancellation")}>Cancellation Policy</button>
+          <button className={`bg-gradient-to-r from-blue-500 to-purple-600 mb-2 lg:w-1/3 w-2/3 mx-lg-4 mx-8 ${activeTab === "terms" ? "active" : ""}`} onClick={() => setActiveTab("terms")}>Terms and Conditions</button>
+          <button className={`bg-gradient-to-r from-blue-500 to-purple-600 mb-2 lg:w-1/3 w-2/3 mx-8 ${activeTab === "things" ? "active" : ""}`} onClick={() => setActiveTab("things")}>Things to Carry</button>
         </div>
         <motion.div
           initial={{ opacity: 0, scale: 0.8 }}
