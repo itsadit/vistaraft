@@ -120,21 +120,7 @@ function Payment() {
     }
   };
 
-  const [bgImage, setBgImage] = useState(selectedDestination?.cover);
 
-  useEffect(() => {
-    const updateBackground = () => {
-      if (window.innerWidth < 768) {
-        setBgImage("https://res.cloudinary.com/djvhd1shh/image/upload/v1740379411/Happy_Holi_Festival_Images_qyhk8t.jpg"); // Mobile Image Link
-      } else {
-        setBgImage(selectedDestination?.cover); // Laptop Image Link
-      }
-    };
-
-    updateBackground(); // Set initial image
-    window.addEventListener("resize", updateBackground);
-    return () => window.removeEventListener("resize", updateBackground);
-  }, [selectedDestination]);
 
   return (
 
@@ -142,7 +128,7 @@ function Payment() {
       <section
         className="relative flex items-center justify-center text-center min-h-screen bg-cover bg-center bg-no-repeat"
         style={{
-          backgroundImage: `url(${bgImage})`, // Dynamically set image based on screen size
+          backgroundImage: `url(${selectedDestination?.cover})`, // Dynamically set image based on screen size
           backgroundSize: "cover",
           backgroundPosition: "center",
           height: "100vh",

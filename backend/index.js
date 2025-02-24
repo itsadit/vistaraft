@@ -561,83 +561,130 @@ app.post("/api/feedback", upload.single("image"), async (req, res) => {
 
 
 // // Define the updated itinerary
-// const updatedItinerary = [
-//   {
-//     day: 1,
-//     heading: "Departure from Delhi",
-//     description: [
-//       "8:00 PM: Board an overnight Volvo or private cab from Delhi to Manali (~12-14 hrs journey)."
-//     ]
-//   },
-//   {
-//     day: 2,
-//     heading: "Arrival in Manali & Local Sightseeing",
-//     description: [
-//       "10:00 AM: Reach Manali & check-in at the hotel. Freshen up & have breakfast.",
-//       "11:30 AM: Explore Hadimba Devi Temple, a serene and historical site.",
-//       "12:30 PM: Visit Manu Temple and enjoy Old Manali’s charming cafes.",
-//       "2:00 PM: Lunch at a famous café like Cafe 1947 or Johnson’s Cafe.",
-//       "4:00 PM: Explore Mall Road & Tibetan Monastery for shopping and souvenirs.",
-//       "6:00 PM: Enjoy sunset at Van Vihar (optional).",
-//       "8:00 PM: Dinner at your hotel or a popular restaurant.",
-//       "Overnight stay in Manali."
-//     ]
-//   },
-//   {
-//     day: 3,
-//     heading: "Sissu & Atal Tunnel Excursion",
-//     description: [
-//       "6:00 AM: Early morning departure for Sissu via Atal Tunnel (~40 km).",
-//       "7:30 AM: Reach Sissu Waterfall, enjoy breathtaking views & take pictures.",
-//       "9:00 AM: Visit Keylong (optional, if time permits).",
-//       "10:30 AM: Breakfast at a local café with mountain views.",
-//       "12:00 PM: Return to Manali, stopping at Solang Valley for adventure activities (paragliding, zorbing, snow activities in winter).",
-//       "3:00 PM: Late lunch at a Solang Valley café.",
-//       "5:00 PM: Head back to Manali & relax at your hotel or explore more cafés.",
-//       "8:00 PM: Dinner & overnight stay in Manali."
-//     ]
-//   },
-//   {
-//     day: 4,
-//     heading: "Manali to Kasol & Exploration",
-//     description: [
-//       "7:00 AM: Check out & drive towards Kasol (~75 km, 3 hrs).",
-//       "10:00 AM: Reach Kasol, check-in at a riverside stay & relax.",
-//       "11:30 AM: Explore Manikaran Sahib Gurudwara & enjoy hot springs.",
-//       "1:00 PM: Visit Chalal village or Tosh (optional, if time permits).",
-//       "3:00 PM: Have lunch at a famous café like Jim Morrison Café or Moon Dance Café.",
-//       "5:00 PM: Enjoy a peaceful riverside walk & sunset views.",
-//       "8:00 PM: Bonfire & chill at your stay. Overnight in Kasol."
-//     ]
-//   },
-//   {
-//     day: 5,
-//     heading: "Return to Delhi",
-//     description: [
-//       "7:00 AM: Check out & board a bus/cab for Delhi (~12-14 hrs).",
-//       "8:00 PM: Reach Delhi with unforgettable memories!"
-//     ]
-//   }
-// ];
+const updatedItenary = [
+  {
+    day: 1,
+    heading: "Overnight Journey from Delhi / Haridwar to Barkot via Dehradun & Mussoorie",
+    description: [
+      "Morning stop for breakfast and visit Shashtra Dhara, Prakashwer temple, and Kempty Falls.",
+      "Continue journey to Barkot via Mussoorie."
+    ]
+  },
+  {
+    day: 2,
+    heading: "Reaching Barkot",
+    description: [
+      "Arrive in Barkot and check into the hotel.",
+      "Enjoy the meal and take rest to prepare for the next day's trek."
+    ]
+  },
+  {
+    day: 3,
+    heading: "Barkot - Yamunotri Dham Darshan - Barkot | Overnight Stay",
+    description: [
+      "After breakfast, travel to Jankichatti/Phoolchatti.",
+      "Start a 6 km trek to Yamunotri (optional horse ride or pony available).",
+      "Visit Yamunotri Temple, Divya Shila, Surya Kund.",
+      "Return to Barkot and stay overnight."
+    ]
+  },
+  {
+    day: 4,
+    heading: "Barkot - Uttarkashi - Vishwanath Temple | Overnight Stay",
+    description: [
+      "Travel from Barkot to Uttarkashi (80 km, approx. 2-3 hours).",
+      "Check into the hotel and freshen up.",
+      "Visit the famous Vishwanath Temple.",
+      "Overnight stay in Uttarkashi."
+    ]
+  },
+  {
+    day: 5,
+    heading: "Uttarkashi - Gangotri Dham Darshan - Uttarkashi | Overnight Stay",
+    description: [
+      "After breakfast, travel to Gangotri (100 km, approx. 2-3 hours).",
+      "Visit Gangotri Temple, Surya Kund, Bhagirath Shila.",
+      "Explore Gomukh.",
+      "Return to Uttarkashi for an overnight stay."
+    ]
+  },
+  {
+    day: 6,
+    heading: "Uttarkashi - Guptkashi via Mandakini River | Overnight Stay",
+    description: [
+      "After breakfast, travel to Guptkashi (197 km, approx. 7-8 hours).",
+      "En route, witness Mandakini River at Tilwara.",
+      "Check into a hotel in Guptkashi for overnight stay."
+    ]
+  },
+  {
+    day: 7,
+    heading: "Guptkashi - Sonprayag - Kedarnath Trek | Overnight Stay",
+    description: [
+      "Travel 30 km from Guptkashi to Sonprayag.",
+      "Start 20 km trek to Kedarnath (carry essentials like warm clothes, medicines).",
+      "Visit Kedarnath Temple, Chorabari Tal, Ghorabari Glacier.",
+      "Overnight stay in Kedarnath Dham."
+    ]
+  },
+  {
+    day: 8,
+    heading: "Kedarnath Dham Darshan - Gaurikund - Sonprayag | Overnight Stay",
+    description: [
+      "Early morning visit to Kedarnath Temple.",
+      "Witness the scenic beauty of the Garhwal Himalayan Range.",
+      "Trek down to Gaurikund and reach Sonprayag.",
+      "Dinner and overnight stay in Sonprayag."
+    ]
+  },
+  {
+    day: 9,
+    heading: "Sonprayag - Badrinath Dham Darshan | Overnight Stay",
+    description: [
+      "After breakfast, travel to Badrinath Dham.",
+      "Visit Pandukeshwar.",
+      "Dinner and overnight stay in Badrinath/Joshimath."
+    ]
+  },
+  {
+    day: 10,
+    heading: "Badrinath Dham - Rishikesh - Haridwar | Departure",
+    description: [
+      "After breakfast, drive to Rishikesh (218 km, approx. 6-7 hours).",
+      "Short break in Rishikesh, then continue to Haridwar (19 km, 30 min).",
+      "Attend Ganga Aarti in Rishikesh.",
+      "Overnight stay in Rishikesh."
+    ]
+  },
+  {
+    day: 11,
+    heading: "Neelkanth Visit & Return to Delhi",
+    description: [
+      "Morning visit to Neelkanth Temple.",
+      "Return journey to Delhi (187 km, approx. 7 hours).",
+      "Tour ends with beautiful memories."
+    ]
+  }
+];
 
-// // Find the document using `heading` and update the itinerary
-// Destination.findOneAndUpdate(
-//   { heading: "Manali-Sissu-Kasol Trip" }, // Find by heading
-//   { $set: { itenary: updatedItinerary } },
-//   { new: true } // Return updated document
-// )
-//   .then((updatedTrip) => {
-//     if (!updatedTrip) {
-//       console.log("No document found with the given heading.");
-//     } else {
-//       console.log("Updated Trip Itinerary:", updatedTrip);
-//     }
-//     mongoose.connection.close();
-//   })
-//   .catch((err) => {
-//     console.error("Error updating trip:", err);
-//     mongoose.connection.close();
-//   });
+// Find the document using `heading` and update the itinerary
+Destination.findOneAndUpdate(
+  { heading: "Char Dham" }, // Find by heading
+  { $set: { itenary: updatedItenary } },
+  { new: true } // Return updated document
+)
+  .then((updatedTrip) => {
+    if (!updatedTrip) {
+      console.log("No document found with the given heading.");
+    } else {
+      console.log("Updated Trip Itinerary:", updatedTrip);
+    }
+    mongoose.connection.close();
+  })
+  .catch((err) => {
+    console.error("Error updating trip:", err);
+    mongoose.connection.close();
+  });
 
 
 
