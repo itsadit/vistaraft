@@ -44,7 +44,7 @@ function Header() {
               Home
             </Link>
             <Link
-              to="tel:+8384076491"
+              to="tel:8384076491"
               className={`nav-link text-lg transition duration-300 ${mode === "dark" ? "text-white" : "!text-gray-900"
                 } hover:text-gray-500`}
             >
