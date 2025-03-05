@@ -1,7 +1,0 @@
----
-deployment:
-  tasks:
-    - export PATH=$HOME/venv/bin:$PATH
-    - npm install
-    - npm run build
-
