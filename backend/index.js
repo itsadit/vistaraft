@@ -141,332 +141,6 @@ app.post("/api/payments", async (req, res) => {
 //   }
 // });
 
-// const destinations = [
-//   {
-//     id: 1,
-//     heading: "Shimla",
-//     description: "❄️ Snow-capped mountains & scenic valleys",
-//     photo: "https://res.cloudinary.com/dmr86c1jv/image/upload/v1739537830/Shimla_w1vfqe.jpg",
-//     pdf: "https://res.cloudinary.com/dmr86c1jv/image/upload/v1739537829/Shimla_tour_itinerary.pdf",
-//     quadPrice: 15000, TriPrice: 18000, doubPrice: 20000, singlePrice: 25000,
-//     inclusions:[
-//       "Shikara Ride",
-//       "Meals ( Breakfast & Dinner ) as mentioned in itinerary.",
-//       "SUV/Tempo traveler/Coach/Volvo Vehicle for transfers and sightseeing as per mentioned above",
-//       "Transfers as per itinerary",
-//       "All toll taxes",
-//       "Driver allowance with parking charges",
-//       "Memories of a Lifetime",
-//     ],
-//     exclusions:[
-//       "Anything else that is not mentioned in the inclusions",
-//       "Personal expenses such as tips, telephone calls, laundry, medication etc.",
-//       "Any Adventure Sport",
-//       "Any extra transportation services availed",
-//     ],
-//     itenary:[
-//       {day:1, stay:"Shimla", meals:"Dinner"},
-//       {day:2, stay:"Shimla", meals:"Breakfast & Dinner"},
-//       {day:3, stay:"Shimla", meals:"Breakfast & Dinner"},
-//       {day:4, stay:"Shimla", meals:"Breakfast & Dinner"},
-//       {day:5, stay:"Shimla", meals:"Breakfast & Dinner"},
-//     ]
-//   },
-//   {
-//     id: 2,
-//     heading: "Kashmir",
-//     description: "🏞️ Experience the paradise of India",
-//     photo: "https://res.cloudinary.com/dmr86c1jv/image/upload/v1739537829/Kashmir_bxqg4z.jpg",
-//     pdf: "https://res.cloudinary.com/dmr86c1jv/image/upload/v1739537829/Shimla_tour_itinerary.pdf",
-//     quadPrice: 15000, TriPrice: 18000, doubPrice: 20000, singlePrice: 25000,
-//     inclusions:[
-//       "Shikara Ride",
-//       "Meals ( Breakfast & Dinner ) as mentioned in itinerary.",
-//       "SUV/Tempo traveler/Coach/Volvo Vehicle for transfers and sightseeing as per mentioned above",
-//       "Transfers as per itinerary",
-//       "All toll taxes",
-//       "Driver allowance with parking charges",
-//       "Memories of a Lifetime",
-//     ],
-//     exclusions:[
-//       "Anything else that is not mentioned in the inclusions",
-//       "Personal expenses such as tips, telephone calls, laundry, medication etc.",
-//       "Any Adventure Sport",
-//       "Any extra transportation services availed",
-//     ],
-//     itenary:[
-//       {day:1, stay:"Shimla", meals:"Dinner"},
-//       {day:2, stay:"Shimla", meals:"Breakfast & Dinner"},
-//       {day:3, stay:"Shimla", meals:"Breakfast & Dinner"},
-//       {day:4, stay:"Shimla", meals:"Breakfast & Dinner"},
-//       {day:5, stay:"Shimla", meals:"Breakfast & Dinner"},
-//     ]
-//   },
-//   {
-//     id: 3,
-//     heading: "Kerala",
-//     description: "🌿 Lush backwaters & exotic wildlife",
-//     photo: "https://res.cloudinary.com/dmr86c1jv/image/upload/v1739537829/Kerela_xkrj2p.jpg",
-//     pdf: "https://res.cloudinary.com/dmr86c1jv/image/upload/v1739537829/Shimla_tour_itinerary.pdf",
-//     quadPrice: 15000, TriPrice: 18000, doubPrice: 20000, singlePrice: 25000,
-//     inclusions:[
-//       "Shikara Ride",
-//       "Meals ( Breakfast & Dinner ) as mentioned in itinerary.",
-//       "SUV/Tempo traveler/Coach/Volvo Vehicle for transfers and sightseeing as per mentioned above",
-//       "Transfers as per itinerary",
-//       "All toll taxes",
-//       "Driver allowance with parking charges",
-//       "Memories of a Lifetime",
-//     ],
-//     exclusions:[
-//       "Anything else that is not mentioned in the inclusions",
-//       "Personal expenses such as tips, telephone calls, laundry, medication etc.",
-//       "Any Adventure Sport",
-//       "Any extra transportation services availed",
-//     ],
-//     itenary:[
-//       {day:1, stay:"Shimla", meals:"Dinner"},
-//       {day:2, stay:"Shimla", meals:"Breakfast & Dinner"},
-//       {day:3, stay:"Shimla", meals:"Breakfast & Dinner"},
-//       {day:4, stay:"Shimla", meals:"Breakfast & Dinner"},
-//       {day:5, stay:"Shimla", meals:"Breakfast & Dinner"},
-//     ]
-//   },
-//   {
-//     id: 4,
-//     heading: "Manali",
-//     description: "🏔️ Adventure, trekking & snowy peaks",
-//     photo: "https://res.cloudinary.com/dmr86c1jv/image/upload/v1739537830/Manali_gdzuhq.png",
-//     pdf: "https://res.cloudinary.com/dmr86c1jv/image/upload/v1739537829/Shimla_tour_itinerary.pdf",
-//     quadPrice: 15000, TriPrice: 18000, doubPrice: 20000, singlePrice: 25000,
-//     inclusions:[
-//       "Shikara Ride",
-//       "Meals ( Breakfast & Dinner ) as mentioned in itinerary.",
-//       "SUV/Tempo traveler/Coach/Volvo Vehicle for transfers and sightseeing as per mentioned above",
-//       "Transfers as per itinerary",
-//       "All toll taxes",
-//       "Driver allowance with parking charges",
-//       "Memories of a Lifetime",
-//     ],
-//     exclusions:[
-//       "Anything else that is not mentioned in the inclusions",
-//       "Personal expenses such as tips, telephone calls, laundry, medication etc.",
-//       "Any Adventure Sport",
-//       "Any extra transportation services availed",
-//     ],
-//     itenary:[
-//       {day:1, stay:"Shimla", meals:"Dinner"},
-//       {day:2, stay:"Shimla", meals:"Breakfast & Dinner"},
-//       {day:3, stay:"Shimla", meals:"Breakfast & Dinner"},
-//       {day:4, stay:"Shimla", meals:"Breakfast & Dinner"},
-//       {day:5, stay:"Shimla", meals:"Breakfast & Dinner"},
-//     ]
-//   },
-//   {
-//     id: 5,
-//     heading: "Mcleodganj",
-//     description: "🛕 Spiritual vibes & mountain tranquility",
-//     photo: "https://res.cloudinary.com/dmr86c1jv/image/upload/v1739537830/Mcleodganj_ynqo7s.webp",
-//     pdf: "https://res.cloudinary.com/dmr86c1jv/image/upload/v1739537829/Shimla_tour_itinerary.pdf",
-//     quadPrice: 15000, TriPrice: 18000, doubPrice: 20000, singlePrice: 25000,
-//     inclusions:[
-//       "Shikara Ride",
-//       "Meals ( Breakfast & Dinner ) as mentioned in itinerary.",
-//       "SUV/Tempo traveler/Coach/Volvo Vehicle for transfers and sightseeing as per mentioned above",
-//       "Transfers as per itinerary",
-//       "All toll taxes",
-//       "Driver allowance with parking charges",
-//       "Memories of a Lifetime",
-//     ],
-//     exclusions:[
-//       "Anything else that is not mentioned in the inclusions",
-//       "Personal expenses such as tips, telephone calls, laundry, medication etc.",
-//       "Any Adventure Sport",
-//       "Any extra transportation services availed",
-//     ],
-//     itenary:[
-//       {day:1, stay:"Shimla", meals:"Dinner"},
-//       {day:2, stay:"Shimla", meals:"Breakfast & Dinner"},
-//       {day:3, stay:"Shimla", meals:"Breakfast & Dinner"},
-//       {day:4, stay:"Shimla", meals:"Breakfast & Dinner"},
-//       {day:5, stay:"Shimla", meals:"Breakfast & Dinner"},
-//     ]
-//   },
-//   {
-//     id: 6,
-//     heading: "Char Dham",
-//     description: "🛤️ A divine pilgrimage journey",
-//     photo: "https://res.cloudinary.com/dmr86c1jv/image/upload/v1739537829/chardham_vu1ojt.jpg",
-//     pdf: "https://res.cloudinary.com/dmr86c1jv/image/upload/v1739537829/Shimla_tour_itinerary.pdf",
-//     quadPrice: 15000, TriPrice: 18000, doubPrice: 20000, singlePrice: 25000,
-//     inclusions:[
-//       "Shikara Ride",
-//       "Meals ( Breakfast & Dinner ) as mentioned in itinerary.",
-//       "SUV/Tempo traveler/Coach/Volvo Vehicle for transfers and sightseeing as per mentioned above",
-//       "Transfers as per itinerary",
-//       "All toll taxes",
-//       "Driver allowance with parking charges",
-//       "Memories of a Lifetime",
-//     ],
-//     exclusions:[
-//       "Anything else that is not mentioned in the inclusions",
-//       "Personal expenses such as tips, telephone calls, laundry, medication etc.",
-//       "Any Adventure Sport",
-//       "Any extra transportation services availed",
-//     ],
-//     itenary:[
-//       {day:1, stay:"Shimla", meals:"Dinner"},
-//       {day:2, stay:"Shimla", meals:"Breakfast & Dinner"},
-//       {day:3, stay:"Shimla", meals:"Breakfast & Dinner"},
-//       {day:4, stay:"Shimla", meals:"Breakfast & Dinner"},
-//       {day:5, stay:"Shimla", meals:"Breakfast & Dinner"},
-//     ]
-//   },
-//   {
-//     id: 7,
-//     heading: "Dalhousie",
-//     description: "🌲 A charming hill station escape",
-//     photo: "https://res.cloudinary.com/dmr86c1jv/image/upload/v1739537829/dalhousie_nbrxes.webp",
-//     pdf: "https://res.cloudinary.com/dmr86c1jv/image/upload/v1739537829/Shimla_tour_itinerary.pdf",
-//     quadPrice: 15000, TriPrice: 18000, doubPrice: 20000, singlePrice: 25000,
-//     inclusions:[
-//       "Shikara Ride",
-//       "Meals ( Breakfast & Dinner ) as mentioned in itinerary.",
-//       "SUV/Tempo traveler/Coach/Volvo Vehicle for transfers and sightseeing as per mentioned above",
-//       "Transfers as per itinerary",
-//       "All toll taxes",
-//       "Driver allowance with parking charges",
-//       "Memories of a Lifetime",
-//     ],
-//     exclusions:[
-//       "Anything else that is not mentioned in the inclusions",
-//       "Personal expenses such as tips, telephone calls, laundry, medication etc.",
-//       "Any Adventure Sport",
-//       "Any extra transportation services availed",
-//     ],
-//     itenary:[
-//       {day:1, stay:"Shimla", meals:"Dinner"},
-//       {day:2, stay:"Shimla", meals:"Breakfast & Dinner"},
-//       {day:3, stay:"Shimla", meals:"Breakfast & Dinner"},
-//       {day:4, stay:"Shimla", meals:"Breakfast & Dinner"},
-//       {day:5, stay:"Shimla", meals:"Breakfast & Dinner"},
-//     ]
-//   },
-//   {
-//     id: 8,
-//     heading: "Chopta Chandrashila",
-//     description: "⛺ Stunning treks & serene beauty",
-//     photo: "https://res.cloudinary.com/dmr86c1jv/image/upload/v1739537829/ChoptaChandrashila_dbepri.jpg",
-//     pdf: "https://res.cloudinary.com/dmr86c1jv/image/upload/v1739537829/Shimla_tour_itinerary.pdf",
-//     quadPrice: 15000, TriPrice: 18000, doubPrice: 20000, singlePrice: 25000,
-//     inclusions:[
-//       "Shikara Ride",
-//       "Meals ( Breakfast & Dinner ) as mentioned in itinerary.",
-//       "SUV/Tempo traveler/Coach/Volvo Vehicle for transfers and sightseeing as per mentioned above",
-//       "Transfers as per itinerary",
-//       "All toll taxes",
-//       "Driver allowance with parking charges",
-//       "Memories of a Lifetime",
-//     ],
-//     exclusions:[
-//       "Anything else that is not mentioned in the inclusions",
-//       "Personal expenses such as tips, telephone calls, laundry, medication etc.",
-//       "Any Adventure Sport",
-//       "Any extra transportation services availed",
-//     ],
-//     itenary:[
-//       {day:1, stay:"Shimla", meals:"Dinner"},
-//       {day:2, stay:"Shimla", meals:"Breakfast & Dinner"},
-//       {day:3, stay:"Shimla", meals:"Breakfast & Dinner"},
-//       {day:4, stay:"Shimla", meals:"Breakfast & Dinner"},
-//       {day:5, stay:"Shimla", meals:"Breakfast & Dinner"},
-//     ]
-//   },
-// ];
-
-// const destinations = [{
-//   heading: "Pushkar Holi Festival Trip",
-//   description: "Experience the world-famous Pushkar Holi celebration with music, colors, and unforgettable memories. Enjoy sightseeing, pool parties, and an EDM night in the heart of Pushkar.",
-//   photo: "pushkar_holi_festival.jpg",
-//   quadPrice: 8500,
-//   TriPrice: 9000,
-//   doubPrice: 9500,
-//   singlePrice: 0, // No single price mentioned in the PDF
-//   inclusions: [
-//     "Transfers from Delhi to Delhi",
-//     "Accommodation for 2 Nights in Pushkar Resort",
-//     "4 Meals: Day 1 (Dinner), Day 2 (Breakfast + Dinner), Day 3 (Breakfast)",
-//     "Colors for Holi Celebration",
-//     "DJ & Pool Party",
-//     "All Required Permits",
-//     "Trip Buddy for Assistance",
-//     "Medical Kit with the Trip Buddy",
-//     "Driver Night Charges, Toll Taxes, Parking Charges",
-//     "Complimentary Holi T-shirt",
-//     "Refreshments on the Bus",
-//     "Traditional Thandai for an Authentic Holi Experience"
-//   ],
-//   exclusions: [
-//     "5% GST",
-//     "Snacks and Extra Drinks/Food",
-//     "Tickets for Any Sightseeing or Extra Activities Outside the Camp Area",
-//     "Medical Services Apart from Basic First Aid",
-//     "Travel Insurance and Other Benefits",
-//     "Anything Not Mentioned in the Inclusions",
-//     "Cost Escalation Due to Unforeseen Reasons like Weather, Road Conditions, or Landslides"
-//   ],
-//   itenary: [
-//     {
-//       day: 0,
-//       heading: "Departure from Delhi to Pushkar",
-//       description: [
-//         "AC Volvo with Recliner Seats",
-//         "Evening departure from Delhi",
-//         "En route pit stop for dinner",
-//         "Overnight journey to Pushkar with games, music, and an interactive introduction session led by the trip captain",
-//         "Visit Ajmer Sharif Dargah en route (depending on the schedule) to seek blessings"
-//       ]
-//     },
-//     {
-//       day: 1,
-//       heading: "Arrival and Holika Dahan",
-//       description: [
-//         "Morning check-in at the resort with a welcome drink",
-//         "Freshen up and join a pool party",
-//         "Local sightseeing:",
-//         "  - Savitri Mata Temple (Cable car ride with panoramic views)",
-//         "  - Brahma Temple (One of the world’s rarest temples dedicated to Lord Brahma)",
-//         "  - Sacred Ghats (Experience the spiritual essence of Pushkar)",
-//         "In the evening, witness the Holika Dahan, embracing the festive spirit"
-//       ]
-//     },
-//     {
-//       day: 2,
-//       heading: "The Grand Holi Celebration",
-//       description: [
-//         "Wake up to a vibrant morning and collect a complimentary Holi T-shirt",
-//         "Enjoy a delicious breakfast with engaging conversations",
-//         "Join a pool party with colors and music",
-//         "Celebrate Holi in the streets of Pushkar with travelers from around the world",
-//         "Visit Mela Ground for the biggest Holi festival with fire brigades used as water toys",
-//         "Return to the resort, freshen up, and prepare for an electrifying EDM Night at the Mela Ground",
-//         "End the day with a delightful dinner and DJ party at the resort"
-//       ]
-//     },
-//     {
-//       day: 3,
-//       heading: "Departure to Delhi",
-//       description: [
-//         "Wake up to breathtaking views of Savitri Mata Temple hills",
-//         "Freshen up and enjoy a relaxing breakfast",
-//         "Bid farewell to Pushkar and embark on the journey back to Delhi",
-//         "Say goodbye to newfound friends and cherished memories"
-//       ]
-//     }
-//   ]
-// }];
-
-
 
 const destinationSchema = new mongoose.Schema({
   heading: String,
@@ -486,13 +160,103 @@ const destinationSchema = new mongoose.Schema({
 });
 
 const Destination = mongoose.model("Destination", destinationSchema, "destinations");
-// Destination.insertMany(destinations)
-//   .then(() => {
-//     console.log("Data inserted successfully");
-//     mongoose.connection.close();
-//   })
-//   .catch((error) => console.error(error));
 
+const destinations = [
+  {
+    heading: "Delhi – Leh – Ladakh – Srinagar Road Trip Package (7N/8D)",
+    description: "Manali to Leh via Sarchu & Return via Srinagar for a Complete Circuit",
+    photo: "leh_ladakh.jpg",
+    quadPrice: 24999,
+    triPrice: 26999,
+    doubPrice: 28999,
+    singlePrice: null,
+    inclusions: [
+      "Accommodation (Hotels/Campsites/Houseboat) on double/triple sharing basis",
+      "Meals – Breakfast & Dinner",
+      "Transport – Comfortable SUV/Tempo Traveller with driver",
+      "Experienced Guide/Trip Captain",
+      "Inner Line Permits for Ladakh",
+      "Environmental & Wildlife Fees",
+      "Oxygen Cylinder & First Aid Kit for emergencies",
+    ],
+    exclusions: [
+      "Any Airfare/Train tickets",
+      "Lunch & personal expenses (snacks, drinks, shopping)",
+      "Adventure activities (camel ride, ATV rides, rafting)",
+      "Travel insurance",
+      "Extra costs due to landslides, weather, or political closures",
+      "Any medical or evacuation charges",
+    ],
+    itenary: [
+      { day: 1, heading: "Delhi to Manali", description: ["Early morning departure from Delhi", "En route breakfast & lunch at Chandigarh/Mandi", "Arrive in Manali, check-in, and explore Mall Road", "Overnight stay in Manali (Hotel)"] },
+      { day: 2, heading: "Manali to Sarchu", description: ["Drive via Atal Tunnel, Keylong, Jispa & Baralacha La Pass", "Visit Deepak Tal & Suraj Tal Lakes", "Check-in at Sarchu Camps, acclimatize", "Overnight stay in Sarchu (Campsite)"] },
+      { day: 3, heading: "Sarchu to Leh", description: ["Drive via Gata Loops, Nakee La, Lachung La & Tanglang La", "Visit More Plains & Tso Kar Lake", "Reach Leh by evening, check-in at the hotel", "Overnight stay in Leh (Hotel)"] },
+    ],
+  },
+  {
+    heading: "Spiti Valley Road Trip (6N/7D)",
+    description: "Shimla – Chitkul – Kalpa – Kaza – Chandratal – Manali Circuit",
+    photo: "spiti_valley.jpg",
+    quadPrice: 21999,
+    triPrice: 23999,
+    doubPrice: 25999,
+    singlePrice: null,
+    inclusions: [
+      "Accommodation for 6 Nights (Hotels, Camps & Guesthouses)",
+      "Meals – Breakfast & Dinner (As per itinerary)",
+      "Transportation – SUV/Tempo Traveler/Bike",
+      "Inner Line Permits & Environmental Fees",
+      "Oxygen Cylinder & First-Aid Kit",
+    ],
+    exclusions: [
+      "Airfare/Train Tickets to Delhi",
+      "Lunch & Any Personal Expenses",
+      "Fuel (for Bike Rentals)",
+      "Adventure Activities (Rafting, Ziplining, ATV Rides)",
+      "5% GST",
+    ],
+    itenary: [
+      { day: 1, heading: "Delhi to Narkanda", description: ["Depart from Delhi at 4:00 AM", "Breakfast stop at Chandigarh", "Lunch at Kufri/Shimla", "Reach Narkanda, check-in at the hotel", "Dinner & rest"] },
+      { day: 2, heading: "Narkanda to Chitkul", description: ["Depart for Chitkul via Rampur & Sangla Valley", "Reach Chitkul, explore Baspa River", "Check-in at a riverside homestay", "Bonfire & dinner"] },
+      { day: 3, heading: "Chitkul to Kalpa", description: ["Depart for Kalpa via Kinnaur Valley", "Check-in at a hotel in Kalpa", "Visit Suicide Point & Roghi Village", "Sunset view of Kinner Kailash Range", "Dinner & rest"] },
+    ],
+  },
+  {
+    heading: "Sethan Igloo Stay & Snow Trek (2N/3D)",
+    description: "Experience the Magical Winter Wonderland of Sethan near Manali",
+    photo: "sethan_snow.jpg",
+    quadPrice: 7999,
+    triPrice: 8999,
+    doubPrice: 9999,
+    singlePrice: null,
+    inclusions: [
+      "Accommodation (Cozy Wooden Cabin / Homestay / Igloo Stay)",
+      "Meals – Breakfast & Dinner",
+      "Transportation – Delhi to Manali & return",
+      "Snow Activities – Snow Trek, Sledding, Tubing (Seasonal)",
+      "Bonfire & Music Sessions",
+    ],
+    exclusions: [
+      "Lunch & Any Personal Expenses",
+      "Adventure Activities (Skiing, Snowboarding – Optional)",
+      "Any Medical or Emergency Evacuation Costs",
+      "5% GST",
+    ],
+    itenary: [
+      { day: 1, heading: "Delhi to Manali to Sethan", description: ["Overnight journey from Delhi to Manali", "Arrive in Manali, freshen up", "Depart for Sethan", "Check-in at a cozy Wooden Cabin/Homestay", "Bonfire & Stargazing"] },
+      { day: 2, heading: "Snow Activities & Exploration", description: ["Snow Trek or Snowboarding/Skiing", "Hampta Valley Hike", "Igloo Stay Experience", "Bonfire & Music Session"] },
+      { day: 3, heading: "Sethan to Manali to Delhi", description: ["Drive back to Manali, explore Mall Road", "Lunch at a café in Old Manali", "Board an overnight bus/private vehicle back to Delhi", "Reach Delhi next morning"] },
+    ],
+  },
+];
+
+Destination.insertMany(destinations)
+  .then(() => {
+    mongoose.connection.close();
+  })
+  .catch((err) => {
+    console.error("Error inserting destinations:", err);
+  });
 
 app.get("/api/destinations", async (req, res) => {
   try {
