@@ -161,102 +161,102 @@ const destinationSchema = new mongoose.Schema({
 
 const Destination = mongoose.model("Destination", destinationSchema, "destinations");
 
-const destinations = [
-  {
-    heading: "Delhi – Leh – Ladakh – Srinagar Road Trip Package (7N/8D)",
-    description: "Manali to Leh via Sarchu & Return via Srinagar for a Complete Circuit",
-    photo: "leh_ladakh.jpg",
-    quadPrice: 24999,
-    triPrice: 26999,
-    doubPrice: 28999,
-    singlePrice: null,
-    inclusions: [
-      "Accommodation (Hotels/Campsites/Houseboat) on double/triple sharing basis",
-      "Meals – Breakfast & Dinner",
-      "Transport – Comfortable SUV/Tempo Traveller with driver",
-      "Experienced Guide/Trip Captain",
-      "Inner Line Permits for Ladakh",
-      "Environmental & Wildlife Fees",
-      "Oxygen Cylinder & First Aid Kit for emergencies",
-    ],
-    exclusions: [
-      "Any Airfare/Train tickets",
-      "Lunch & personal expenses (snacks, drinks, shopping)",
-      "Adventure activities (camel ride, ATV rides, rafting)",
-      "Travel insurance",
-      "Extra costs due to landslides, weather, or political closures",
-      "Any medical or evacuation charges",
-    ],
-    itenary: [
-      { day: 1, heading: "Delhi to Manali", description: ["Early morning departure from Delhi", "En route breakfast & lunch at Chandigarh/Mandi", "Arrive in Manali, check-in, and explore Mall Road", "Overnight stay in Manali (Hotel)"] },
-      { day: 2, heading: "Manali to Sarchu", description: ["Drive via Atal Tunnel, Keylong, Jispa & Baralacha La Pass", "Visit Deepak Tal & Suraj Tal Lakes", "Check-in at Sarchu Camps, acclimatize", "Overnight stay in Sarchu (Campsite)"] },
-      { day: 3, heading: "Sarchu to Leh", description: ["Drive via Gata Loops, Nakee La, Lachung La & Tanglang La", "Visit More Plains & Tso Kar Lake", "Reach Leh by evening, check-in at the hotel", "Overnight stay in Leh (Hotel)"] },
-    ],
-  },
-  {
-    heading: "Spiti Valley Road Trip (6N/7D)",
-    description: "Shimla – Chitkul – Kalpa – Kaza – Chandratal – Manali Circuit",
-    photo: "spiti_valley.jpg",
-    quadPrice: 21999,
-    triPrice: 23999,
-    doubPrice: 25999,
-    singlePrice: null,
-    inclusions: [
-      "Accommodation for 6 Nights (Hotels, Camps & Guesthouses)",
-      "Meals – Breakfast & Dinner (As per itinerary)",
-      "Transportation – SUV/Tempo Traveler/Bike",
-      "Inner Line Permits & Environmental Fees",
-      "Oxygen Cylinder & First-Aid Kit",
-    ],
-    exclusions: [
-      "Airfare/Train Tickets to Delhi",
-      "Lunch & Any Personal Expenses",
-      "Fuel (for Bike Rentals)",
-      "Adventure Activities (Rafting, Ziplining, ATV Rides)",
-      "5% GST",
-    ],
-    itenary: [
-      { day: 1, heading: "Delhi to Narkanda", description: ["Depart from Delhi at 4:00 AM", "Breakfast stop at Chandigarh", "Lunch at Kufri/Shimla", "Reach Narkanda, check-in at the hotel", "Dinner & rest"] },
-      { day: 2, heading: "Narkanda to Chitkul", description: ["Depart for Chitkul via Rampur & Sangla Valley", "Reach Chitkul, explore Baspa River", "Check-in at a riverside homestay", "Bonfire & dinner"] },
-      { day: 3, heading: "Chitkul to Kalpa", description: ["Depart for Kalpa via Kinnaur Valley", "Check-in at a hotel in Kalpa", "Visit Suicide Point & Roghi Village", "Sunset view of Kinner Kailash Range", "Dinner & rest"] },
-    ],
-  },
-  {
-    heading: "Sethan Igloo Stay & Snow Trek (2N/3D)",
-    description: "Experience the Magical Winter Wonderland of Sethan near Manali",
-    photo: "sethan_snow.jpg",
-    quadPrice: 7999,
-    triPrice: 8999,
-    doubPrice: 9999,
-    singlePrice: null,
-    inclusions: [
-      "Accommodation (Cozy Wooden Cabin / Homestay / Igloo Stay)",
-      "Meals – Breakfast & Dinner",
-      "Transportation – Delhi to Manali & return",
-      "Snow Activities – Snow Trek, Sledding, Tubing (Seasonal)",
-      "Bonfire & Music Sessions",
-    ],
-    exclusions: [
-      "Lunch & Any Personal Expenses",
-      "Adventure Activities (Skiing, Snowboarding – Optional)",
-      "Any Medical or Emergency Evacuation Costs",
-      "5% GST",
-    ],
-    itenary: [
-      { day: 1, heading: "Delhi to Manali to Sethan", description: ["Overnight journey from Delhi to Manali", "Arrive in Manali, freshen up", "Depart for Sethan", "Check-in at a cozy Wooden Cabin/Homestay", "Bonfire & Stargazing"] },
-      { day: 2, heading: "Snow Activities & Exploration", description: ["Snow Trek or Snowboarding/Skiing", "Hampta Valley Hike", "Igloo Stay Experience", "Bonfire & Music Session"] },
-      { day: 3, heading: "Sethan to Manali to Delhi", description: ["Drive back to Manali, explore Mall Road", "Lunch at a café in Old Manali", "Board an overnight bus/private vehicle back to Delhi", "Reach Delhi next morning"] },
-    ],
-  },
-];
+// const destinations = [
+//   {
+//     heading: "Delhi – Leh – Ladakh – Srinagar Road Trip Package (7N/8D)",
+//     description: "Manali to Leh via Sarchu & Return via Srinagar for a Complete Circuit",
+//     photo: "leh_ladakh.jpg",
+//     quadPrice: 24999,
+//     triPrice: 26999,
+//     doubPrice: 28999,
+//     singlePrice: null,
+//     inclusions: [
+//       "Accommodation (Hotels/Campsites/Houseboat) on double/triple sharing basis",
+//       "Meals – Breakfast & Dinner",
+//       "Transport – Comfortable SUV/Tempo Traveller with driver",
+//       "Experienced Guide/Trip Captain",
+//       "Inner Line Permits for Ladakh",
+//       "Environmental & Wildlife Fees",
+//       "Oxygen Cylinder & First Aid Kit for emergencies",
+//     ],
+//     exclusions: [
+//       "Any Airfare/Train tickets",
+//       "Lunch & personal expenses (snacks, drinks, shopping)",
+//       "Adventure activities (camel ride, ATV rides, rafting)",
+//       "Travel insurance",
+//       "Extra costs due to landslides, weather, or political closures",
+//       "Any medical or evacuation charges",
+//     ],
+//     itenary: [
+//       { day: 1, heading: "Delhi to Manali", description: ["Early morning departure from Delhi", "En route breakfast & lunch at Chandigarh/Mandi", "Arrive in Manali, check-in, and explore Mall Road", "Overnight stay in Manali (Hotel)"] },
+//       { day: 2, heading: "Manali to Sarchu", description: ["Drive via Atal Tunnel, Keylong, Jispa & Baralacha La Pass", "Visit Deepak Tal & Suraj Tal Lakes", "Check-in at Sarchu Camps, acclimatize", "Overnight stay in Sarchu (Campsite)"] },
+//       { day: 3, heading: "Sarchu to Leh", description: ["Drive via Gata Loops, Nakee La, Lachung La & Tanglang La", "Visit More Plains & Tso Kar Lake", "Reach Leh by evening, check-in at the hotel", "Overnight stay in Leh (Hotel)"] },
+//     ],
+//   },
+//   {
+//     heading: "Spiti Valley Road Trip (6N/7D)",
+//     description: "Shimla – Chitkul – Kalpa – Kaza – Chandratal – Manali Circuit",
+//     photo: "spiti_valley.jpg",
+//     quadPrice: 21999,
+//     triPrice: 23999,
+//     doubPrice: 25999,
+//     singlePrice: null,
+//     inclusions: [
+//       "Accommodation for 6 Nights (Hotels, Camps & Guesthouses)",
+//       "Meals – Breakfast & Dinner (As per itinerary)",
+//       "Transportation – SUV/Tempo Traveler/Bike",
+//       "Inner Line Permits & Environmental Fees",
+//       "Oxygen Cylinder & First-Aid Kit",
+//     ],
+//     exclusions: [
+//       "Airfare/Train Tickets to Delhi",
+//       "Lunch & Any Personal Expenses",
+//       "Fuel (for Bike Rentals)",
+//       "Adventure Activities (Rafting, Ziplining, ATV Rides)",
+//       "5% GST",
+//     ],
+//     itenary: [
+//       { day: 1, heading: "Delhi to Narkanda", description: ["Depart from Delhi at 4:00 AM", "Breakfast stop at Chandigarh", "Lunch at Kufri/Shimla", "Reach Narkanda, check-in at the hotel", "Dinner & rest"] },
+//       { day: 2, heading: "Narkanda to Chitkul", description: ["Depart for Chitkul via Rampur & Sangla Valley", "Reach Chitkul, explore Baspa River", "Check-in at a riverside homestay", "Bonfire & dinner"] },
+//       { day: 3, heading: "Chitkul to Kalpa", description: ["Depart for Kalpa via Kinnaur Valley", "Check-in at a hotel in Kalpa", "Visit Suicide Point & Roghi Village", "Sunset view of Kinner Kailash Range", "Dinner & rest"] },
+//     ],
+//   },
+//   {
+//     heading: "Sethan Igloo Stay & Snow Trek (2N/3D)",
+//     description: "Experience the Magical Winter Wonderland of Sethan near Manali",
+//     photo: "sethan_snow.jpg",
+//     quadPrice: 7999,
+//     triPrice: 8999,
+//     doubPrice: 9999,
+//     singlePrice: null,
+//     inclusions: [
+//       "Accommodation (Cozy Wooden Cabin / Homestay / Igloo Stay)",
+//       "Meals – Breakfast & Dinner",
+//       "Transportation – Delhi to Manali & return",
+//       "Snow Activities – Snow Trek, Sledding, Tubing (Seasonal)",
+//       "Bonfire & Music Sessions",
+//     ],
+//     exclusions: [
+//       "Lunch & Any Personal Expenses",
+//       "Adventure Activities (Skiing, Snowboarding – Optional)",
+//       "Any Medical or Emergency Evacuation Costs",
+//       "5% GST",
+//     ],
+//     itenary: [
+//       { day: 1, heading: "Delhi to Manali to Sethan", description: ["Overnight journey from Delhi to Manali", "Arrive in Manali, freshen up", "Depart for Sethan", "Check-in at a cozy Wooden Cabin/Homestay", "Bonfire & Stargazing"] },
+//       { day: 2, heading: "Snow Activities & Exploration", description: ["Snow Trek or Snowboarding/Skiing", "Hampta Valley Hike", "Igloo Stay Experience", "Bonfire & Music Session"] },
+//       { day: 3, heading: "Sethan to Manali to Delhi", description: ["Drive back to Manali, explore Mall Road", "Lunch at a café in Old Manali", "Board an overnight bus/private vehicle back to Delhi", "Reach Delhi next morning"] },
+//     ],
+//   },
+// ];
 
-Destination.insertMany(destinations)
-  .then(() => {
-    mongoose.connection.close();
-  })
-  .catch((err) => {
-    console.error("Error inserting destinations:", err);
-  });
+// Destination.insertMany(destinations)
+//   .then(() => {
+//     mongoose.connection.close();
+//   })
+//   .catch((err) => {
+//     console.error("Error inserting destinations:", err);
+//   });
 
 app.get("/api/destinations", async (req, res) => {
   try {
