@@ -7,7 +7,7 @@ import { useTheme } from "../ThemeContext/ThemeContext";
 
 function Home() {
   const [destinations, setDestinations] = useState([]);
-  const [visibleCount, setVisibleCount] = useState(4); // Start with 4 cards
+  const [visibleCount, setVisibleCount] = useState(3); // Start with 4 cards
   const { mode } = useTheme();
   useEffect(() => {
     fetch(`${import.meta.env.VITE_HOST}/api/destinations`)
@@ -18,7 +18,7 @@ function Home() {
 
   // Show more destinations
   const handleLoadMore = () => {
-    setVisibleCount((prevCount) => prevCount + 4); // Load 4 more on each click
+    setVisibleCount((prevCount) => prevCount + 3); // Load 4 more on each click
   };
 
   return (

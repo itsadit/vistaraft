@@ -123,7 +123,7 @@ function Payment() {
 
 
   return (
-<>
+
     <div className={`${mode === "light" ? "!bg-gray-100" : "bg-gray-900 text-white"}`}>
       <section
         className="relative flex items-center justify-center text-center min-h-screen bg-cover bg-center bg-no-repeat"
@@ -177,7 +177,7 @@ function Payment() {
                 {/* Descriptive Text */}
                 <p className="text-gray-400">Days of Trip</p>
                 {/* Main Text */}
-                <h2 className="text-xl font-bold">2N-3D</h2>
+                <h2 className="text-xl font-bold">{selectedDestination?.nights}N-{selectedDestination?.days}D</h2>
               </div>
 
               {/* Pickup & Drop Block */}
@@ -339,7 +339,7 @@ function Payment() {
           </motion.div>
         </div>
       </div>
-      <div className={` shadow-2xl  lg:mx-12 flex lg:flex-row justify-around flex-col justify-center min-h-screen p-4 pt-8 gap-8 ${mode === "light" ? "!bg-white text-black" : "bg-gray-900 text-white"}`}>
+      <div className={`shadow-2xl  lg:mx-12 flex lg:flex-row justify-around flex-col justify-center min-h-screen p-4 pt-8 gap-8 ${mode === "light" ? "!bg-white text-black" : "bg-gray-900 text-white"}`}>
         <div className="shd mb-5 things__to__carry w-full">
           <div className="my-4 mx-6 about__tab__buttons Mon_font w-full lg:flex items-center">
             <button className={`bg-gradient-to-r from-blue-500 to-purple-600 mb-2 lg:w-1/3 w-2/3 mx-8 ${activeTab === "cancellation" ? "active" : ""}`} onClick={() => setActiveTab("cancellation")}>Cancellation Policy</button>
@@ -357,24 +357,7 @@ function Payment() {
         </div>
       </div>
     </div>
-    <div className={` shadow-2xl rounded-2xl lg:mx-12 flex lg:flex-row justify-around flex-col justify-center min-h-screen p-4 pt-8 gap-8 ${mode === "light" ? "!bg-gray-100 text-black" : "bg-gray-900 text-white"}`}>
-      <div className="shd mb-5 things__to__carry w-full">
-        <div className="my-4 mx-6 about__tab__buttons Mon_font w-full lg:flex items-center">
-          <button className={`bg-gradient-to-r from-blue-500 to-purple-600 mb-2 lg:w-1/3 w-2/3 mx-8 ${activeTab === "cancellation" ? "active" : ""}`} onClick={() => setActiveTab("cancellation")}>Cancellation Policy</button>
-          <button className={`bg-gradient-to-r from-blue-500 to-purple-600 mb-2 lg:w-1/3 w-2/3 mx-lg-4 mx-8 ${activeTab === "terms" ? "active" : ""}`} onClick={() => setActiveTab("terms")}>Terms and Conditions</button>
-          <button className={`bg-gradient-to-r from-blue-500 to-purple-600 mb-2 lg:w-1/3 w-2/3 mx-8 ${activeTab === "things" ? "active" : ""}`} onClick={() => setActiveTab("things")}>Things to Carry</button>
-        </div>
-        <motion.div
-          initial={{ opacity: 0, scale: 0.8 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.6, ease: "easeOut" }}
-          className="lg:mx-20 mx-10 w-6/7 justify-center"
-        >
-          {renderContent()}
-        </motion.div>
-      </div>
-    </div>
-    </>
+
    
   );
 }
