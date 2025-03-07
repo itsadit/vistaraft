@@ -141,6 +141,7 @@ app.post("/api/payments", async (req, res) => {
 //   }
 // });
 
+<<<<<<< HEAD
 // const destinations = [
 //   {
 //     id: 1,
@@ -583,6 +584,8 @@ const destinations = [
 ];
 
 
+=======
+>>>>>>> fe7c3e7359a6c6d35e6b9fffe1020d1312458652
 
 const destinationSchema = new mongoose.Schema({
   heading: String,
@@ -604,13 +607,103 @@ const destinationSchema = new mongoose.Schema({
 });
 
 const Destination = mongoose.model("Destination", destinationSchema, "destinations");
+
+// const destinations = [
+//   {
+//     heading: "Delhi – Leh – Ladakh – Srinagar Road Trip Package (7N/8D)",
+//     description: "Manali to Leh via Sarchu & Return via Srinagar for a Complete Circuit",
+//     photo: "leh_ladakh.jpg",
+//     quadPrice: 24999,
+//     triPrice: 26999,
+//     doubPrice: 28999,
+//     singlePrice: null,
+//     inclusions: [
+//       "Accommodation (Hotels/Campsites/Houseboat) on double/triple sharing basis",
+//       "Meals – Breakfast & Dinner",
+//       "Transport – Comfortable SUV/Tempo Traveller with driver",
+//       "Experienced Guide/Trip Captain",
+//       "Inner Line Permits for Ladakh",
+//       "Environmental & Wildlife Fees",
+//       "Oxygen Cylinder & First Aid Kit for emergencies",
+//     ],
+//     exclusions: [
+//       "Any Airfare/Train tickets",
+//       "Lunch & personal expenses (snacks, drinks, shopping)",
+//       "Adventure activities (camel ride, ATV rides, rafting)",
+//       "Travel insurance",
+//       "Extra costs due to landslides, weather, or political closures",
+//       "Any medical or evacuation charges",
+//     ],
+//     itenary: [
+//       { day: 1, heading: "Delhi to Manali", description: ["Early morning departure from Delhi", "En route breakfast & lunch at Chandigarh/Mandi", "Arrive in Manali, check-in, and explore Mall Road", "Overnight stay in Manali (Hotel)"] },
+//       { day: 2, heading: "Manali to Sarchu", description: ["Drive via Atal Tunnel, Keylong, Jispa & Baralacha La Pass", "Visit Deepak Tal & Suraj Tal Lakes", "Check-in at Sarchu Camps, acclimatize", "Overnight stay in Sarchu (Campsite)"] },
+//       { day: 3, heading: "Sarchu to Leh", description: ["Drive via Gata Loops, Nakee La, Lachung La & Tanglang La", "Visit More Plains & Tso Kar Lake", "Reach Leh by evening, check-in at the hotel", "Overnight stay in Leh (Hotel)"] },
+//     ],
+//   },
+//   {
+//     heading: "Spiti Valley Road Trip (6N/7D)",
+//     description: "Shimla – Chitkul – Kalpa – Kaza – Chandratal – Manali Circuit",
+//     photo: "spiti_valley.jpg",
+//     quadPrice: 21999,
+//     triPrice: 23999,
+//     doubPrice: 25999,
+//     singlePrice: null,
+//     inclusions: [
+//       "Accommodation for 6 Nights (Hotels, Camps & Guesthouses)",
+//       "Meals – Breakfast & Dinner (As per itinerary)",
+//       "Transportation – SUV/Tempo Traveler/Bike",
+//       "Inner Line Permits & Environmental Fees",
+//       "Oxygen Cylinder & First-Aid Kit",
+//     ],
+//     exclusions: [
+//       "Airfare/Train Tickets to Delhi",
+//       "Lunch & Any Personal Expenses",
+//       "Fuel (for Bike Rentals)",
+//       "Adventure Activities (Rafting, Ziplining, ATV Rides)",
+//       "5% GST",
+//     ],
+//     itenary: [
+//       { day: 1, heading: "Delhi to Narkanda", description: ["Depart from Delhi at 4:00 AM", "Breakfast stop at Chandigarh", "Lunch at Kufri/Shimla", "Reach Narkanda, check-in at the hotel", "Dinner & rest"] },
+//       { day: 2, heading: "Narkanda to Chitkul", description: ["Depart for Chitkul via Rampur & Sangla Valley", "Reach Chitkul, explore Baspa River", "Check-in at a riverside homestay", "Bonfire & dinner"] },
+//       { day: 3, heading: "Chitkul to Kalpa", description: ["Depart for Kalpa via Kinnaur Valley", "Check-in at a hotel in Kalpa", "Visit Suicide Point & Roghi Village", "Sunset view of Kinner Kailash Range", "Dinner & rest"] },
+//     ],
+//   },
+//   {
+//     heading: "Sethan Igloo Stay & Snow Trek (2N/3D)",
+//     description: "Experience the Magical Winter Wonderland of Sethan near Manali",
+//     photo: "sethan_snow.jpg",
+//     quadPrice: 7999,
+//     triPrice: 8999,
+//     doubPrice: 9999,
+//     singlePrice: null,
+//     inclusions: [
+//       "Accommodation (Cozy Wooden Cabin / Homestay / Igloo Stay)",
+//       "Meals – Breakfast & Dinner",
+//       "Transportation – Delhi to Manali & return",
+//       "Snow Activities – Snow Trek, Sledding, Tubing (Seasonal)",
+//       "Bonfire & Music Sessions",
+//     ],
+//     exclusions: [
+//       "Lunch & Any Personal Expenses",
+//       "Adventure Activities (Skiing, Snowboarding – Optional)",
+//       "Any Medical or Emergency Evacuation Costs",
+//       "5% GST",
+//     ],
+//     itenary: [
+//       { day: 1, heading: "Delhi to Manali to Sethan", description: ["Overnight journey from Delhi to Manali", "Arrive in Manali, freshen up", "Depart for Sethan", "Check-in at a cozy Wooden Cabin/Homestay", "Bonfire & Stargazing"] },
+//       { day: 2, heading: "Snow Activities & Exploration", description: ["Snow Trek or Snowboarding/Skiing", "Hampta Valley Hike", "Igloo Stay Experience", "Bonfire & Music Session"] },
+//       { day: 3, heading: "Sethan to Manali to Delhi", description: ["Drive back to Manali, explore Mall Road", "Lunch at a café in Old Manali", "Board an overnight bus/private vehicle back to Delhi", "Reach Delhi next morning"] },
+//     ],
+//   },
+// ];
+
 // Destination.insertMany(destinations)
 //   .then(() => {
-//     console.log("Data inserted successfully");
 //     mongoose.connection.close();
 //   })
-//   .catch((error) => console.error(error));
-
+//   .catch((err) => {
+//     console.error("Error inserting destinations:", err);
+//   });
 
 app.get("/api/destinations", async (req, res) => {
   try {
@@ -678,131 +771,131 @@ app.post("/api/feedback", upload.single("image"), async (req, res) => {
 });
 
 
-// // Define the updated itinerary
-const updatedItenary = [
-  {
-    day: 1,
-    heading: "Overnight Journey from Delhi / Haridwar to Barkot via Dehradun & Mussoorie",
-    description: [
-      "Morning stop for breakfast and visit Shashtra Dhara, Prakashwer temple, and Kempty Falls.",
-      "Continue journey to Barkot via Mussoorie."
-    ]
-  },
-  {
-    day: 2,
-    heading: "Reaching Barkot",
-    description: [
-      "Arrive in Barkot and check into the hotel.",
-      "Enjoy the meal and take rest to prepare for the next day's trek."
-    ]
-  },
-  {
-    day: 3,
-    heading: "Barkot - Yamunotri Dham Darshan - Barkot | Overnight Stay",
-    description: [
-      "After breakfast, travel to Jankichatti/Phoolchatti.",
-      "Start a 6 km trek to Yamunotri (optional horse ride or pony available).",
-      "Visit Yamunotri Temple, Divya Shila, Surya Kund.",
-      "Return to Barkot and stay overnight."
-    ]
-  },
-  {
-    day: 4,
-    heading: "Barkot - Uttarkashi - Vishwanath Temple | Overnight Stay",
-    description: [
-      "Travel from Barkot to Uttarkashi (80 km, approx. 2-3 hours).",
-      "Check into the hotel and freshen up.",
-      "Visit the famous Vishwanath Temple.",
-      "Overnight stay in Uttarkashi."
-    ]
-  },
-  {
-    day: 5,
-    heading: "Uttarkashi - Gangotri Dham Darshan - Uttarkashi | Overnight Stay",
-    description: [
-      "After breakfast, travel to Gangotri (100 km, approx. 2-3 hours).",
-      "Visit Gangotri Temple, Surya Kund, Bhagirath Shila.",
-      "Explore Gomukh.",
-      "Return to Uttarkashi for an overnight stay."
-    ]
-  },
-  {
-    day: 6,
-    heading: "Uttarkashi - Guptkashi via Mandakini River | Overnight Stay",
-    description: [
-      "After breakfast, travel to Guptkashi (197 km, approx. 7-8 hours).",
-      "En route, witness Mandakini River at Tilwara.",
-      "Check into a hotel in Guptkashi for overnight stay."
-    ]
-  },
-  {
-    day: 7,
-    heading: "Guptkashi - Sonprayag - Kedarnath Trek | Overnight Stay",
-    description: [
-      "Travel 30 km from Guptkashi to Sonprayag.",
-      "Start 20 km trek to Kedarnath (carry essentials like warm clothes, medicines).",
-      "Visit Kedarnath Temple, Chorabari Tal, Ghorabari Glacier.",
-      "Overnight stay in Kedarnath Dham."
-    ]
-  },
-  {
-    day: 8,
-    heading: "Kedarnath Dham Darshan - Gaurikund - Sonprayag | Overnight Stay",
-    description: [
-      "Early morning visit to Kedarnath Temple.",
-      "Witness the scenic beauty of the Garhwal Himalayan Range.",
-      "Trek down to Gaurikund and reach Sonprayag.",
-      "Dinner and overnight stay in Sonprayag."
-    ]
-  },
-  {
-    day: 9,
-    heading: "Sonprayag - Badrinath Dham Darshan | Overnight Stay",
-    description: [
-      "After breakfast, travel to Badrinath Dham.",
-      "Visit Pandukeshwar.",
-      "Dinner and overnight stay in Badrinath/Joshimath."
-    ]
-  },
-  {
-    day: 10,
-    heading: "Badrinath Dham - Rishikesh - Haridwar | Departure",
-    description: [
-      "After breakfast, drive to Rishikesh (218 km, approx. 6-7 hours).",
-      "Short break in Rishikesh, then continue to Haridwar (19 km, 30 min).",
-      "Attend Ganga Aarti in Rishikesh.",
-      "Overnight stay in Rishikesh."
-    ]
-  },
-  {
-    day: 11,
-    heading: "Neelkanth Visit & Return to Delhi",
-    description: [
-      "Morning visit to Neelkanth Temple.",
-      "Return journey to Delhi (187 km, approx. 7 hours).",
-      "Tour ends with beautiful memories."
-    ]
-  }
-];
+// // // Define the updated itinerary
+// const updatedItenary = [
+//   {
+//     day: 1,
+//     heading: "Overnight Journey from Delhi / Haridwar to Barkot via Dehradun & Mussoorie",
+//     description: [
+//       "Morning stop for breakfast and visit Shashtra Dhara, Prakashwer temple, and Kempty Falls.",
+//       "Continue journey to Barkot via Mussoorie."
+//     ]
+//   },
+//   {
+//     day: 2,
+//     heading: "Reaching Barkot",
+//     description: [
+//       "Arrive in Barkot and check into the hotel.",
+//       "Enjoy the meal and take rest to prepare for the next day's trek."
+//     ]
+//   },
+//   {
+//     day: 3,
+//     heading: "Barkot - Yamunotri Dham Darshan - Barkot | Overnight Stay",
+//     description: [
+//       "After breakfast, travel to Jankichatti/Phoolchatti.",
+//       "Start a 6 km trek to Yamunotri (optional horse ride or pony available).",
+//       "Visit Yamunotri Temple, Divya Shila, Surya Kund.",
+//       "Return to Barkot and stay overnight."
+//     ]
+//   },
+//   {
+//     day: 4,
+//     heading: "Barkot - Uttarkashi - Vishwanath Temple | Overnight Stay",
+//     description: [
+//       "Travel from Barkot to Uttarkashi (80 km, approx. 2-3 hours).",
+//       "Check into the hotel and freshen up.",
+//       "Visit the famous Vishwanath Temple.",
+//       "Overnight stay in Uttarkashi."
+//     ]
+//   },
+//   {
+//     day: 5,
+//     heading: "Uttarkashi - Gangotri Dham Darshan - Uttarkashi | Overnight Stay",
+//     description: [
+//       "After breakfast, travel to Gangotri (100 km, approx. 2-3 hours).",
+//       "Visit Gangotri Temple, Surya Kund, Bhagirath Shila.",
+//       "Explore Gomukh.",
+//       "Return to Uttarkashi for an overnight stay."
+//     ]
+//   },
+//   {
+//     day: 6,
+//     heading: "Uttarkashi - Guptkashi via Mandakini River | Overnight Stay",
+//     description: [
+//       "After breakfast, travel to Guptkashi (197 km, approx. 7-8 hours).",
+//       "En route, witness Mandakini River at Tilwara.",
+//       "Check into a hotel in Guptkashi for overnight stay."
+//     ]
+//   },
+//   {
+//     day: 7,
+//     heading: "Guptkashi - Sonprayag - Kedarnath Trek | Overnight Stay",
+//     description: [
+//       "Travel 30 km from Guptkashi to Sonprayag.",
+//       "Start 20 km trek to Kedarnath (carry essentials like warm clothes, medicines).",
+//       "Visit Kedarnath Temple, Chorabari Tal, Ghorabari Glacier.",
+//       "Overnight stay in Kedarnath Dham."
+//     ]
+//   },
+//   {
+//     day: 8,
+//     heading: "Kedarnath Dham Darshan - Gaurikund - Sonprayag | Overnight Stay",
+//     description: [
+//       "Early morning visit to Kedarnath Temple.",
+//       "Witness the scenic beauty of the Garhwal Himalayan Range.",
+//       "Trek down to Gaurikund and reach Sonprayag.",
+//       "Dinner and overnight stay in Sonprayag."
+//     ]
+//   },
+//   {
+//     day: 9,
+//     heading: "Sonprayag - Badrinath Dham Darshan | Overnight Stay",
+//     description: [
+//       "After breakfast, travel to Badrinath Dham.",
+//       "Visit Pandukeshwar.",
+//       "Dinner and overnight stay in Badrinath/Joshimath."
+//     ]
+//   },
+//   {
+//     day: 10,
+//     heading: "Badrinath Dham - Rishikesh - Haridwar | Departure",
+//     description: [
+//       "After breakfast, drive to Rishikesh (218 km, approx. 6-7 hours).",
+//       "Short break in Rishikesh, then continue to Haridwar (19 km, 30 min).",
+//       "Attend Ganga Aarti in Rishikesh.",
+//       "Overnight stay in Rishikesh."
+//     ]
+//   },
+//   {
+//     day: 11,
+//     heading: "Neelkanth Visit & Return to Delhi",
+//     description: [
+//       "Morning visit to Neelkanth Temple.",
+//       "Return journey to Delhi (187 km, approx. 7 hours).",
+//       "Tour ends with beautiful memories."
+//     ]
+//   }
+// ];
 
-// Find the document using `heading` and update the itinerary
-Destination.findOneAndUpdate(
-  { heading: "Char Dham" }, // Find by heading
-  { $set: { itenary: updatedItenary } },
-  { new: true } // Return updated document
-)
-  .then((updatedTrip) => {
-    if (!updatedTrip) {
-      console.log("No document found with the given heading.");
-    } else {
-      console.log("Updated Trip Itinerary:", updatedTrip);
-    }
-    mongoose.connection.close();
-  })
-  .catch((err) => {
-    console.error("Error updating trip:", err);
-    mongoose.connection.close();
-  });
+// // Find the document using `heading` and update the itinerary
+// Destination.findOneAndUpdate(
+//   { heading: "Char Dham" }, // Find by heading
+//   { $set: { itenary: updatedItenary } },
+//   { new: true } // Return updated document
+// )
+//   .then((updatedTrip) => {
+//     if (!updatedTrip) {
+//       console.log("No document found with the given heading.");
+//     } else {
+//       console.log("Updated Trip Itinerary:", updatedTrip);
+//     }
+//     mongoose.connection.close();
+//   })
+//   .catch((err) => {
+//     console.error("Error updating trip:", err);
+//     mongoose.connection.close();
+//   });
 
 
 
