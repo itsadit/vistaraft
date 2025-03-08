@@ -146,6 +146,7 @@ const destinationSchema = new mongoose.Schema({
   heading: String,
   description: String,
   photo: String,
+  cover: String,
   quadPrice: Number,
   TriPrice: Number,
   doubPrice: Number,
@@ -156,7 +157,10 @@ const destinationSchema = new mongoose.Schema({
     day: Number,
     heading: String,
     description: [String]
-  }]
+  }],
+  things:[String],
+  nights:Number,
+  days:Number
 });
 
 const Destination = mongoose.model("Destination", destinationSchema, "destinations");
