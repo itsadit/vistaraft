@@ -177,7 +177,7 @@ function Payment() {
                 {/* Descriptive Text */}
                 <p className="text-gray-400">Days of Trip</p>
                 {/* Main Text */}
-                <h2 className="text-xl font-bold">2N-3D</h2>
+                <h2 className="text-xl font-bold">{selectedDestination?.nights}N-{selectedDestination?.days}D</h2>
               </div>
 
               {/* Pickup & Drop Block */}
@@ -339,7 +339,7 @@ function Payment() {
           </motion.div>
         </div>
       </div>
-      <div className={` shadow-2xl  lg:mx-12 flex lg:flex-row justify-around flex-col justify-center min-h-screen p-4 pt-8 gap-8 ${mode === "light" ? "!bg-white text-black" : "bg-gray-900 text-white"}`}>
+      <div className={`shadow-2xl  lg:mx-12 flex lg:flex-row justify-around flex-col justify-center min-h-screen p-4 pt-8 gap-8 ${mode === "light" ? "!bg-white text-black" : "bg-gray-900 text-white"}`}>
         <div className="shd mb-5 things__to__carry w-full">
           <div className="my-4 mx-6 about__tab__buttons Mon_font w-full lg:flex items-center">
             <button className={`bg-gradient-to-r from-blue-500 to-purple-600 mb-2 lg:w-1/3 w-2/3 mx-8 ${activeTab === "cancellation" ? "active" : ""}`} onClick={() => setActiveTab("cancellation")}>Cancellation Policy</button>
@@ -357,6 +357,8 @@ function Payment() {
         </div>
       </div>
     </div>
+
+
   );
 }
 
