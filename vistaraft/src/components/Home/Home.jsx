@@ -38,9 +38,17 @@ function Home() {
   const handleLoadMore = () => {
     setVisibleCount((prevCount) => prevCount + 3); // Load 4 more on each click
   };
-
+  const [hovered, setHovered] = useState(false);
+  useEffect(() => {
+    const interval = setInterval(() => {
+      if(!hovered){
+        nextSlide();
+      }
+    },2000);
+    return () => clearInterval(interval);
+  });
   return (
-    <div className={`w-full overflow-hidden font-poppins ${mode === 'light' ? '!bg-gray-100' : 'bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900'} ${mode === 'dark' ? 'text-white' : '!text-gray-900'}`}>
+    <div className={`w-full items-center overflow-hidden font-poppins ${mode === 'light' ? '!bg-gray-100' : 'bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900'} ${mode === 'dark' ? 'text-white' : '!text-gray-900'}`}>
       {/* Hero Section */}
       <div className="relative w-full h-screen">
         <Hero />
@@ -52,7 +60,7 @@ function Home() {
       <br />
 
       {/* Section Title */}
-      <h1 className="text-center mb-8 text-4xl font-extrabold md:text-5xl lg:text-6xl">
+      <h1 className="text-center mb-2 text-4xl font-extrabold md:text-5xl lg:text-6xl">
         <span className="text-transparent bg-clip-text bg-gradient-to-r from-teal-400 to-blue-500">
           Explore The Best
         </span>{" "}
@@ -60,13 +68,13 @@ function Home() {
       </h1>
 
       {/* Sliding Cards Carousel */}
-      <div className="relative min-h-screen w-full flex items-center justify-center overflow-hidden">
+      <div className="relative h-110 w-full flex items-center justify-center overflow-hidden">
         {destinations.map((destination, i) => {
           const pos = generatePositions()[(i - index + destinations.length) % destinations.length];
           return (
             <motion.div
               key={destination.id}
-              className="absolute w-[90%] w-48 lg:w-80 h-[450px] h-[500px] rounded-xl shadow-lg"
+              className="absolute w-[90%] w-48 lg:w-80  rounded-xl shadow-lg"
               initial={{ opacity: 0 }}
               animate={{ scale: pos.scale, x: pos.x, zIndex: pos.zIndex, opacity: pos.opacity }}
               transition={{ duration: 0.5 }}
@@ -80,11 +88,14 @@ function Home() {
                   prevSlide();
                 }
               }}
+              onMouseEnter={() => setHovered(true)}
+              onMouseLeave={() => setHovered(false)}
             >
               <Card
                 heading={destination.heading}
                 description={destination.description}
                 photo={destination.photo}
+                zIndex={pos.zIndex}
               />
             </motion.div>
           );

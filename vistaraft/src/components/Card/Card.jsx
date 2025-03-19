@@ -2,51 +2,76 @@ import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { useTheme } from "../ThemeContext/ThemeContext";
 import React, { useEffect, useRef, useState } from 'react';
-function Card({ photo, heading, description }) {
+function Card({ photo, heading, description, zIndex }) {
   const { mode } = useTheme();
   const imageRef = useRef(null);
   const cardRef = useRef(null);
   const [photoWidth, setPhotoWidth] = useState(0);
   const [cardWidth, setCardWidth] = useState(0);
-
+  const [hover, setHover] = useState(false);
   useEffect(() => {
     if (imageRef.current && cardRef.current) {
       setPhotoWidth(imageRef.current.offsetWidth);
       setCardWidth(cardRef.current.offsetWidth);
     }
   }, []);
+  
+  const hoveref = () => {
+    if(hover){
+    setHover(false);
+    }else{
+      setHover(true);
+    }
+  }
+
   return (
+    <Link
+            to={`/payment?heading=${encodeURIComponent(heading)}&description=${encodeURIComponent(description)}`}
+            className=""
+          >
+            {hover && zIndex===3 && (<motion.div className="absolute p-5 z-20 flex flex-col flex-grow">
+        <motion.h5 
+          initial={{ opacity: 0, y: -10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          className={`mb-2 text-2xl font-bold tracking-tight text-white`}>
+          {heading}
+        </motion.h5>
+        <motion.div initial={{opacity: 0, x:-10}} animate={{opacity:1,x:0}} transition={{duration:0.5}} className="h-1 w-20 bg-white mb-3"></motion.div>
+
+        <motion.p
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+         className={`mb-3 font-normal flex-grow text-white`}>
+          {description}
+        </motion.p>
+        </motion.div>)}
     <motion.div
       whileHover={{ scale: 1.05 }}
       transition={{ duration: 0.3 }}
-      className={`max-w-sm h-full flex flex-col ${mode === 'light' ? '!bg-gray-100' : 'bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900'} border ${mode === 'light' ? '!border-gray-100' : 'border-gray-900'} rounded-lg shadow-md overflow-hidden transform transition-all duration-300 hover:shadow-2xl`}
+      className={`w-96 h-68 flex flex-col border rounded-lg backdrop-blur-2xl shadow-md overflow-hidden transform transition-all duration-300 hover:shadow-2xl`}
+      style={{backgroundImage: `url(${photo})`, backgroundSize: 'cover', backgroundPosition: 'center', filter:hover&&zIndex===3?'brightness(0.5)': hover&&zIndex!==3?'blur(8px)':'brightness(1)'}}
+      onMouseEnter={hoveref}
+      onMouseLeave={hoveref}
+      
     >
+      
       {/* Card Image */}
-      <motion.img
+      {/* <motion.img
         src={photo}
         alt="trip photo"
-        className="w-full h-64 object-cover rounded-t-lg transition-transform duration-300 hover:scale-105"
+        className="w-full h-full object-cover rounded-t-lg transition-transform duration-300 hover:scale-105"
         initial={{ x: 0 }}
         animate={{ x: photoWidth > cardWidth ? ["-30%", "0%"] : "0%" }} // Move only if wider
         transition={{ repeat: Infinity, duration: 8, ease: "linear" }}
-      />
+      /> */}
 
       {/* Card Content */}
-      <div className="p-5 flex flex-col flex-grow">
-        <h5 className={`mb-2 text-2xl font-bold tracking-tight ${mode === 'dark' ? 'text-white' : '!text-gray-900'}`}>
-          {heading}
-        </h5>
-
-        <p className={`mb-3 font-normal flex-grow ${mode === 'dark' ? 'text-gray-400' : '!text-gray-700'}`}>
-          {description}
-        </p>
-
-        {/* Button Container */}
+      
+        {/* Button Container
         <div className="mt-auto">
-          <Link
-            to={`/payment?heading=${encodeURIComponent(heading)}&description=${encodeURIComponent(description)}`}
-            className="inline-flex items-center px-4 py-2 text-sm font-medium !text-white bg-gradient-to-r from-blue-500 to-blue-700 rounded-lg hover:from-blue-600 hover:to-blue-800 transition-all duration-300"
-          >
+          
             Let's go
             <svg
               className="rtl:rotate-180 w-4 h-4 ml-2"
@@ -63,10 +88,12 @@ function Card({ photo, heading, description }) {
                 d="M1 5h12m0 0L9 1m4 4L9 9"
               />
             </svg>
-          </Link>
-        </div>
-      </div>
+          
+        </div> */}
+      {/* </div> */}
+      
     </motion.div>
+    </Link>
 
   );
 }

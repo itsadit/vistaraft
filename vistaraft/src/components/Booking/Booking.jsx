@@ -1,7 +1,7 @@
 import logo from "@/assets/logoVista.jpg";
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
-import Card from "../Card/Card";
+import Available from "../Available/Available";
 import { useTheme } from "../ThemeContext/ThemeContext";
 
 
@@ -27,7 +27,7 @@ function Booking() {
       {/* Grid Container for Cards */}
       <div id="discover" className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-auto-fit gap-8 px-8 pb-12 max-w-screen-xl mx-auto">
 
-        {destinations.map((destination) => (<Card key={destination.id} heading={destination.heading} description={destination.description} photo={destination.photo} />))}
+        {destinations.map((destination) => (<Available key={destination.id} heading={destination.heading} description={destination.description} photo={destination.photo} />))}
       </div>
     </div>
   )
