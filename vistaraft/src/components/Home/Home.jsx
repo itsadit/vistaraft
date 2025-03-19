@@ -7,7 +7,11 @@ import { useTheme } from "../ThemeContext/ThemeContext";
 
 function Home() {
   const [destinations, setDestinations] = useState([]);
+<<<<<<< HEAD
   const [index, setIndex] = useState(0);
+=======
+  const [visibleCount, setVisibleCount] = useState(3); // Start with 4 cards
+>>>>>>> 832200d39c01e9dc5d4f203ef532f9b4ac26a6be
   const { mode } = useTheme();
 
   useEffect(() => {
@@ -17,6 +21,7 @@ function Home() {
       .catch((error) => console.error("Error fetching destinations:", error));
   }, []);
 
+<<<<<<< HEAD
   const generatePositions = () => [
     { scale: 1.3, x: 0, zIndex: 3, opacity: 1 }, // Front card (centered)
     { scale: 1, x: 220, zIndex: 2, opacity: 0.5 }, // Right side
@@ -32,6 +37,11 @@ function Home() {
 
   const prevSlide = () => {
     setIndex((prev) => (prev - 1 + destinations.length) % destinations.length);
+=======
+  // Show more destinations
+  const handleLoadMore = () => {
+    setVisibleCount((prevCount) => prevCount + 3); // Load 4 more on each click
+>>>>>>> 832200d39c01e9dc5d4f203ef532f9b4ac26a6be
   };
 
   return (
