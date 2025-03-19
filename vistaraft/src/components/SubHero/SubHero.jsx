@@ -1,8 +1,12 @@
 import { motion } from "framer-motion";
 import { useTheme } from "../ThemeContext/ThemeContext";
+import {useEffect} from "react";
+import CountUp from "react-countup";
+import { useInView } from "react-intersection-observer";
 
 function SubHero() {
   const {mode} = useTheme();
+  const { ref, inView } = useInView();
   return (
     <div id="subhero" className="flex flex-col lg:flex-row items-center justify-between bg-transparent px-8 py-16 rounded-lg w-screen max-w-6xl mx-auto">
       {/* Left Section - Images */}
@@ -57,19 +61,19 @@ function SubHero() {
         {/* Statistics */}
         <div className="grid grid-cols-2 gap-6 mt-6 text-center">
           <div>
-            <span className="text-blue-700 font-bold text-2xl">100+</span>
+            <span className="text-blue-700 font-bold text-2xl" ref={ref}>{inView && <CountUp start={0} end={100} duration={3} useEasing={false}/>}+</span>
             <p className="text-gray-500 text-lg">Holiday Packages</p>
           </div>
           <div>
-            <span className="text-blue-700 font-bold text-2xl">172</span>
+            <span className="text-blue-700 font-bold text-2xl"ref={ref}>{inView && <CountUp start={0} end={172} duration={3} useEasing={false}/>}</span>
             <p className="text-gray-500 text-lg">Luxury Hotels</p>
           </div>
           <div>
-            <span className="text-blue-700 font-bold text-2xl">68</span>
+            <span className="text-blue-700 font-bold text-2xl"ref={ref}>{inView && <CountUp start={0} end={68} duration={3} useEasing={false}/>}</span>
             <p className="text-gray-500 text-lg">Elite Transport Services</p>
           </div>
           <div>
-            <span className="text-blue-700 font-bold text-2xl">3k+</span>
+          <span className="text-blue-700 font-bold text-2xl"ref={ref}>{inView && <CountUp start={0} end={3000} duration={3} useEasing={false} />}+</span>
             <p className="text-gray-500 text-lg">Happy Travelers</p>
           </div>
         </div>

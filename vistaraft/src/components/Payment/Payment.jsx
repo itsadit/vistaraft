@@ -16,8 +16,7 @@ function Payment() {
   const heading = queryParams.get("heading");
 
   const [selectedDestination, setSelectedDestination] = useState(null);
-  const [openSection, setOpenSection] = useState(null);
-
+  const [openSection, setOpenSection] = useState("itinerary");
   const [pricing, setPricing] = useState({
     single: 0,
     double: 0,
@@ -72,21 +71,21 @@ function Payment() {
     switch (activeTab) {
       case "cancellation":
         return (
-          <div className="bg-white shadow-lg rounded-xl p-6 mb-6">
+          <div className="transparent shadow-lg rounded-xl p-6 mb-6">
             <h6 className="font-semibold text-lg mb-4">
               No Refund shall be made with respect to the initial booking amount for any cancellations. However,
             </h6>
             <ul className="space-y-3">
-              <li className="text-gray-700 text-sm">
+              <li className={`${mode==='dark'?"text-gray-200":"text-gray-700"} text-sm`}>
                 • If cancellations are made 30 days before the start date of the trip, 50% of the Advance amount will be charged as cancellation fees.
               </li>
-              <li className="text-gray-700 text-sm">
+              <li className={`${mode==='dark'?"text-gray-200":"text-gray-700"} text-sm`}>
                 • If cancellations are made 15-30 days before the start date of the trip, 75% of the Advance amount will be charged as cancellation fees.
               </li>
-              <li className="text-gray-700 text-sm">
+              <li className={`${mode==='dark'?"text-gray-200":"text-gray-700"} text-sm`}>
                 • If cancellations are made within 0-15 days before the start date of the trip, 100% of the Advance amount will be charged as cancellation fees.
               </li>
-              <li className="text-gray-700 text-sm">
+              <li className={`${mode==='dark'?"text-gray-200":"text-gray-700"} text-sm`}>
                 • In the case of unforeseen weather conditions or government restrictions, certain activities may be cancelled and in such cases, the operator will try his best to provide an alternate feasible activity. However, no refund will be provided for the same.
               </li>
             </ul>
@@ -94,9 +93,9 @@ function Payment() {
         );
       case "terms":
         return (
-          <div className="bg-white shadow-lg rounded-xl p-6 mb-6">
+          <div className={`transparent shadow-lg rounded-xl p-6 mb-6`}>
             <ul className="space-y-3">
-              <li className="text-gray-700 text-sm font-medium">
+              <li className={`${mode==='dark'?"text-gray-200":"text-gray-700"} text-sm font-medium`}>
                 • Full Payment of the trip cost must be made before the trip begins.
               </li>
             </ul>
@@ -104,11 +103,11 @@ function Payment() {
         );
       case "things":
         return (
-          <div className="bg-white shadow-lg rounded-xl p-6 mb-6">
+          <div className="transparent shadow-lg rounded-xl p-6 mb-6">
             <h6 className="font-semibold text-lg mb-4">Things to Carry:</h6>
             <ul className="space-y-3">
               {selectedDestination?.things.map((item, index) => (
-                <li key={index} className="text-gray-700 text-sm">
+                <li key={index} className={`${mode==='dark'?"text-gray-200":"text-gray-700"} text-sm`}>
                   • {item}
                 </li>
               ))}
@@ -119,8 +118,27 @@ function Payment() {
         return null;
     }
   };
+  const [openDays, setOpenDays] = useState({});
 
+  const toggleDay = (day) => {
+    setOpenDays((prev) => ({
+      ...prev,
+      [day]: !prev[day],
+    }));
+  };
 
+  useEffect(() => {
+    const ele1 = document.getElementById("dwp");
+    const ele2 = document.getElementById("inde");
+    if(openSection === "itinerary"){
+      
+      ele1.classList.add("border-white");
+      ele2.classList.remove("border-white");
+    }
+    else{
+      ele2.classList.add("border-white");
+      ele1.classList.remove("border-white");
+    }});
 
   return (
 
@@ -193,93 +211,74 @@ function Payment() {
 
             {/* Buttons */}
             <div className="flex mt-4 justify-center space-x-4">
-              <button className="bg-blue-600 px-4 py-2 rounded-lg" onClick={() => toggleSection("itinerary")}>
+              <button id="dwp" className="bg-blue-600 px-4  py-2 rounded-lg" onClick={() => setOpenSection(openSection === "itinerary" ? "itinerary" : "itinerary")}>
                 Day Wise Plan
               </button>
-              <button className="bg-gray-700 px-4 py-2 rounded-lg" onClick={() => toggleSection("inclusions_exclusions")}>Inclusions & Excl.</button>
+              <button id="inde" className="bg-gray-700 px-4 py-2 rounded-lg" onClick={() => setOpenSection(openSection === "inclusions_exclusions" ? "inclusions_exclusions" : "inclusions_exclusions")}>Inclusions & Excl.</button>
             </div>
           </div>
 
-          {/* Collapsible Sections */}
-          <div className="space-y-4">
-            {/* Day Wise Plan */}
-            <div
-              className="border border-gray-300 shadow-lg rounded-2xl overflow-hidden cursor-pointer"
-              onClick={() => toggleSection("itinerary")}
-            >
-              <button
-                className="w-full flex justify-between items-center p-6 text-left bg-gradient-to-r from-blue-500 to-purple-600 text-white font-semibold text-lg hover:bg-gradient-to-r hover:from-blue-600 hover:to-purple-700 transition-all duration-300"
-              >
-                <span>📅 Day Wise Plan</span>
-                <span className="transform transition-transform duration-300">
-                  {openSection === "itinerary" ? "▲" : "▼"}
-                </span>
-              </button>
+          <div className="space-y-4 sm:mx-6">
+      {/* Day Wise Plan */}
+      {openSection === "itinerary" && (
+        <div className="border border-gray-300 sm:mx-6 md:mx-6 shadow-lg rounded-2xl overflow-hidden">
+          <div className={`p-6 ${mode === "dark" ? "bg-gray-800 text-gray-200" : "bg-gray-50 text-gray-700"}`}>
+            {selectedDestination?.itenary.map((item, index) => (
+              <div key={index} className="mb-2">
+                <button
+                  onClick={() => toggleDay(item.day)}
+                  className="w-full border rounded-2xl border-gray-500 text-white bg-gradient-to-r from-blue-500 to-purple-600 flex justify-between items-center text-lg font-semibold text-blue-500 focus:outline-none"
+                >
+                  {`Day ${item.day}: ${item.heading}`}
+                  <span className="transform transition-transform duration-300">
+                    {openDays[item.day] ? "▲" : "▼"}
+                  </span>
+                </button>
 
-              {openSection === "itinerary" && (
                 <motion.div
                   initial={{ opacity: 0, height: 0 }}
-                  animate={{ opacity: 1, height: "auto" }}
+                  animate={openDays[item.day] ? { opacity: 1, height: "auto" } : { opacity: 0, height: 0 }}
                   exit={{ opacity: 0, height: 0 }}
-                  className={`p-6 ${mode === "dark" ? "bg-gray-800 text-gray-200" : "bg-gray-50 text-gray-700"}`}
+                  className="overflow-hidden"
                 >
-                  {selectedDestination?.itenary.map((item, index) => (
-                    <div key={index} className="mb-6">
-                      <h3 className="text-lg font-semibold text-blue-500 mb-2">{`Day ${item.day}: ${item.heading}`}</h3>
-                      <ul className="list-disc list-inside space-y-2 pl-5">
-                        {item.description.map((desc, i) => (
-                          <li key={i} className="text-gray-600 dark:text-gray-900">
-                            {desc}
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                  ))}
+                  <ul className="list-disc py-4 list-inside pl-5">
+                    {item.description.map((desc, i) => (
+                      <li key={i} className={` ${mode === "dark" ? "text-gray-300" : "text-gray-600"}`}>
+                        {desc}
+                      </li>
+                    ))}
+                  </ul>
                 </motion.div>
-              )}
-            </div>
-
-
-            {/* Inclusions & Exclusions */}
-            <div
-              className="border border-gray-300 shadow-lg rounded-2xl overflow-hidden cursor-pointer"
-              onClick={() => setOpenSection(openSection === "inclusions_exclusions" ? null : "inclusions_exclusions")}
-            >
-              <div className="w-full flex justify-between items-center px-6  text-left bg-gradient-to-r from-green-500 to-teal-600 text-white font-semibold text-semibold hover:bg-gradient-to-r hover:from-green-600 hover:to-teal-700 transition-all duration-300 h-[45px]">
-                <span>✅ Inclusions & ❌ Exclusions</span>
-                <span className={`transform transition-transform duration-300 ${openSection === "inclusions_exclusions" ? "rotate-180" : ""}`}>
-                  ▼
-                </span>
               </div>
-
-              {openSection === "inclusions_exclusions" && (
-                <motion.div
-                  initial={{ opacity: 0, height: 0 }}
-                  animate={{ opacity: 1, height: "auto" }}
-                  exit={{ opacity: 0, height: 0 }}
-                  className={`p-6 ${mode === "dark" ? "bg-gray-800 text-gray-200" : "bg-gray-50 text-gray-700"}`}
-                >
-                  <h2 className="text-xl font-bold text-green-500 mb-4">✔️ Trip Inclusions</h2>
-                  <ul className="list-disc list-inside space-y-2 pl-5">
-                    {selectedDestination?.inclusions.map((item, index) => (
-                      <li key={index} className="text-gray-600 dark:text-gray-900">
-                        {item}
-                      </li>
-                    ))}
-                  </ul>
-                  <h2 className="text-xl font-bold text-red-500 mt-6 mb-4">❌ Trip Exclusions</h2>
-                  <ul className="list-disc list-inside space-y-2 pl-5">
-                    {selectedDestination?.exclusions.map((item, index) => (
-                      <li key={index} className="text-gray-600 dark:text-gray-900">
-                        {item}
-                      </li>
-                    ))}
-                  </ul>
-                </motion.div>
-              )}
-            </div>
-
+            ))}
           </div>
+        </div>
+      )}
+
+      {/* Inclusions & Exclusions */}
+      {openSection === "inclusions_exclusions" && (
+        <div className="border sm:mx-6 md:mx-6 border-gray-300 shadow-lg rounded-2xl overflow-hidden">
+          <div className={`p-6 ${mode === "dark" ? "bg-gray-800 text-gray-200" : "bg-gray-50 text-gray-700"}`}>
+            <h2 className="text-xl font-bold text-green-500 mb-4">✔️ Trip Inclusions</h2>
+            <ul className="list-disc list-inside pl-5">
+              {selectedDestination?.inclusions.map((item, index) => (
+                <li key={index} className={` ${mode === "dark" ? "text-gray-300" : "text-gray-600"}`}>
+                  {item}
+                </li>
+              ))}
+            </ul>
+            <h2 className="text-xl font-bold text-red-500 mt-6 mb-4">❌ Trip Exclusions</h2>
+            <ul className="list-disc list-inside pl-5">
+              {selectedDestination?.exclusions.map((item, index) => (
+                <li key={index} className={` ${mode === "dark" ? "text-gray-300" : "text-gray-600"}`}>
+                  {item}
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      )}
+    </div>
         </div>
 
         {/* Right Side - Pricing & Payment Section */}
@@ -358,7 +357,7 @@ function Payment() {
       </div>
     </div>
 
-
+   
   );
 }
 
