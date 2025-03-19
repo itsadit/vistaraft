@@ -357,11 +357,7 @@ function Payment() {
       </div>
     </div>
 
-<<<<<<< HEAD
    
-=======
-
->>>>>>> 832200d39c01e9dc5d4f203ef532f9b4ac26a6be
   );
 }
 
