@@ -17,6 +17,7 @@ import Thanks from "./components/Thanks/Thanks";
 import ThemeProvider from "./components/ThemeContext/ThemeContext";
 import { useTheme } from "./components/ThemeContext/ThemeContext";
 import DialogBtn from "./components/DialogBtn/DialogBtn";
+import ModeBtn from "./components/ModeBtn/ModeBtn";
 function App() {
   const mode = useTheme();
  
@@ -26,6 +27,7 @@ function App() {
       <div className="w-screen max-w-full overflow-hidden">
         <Router>
           <Header />
+          <ModeBtn />
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/payment" element={<Payment />} />
