@@ -139,19 +139,54 @@ function Payment() {
       ele2.classList.add("border-white");
       ele1.classList.remove("border-white");
     }});
+    const [imageSize, setImageSize] = useState({ width: window.innerWidth, height: window.innerHeight });
 
+    useEffect(() => {
+      const handleResize = () => {
+        setImageSize({ width: window.innerWidth, height: window.innerHeight });
+      };
+      console.log(imageSize)
+      window.addEventListener("resize", handleResize);
+      return () => window.removeEventListener("resize", handleResize);
+    }, []);
+  
+    const pieceSize = {width:imageSize.width/2,height:imageSize.height/2}; // Dynamically adjust based on screen height
+    const pieces = [
+      { x: -pieceSize.width, y: -pieceSize.height, top: 0, left: 0 }, // Top-left
+      { x: pieceSize.width, y: -pieceSize.height, top: 0, left: pieceSize.width }, // Top-right
+      { x: -pieceSize.width, y: 0, top: pieceSize.height, left: 0 }, // Bottom-left
+      { x: 0, y: 0, top: pieceSize.height, left: pieceSize.width }, // Bottom-right
+    ];
   return (
 
     <div className={`${mode === "light" ? "!bg-gray-100" : "bg-gray-900 text-white"}`}>
       <section
-        className="relative flex items-center justify-center text-center min-h-screen bg-cover bg-center bg-no-repeat"
-        style={{
-          backgroundImage: `url(${selectedDestination?.cover})`, // Dynamically set image based on screen size
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-          height: "100vh",
-        }}
+        className="relative flex items-center  justify-center text-center min-h-screen bg-cover bg-center bg-no-repeat"
+        // style={{
+        //   backgroundImage: `url(${selectedDestination?.cover})`, // Dynamically set image based on screen size
+        //   backgroundSize: "cover",
+        //   backgroundPosition: "center",
+        //   height: "100vh",
+        // }}
       >
+        {pieces.map((pos, index) => (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, x: pos.x, y: pos.y }}
+                  animate={{ opacity: 1, x: 0, y: 0 }}
+                  transition={{ duration: 1, delay: index * 0.5 }}
+                  className="absolute bg-cover bg-center"
+                  style={{
+                    width: `${pieceSize.width}px`,
+                    height: `${pieceSize.height}px`,
+                    backgroundImage: `url(${selectedDestination?.cover})`,
+                    backgroundSize: `${imageSize.width}px ${imageSize.height}px`,
+                    backgroundPosition: `-${pos.left}px -${pos.top}px`,
+                    top: `${pos.top}px`,
+                    left: `${pos.left}px`,
+                  }}
+                ></motion.div>
+              ))}
         {/* Background Overlay */}
         <div className="absolute inset-0 pointer-events-none"></div>
 
