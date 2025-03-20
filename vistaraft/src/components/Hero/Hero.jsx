@@ -2,6 +2,8 @@ import { motion } from "framer-motion";
 import { Link, useNavigate } from "react-router-dom";
 import {Link as Linky}  from 'react-scroll';
 const bgImage = import.meta.env.VITE_BG_IMAGE;
+const bgImage1 = import.meta.env.VITE_BG_IMAGE1;
+const bgImage2 = import.meta.env.VITE_BG_IMAGE2;
 import {useState,useEffect} from 'react';
 import { Navigation, Pagination, Scrollbar, A11y, Autoplay } from 'swiper/modules';
 
@@ -130,7 +132,7 @@ function Hero() {
       className="relative flex items-center justify-center text-center min-h-screen bg-cover bg-center bg-no-repeat"
       style={{
         backgroundImage:
-          `url(${bgImage})`,
+          `url(${bgImage2})`,
           backgroundSize: "cover",
   backgroundPosition: "center",
   height: "100vh",
@@ -152,11 +154,11 @@ function Hero() {
           className="mb-4 text-3xl font-extrabold md:text-5xl lg:text-6xl text-white drop-shadow-md"
         >
           <span className="bg-gradient-to-r from-blue-400 via-cyan-300 to-emerald-400 bg-clip-text text-transparent">
-            Wander Beyond Limits
+          Discover Hidden Treasures
           </span>
           <br />
           <span className="bg-gradient-to-r from-blue-400 via-cyan-300 to-emerald-400 font-extrabold bg-clip-text text-transparent ml-4">
-            Live the Journey
+            Have the Time of Your Life
           </span>
         </motion.h1>
 
@@ -169,8 +171,7 @@ function Hero() {
           className="text-lg font-normal text-gray-200 lg:text-xl px-6 py-3 
             bg-black/10 backdrop-blur-md rounded-lg shadow-lg drop-shadow-md"
         >
-          Here at <span className="font-bold text-white">Vistaraft</span>, we
-          focus on making the most memorable trip for You.
+          Let <span className="font-bold text-white">Vistaraft</span> guide you through untouched landscapes and unique cultural experiences.
         </motion.p>
 
         {/* Buttons Container */}
@@ -229,7 +230,7 @@ function Hero() {
       className="relative flex items-center justify-center text-center min-h-screen bg-cover bg-center bg-no-repeat"
       style={{
         backgroundImage:
-          `url(${bgImage})`,
+          `url(${bgImage1})`,
           backgroundSize: "cover",
   backgroundPosition: "center",
   height: "100vh",
@@ -251,11 +252,11 @@ function Hero() {
           className="mb-4 text-3xl font-extrabold md:text-5xl lg:text-6xl text-white drop-shadow-md"
         >
           <span className="bg-gradient-to-r from-blue-400 via-cyan-300 to-emerald-400 bg-clip-text text-transparent">
-            Wander Beyond Limits
+          Your Adventure Your Way
           </span>
           <br />
           <span className="bg-gradient-to-r from-blue-400 via-cyan-300 to-emerald-400 font-extrabold bg-clip-text text-transparent ml-4">
-            Live the Journey
+            Tailored to Perfections
           </span>
         </motion.h1>
 
@@ -268,8 +269,7 @@ function Hero() {
           className="text-lg font-normal text-gray-200 lg:text-xl px-6 py-3 
             bg-black/10 backdrop-blur-md rounded-lg shadow-lg drop-shadow-md"
         >
-          Here at <span className="font-bold text-white">Vistaraft</span>, we
-          focus on making the most memorable trip for You.
+          Plan your perfect getaway with customizable itineraries tailored to your desires.
         </motion.p>
 
         {/* Buttons Container */}
