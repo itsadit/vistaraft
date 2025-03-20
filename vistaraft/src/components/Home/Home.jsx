@@ -35,16 +35,16 @@ function Home() {
     setIndex((prev) => (prev - 1 + destinations.length) % destinations.length);
   }
   // Show more destinations
-  const handleLoadMore = () => {
-    setVisibleCount((prevCount) => prevCount + 3); // Load 4 more on each click
-  };
+  // const handleLoadMore = () => {
+  //   setVisibleCount((prevCount) => prevCount + 3); // Load 4 more on each click
+  // };
   const [hovered, setHovered] = useState(false);
   useEffect(() => {
     const interval = setInterval(() => {
       if(!hovered){
         nextSlide();
       }
-    },2000);
+    },3000);
     return () => clearInterval(interval);
   });
   return (
