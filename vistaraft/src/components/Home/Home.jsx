@@ -24,7 +24,10 @@ function Home() {
     { scale: 0.8, x: 420, zIndex: 1, opacity: 0.2 }, // Right back
     { scale: 0.8, x: -420, zIndex: 1, opacity: 0.2 }, // Left back
     { scale: 1, x: -220, zIndex: 2, opacity: 0.5 }, // Left side
-    { scale: 0, x: 0, zIndex: 0, opacity: 0 }, // Hidden card
+    { scale: 0, x: 0, zIndex: 0, opacity: 0 }, 
+    { scale: 0, x: 0, zIndex: 0, opacity: 0 },
+    { scale: 0, x: 0, zIndex: 0, opacity: 0 },
+    { scale: 0, x: 0, zIndex: 0, opacity: 0 },// Hidden card
   ];
 
   const nextSlide = () => {

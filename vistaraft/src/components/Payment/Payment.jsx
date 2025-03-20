@@ -199,7 +199,7 @@ function Payment() {
             viewport={{ once: false, amount: 0.3 }}
             className="mb-4 text-3xl font-extrabold md:text-5xl lg:text-6xl text-white drop-shadow-md"
           >
-            <span className="bg-white bg-clip-text text-transparent">
+            <span className="bg-white bg-clip-text bg-black/10 backdrop-blur-md rounded-lg shadow-lg drop-shadow-md text-transparent">
               {selectedDestination?.heading}
             </span>
           </motion.h1>
