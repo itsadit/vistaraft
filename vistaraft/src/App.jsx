@@ -16,6 +16,7 @@ import ProcessPayment from "./components/ProcessPayment/ProcessPayment";
 import Thanks from "./components/Thanks/Thanks";
 import ThemeProvider from "./components/ThemeContext/ThemeContext";
 import { useTheme } from "./components/ThemeContext/ThemeContext";
+import DialogBtn from "./components/DialogBtn/DialogBtn";
 function App() {
   const mode = useTheme();
  
@@ -38,6 +39,7 @@ function App() {
             <Route path="/process" element={<ProcessPayment />} />
             <Route path="/thanks" element={<Thanks />} />
           </Routes>
+          <DialogBtn/>
           <Footer />
         </Router>
       </div>
