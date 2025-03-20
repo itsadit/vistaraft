@@ -67,12 +67,7 @@ function Header() {
           </div>
 
           {/* Dark Mode Toggle Button */}
-          <button
-            onClick={themeToggler}
-            className={`ml-4 p-2 rounded-lg transition-all ${mode === 'light' ? 'bg-gray-200 hover:bg-gray-300' : 'bg-gray-700 hover:bg-gray-800'} ${mode === 'dark' ? 'text-white' : 'text-gray-800'} duration-300 focus:outline-none focus:ring-2 focus:ring-gray-500`}
-          >
-            {mode === 'dark' ? '☀️' : '🌙'}
-          </button>
+          
         </div>
 
         {/* Mobile Menu Button */}

@@ -4,12 +4,20 @@ function ModeBtn() {
     const { mode, themeToggler } = useTheme();
   return (
     <button
-            onClick={themeToggler}
-            className={` rounded-lg transition-all ${mode === 'light' ? 'bg-gray-200 hover:bg-gray-300' : 'bg-gray-700 hover:bg-gray-800'} ${mode === 'dark' ? 'text-white' : 'text-gray-800'} duration-300 focus:outline-none focus:ring-2 focus:ring-gray-500`}
-          style={{position: 'fixed', top:20, right:20,zIndex:0}}
-          >
-            {mode === 'dark' ? '☀️' : '🌙'}
-          </button>
+  onClick={themeToggler}
+  className={`w-12 h-12 rounded-full flex justify-center transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-gray-500 hover:!bg-gray-300 ${
+    mode === 'dark' ? '!bg-white !text-gray-800' : '!bg-black!text-gray-800 '
+  }`}
+  style={{
+    position: 'fixed',
+    bottom: 20,
+    left: 20,
+    zIndex: 100,
+    borderRadius: '50%',
+     // Ensuring it's a circle using inline style
+  }}
+><span>{mode === 'dark' ? '☀️' : '🌙'}</span>
+</button>
   )
 }
 
