@@ -11,7 +11,7 @@ function Footer() {
           {/* Logo and Brand */}
           <Link to="/" className="flex items-center space-x-4 rtl:space-x-reverse mb-6 sm:mb-0">
             <img src={mode==='light'?import.meta.env.VITE_LOGO:import.meta.env.VITE_LOGO_WHITE} className="h-20" alt="Vistaraft Logo" />
-            <span className={`text-3xl font-bold ${mode === 'dark' ? 'text-white' : 'text-gray-900'}`}>Vistaraft</span>
+            <span className={`text-3xl font-bold ${mode === 'dark' ? 'text-white' : 'text-gray-900'}`}>VISTARAFT</span>
           </Link>
 
           {/* Navigation Links */}

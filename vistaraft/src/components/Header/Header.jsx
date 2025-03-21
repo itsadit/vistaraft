@@ -27,7 +27,7 @@ function Header() {
             className={`text-2xl font-semibold whitespace-nowrap ${mode === "dark" ? "text-white" : "text-gray-900"
               }`}
           >
-            Vistaraft
+            VISTARAFT
           </span>
         </Link>
 
