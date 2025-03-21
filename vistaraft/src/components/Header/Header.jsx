@@ -2,7 +2,6 @@ import { Link, useLocation } from "react-router-dom";
 import menu from "@/assets/menu.png";
 import { useState } from "react";
 import { useTheme } from "../ThemeContext/ThemeContext";
-import logo2 from "../../../public/LOGO2.png";
 
 function Header() {
   const location = useLocation();
@@ -20,7 +19,7 @@ function Header() {
         {/* Logo and Brand Name */}
         <Link to="/" className="flex items-center space-x-3">
           <img
-            src={logo2}
+            src={mode==='light'?import.meta.env.VITE_LOGO:import.meta.env.VITE_LOGO_WHITE}
             className="h-16"
             alt="Vistaraft Logo"
           />

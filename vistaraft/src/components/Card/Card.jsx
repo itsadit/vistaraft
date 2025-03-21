@@ -26,7 +26,7 @@ function Card({ photo, heading, description, zIndex }) {
 
   return (
     <Link
-            to={`/payment?heading=${encodeURIComponent(heading)}&description=${encodeURIComponent(description)}`}
+            to={zIndex!==3 ?  null:`/payment?heading=${encodeURIComponent(heading)}&description=${encodeURIComponent(description)}`}
             className=""
           >
             {hover && zIndex===3 && (<motion.div className="absolute p-5 z-20 flex flex-col flex-grow">

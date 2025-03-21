@@ -1,4 +1,4 @@
-import logo from "../../../public/LOGO2.png";
+
 import { Link } from "react-router-dom";
 import { useTheme } from "../ThemeContext/ThemeContext";
 
@@ -10,7 +10,7 @@ function Footer() {
         <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center">
           {/* Logo and Brand */}
           <Link to="/" className="flex items-center space-x-4 rtl:space-x-reverse mb-6 sm:mb-0">
-            <img src={logo} className="h-20" alt="Vistaraft Logo" />
+            <img src={mode==='light'?import.meta.env.VITE_LOGO:import.meta.env.VITE_LOGO_WHITE} className="h-20" alt="Vistaraft Logo" />
             <span className={`text-3xl font-bold ${mode === 'dark' ? 'text-white' : 'text-gray-900'}`}>Vistaraft</span>
           </Link>
 
