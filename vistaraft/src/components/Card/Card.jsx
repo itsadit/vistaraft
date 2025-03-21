@@ -29,12 +29,12 @@ function Card({ photo, heading, description, zIndex }) {
             to={zIndex!==3 ?  null:`/payment?heading=${encodeURIComponent(heading)}&description=${encodeURIComponent(description)}`}
             className=""
           >
-            {hover && zIndex===3 && (<motion.div className="absolute p-5 z-20 flex flex-col flex-grow">
+            {((hover && zIndex === 3) || window.innerWidth <= 768) && (<motion.div className="absolute p-5 z-20 flex flex-col flex-grow">
         <motion.h5 
           initial={{ opacity: 0, y: -10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
-          className={`mb-2 text-2xl font-bold tracking-tight text-white`}>
+          className={`mb-2 lg:text-2xl sm:text-lg font-bold tracking-tight text-white`}>
           {heading}
         </motion.h5>
         <motion.div initial={{opacity: 0, x:-10}} animate={{opacity:1,x:0}} transition={{duration:0.5}} className="h-1 w-20 bg-white mb-3"></motion.div>
@@ -43,15 +43,15 @@ function Card({ photo, heading, description, zIndex }) {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
-         className={`mb-3 font-normal flex-grow text-white`}>
+         className={`mb-3 font-normal ${window.innerWidth<768? 'text-xs':''} flex-grow text-white`}>
           {description}
         </motion.p>
         </motion.div>)}
     <motion.div
       whileHover={{ scale: 1.05 }}
       transition={{ duration: 0.3 }}
-      className={`w-96 h-68 flex flex-col border rounded-lg backdrop-blur-2xl shadow-md overflow-hidden transform transition-all duration-300 hover:shadow-2xl`}
-      style={{backgroundImage: `url(${photo})`, backgroundSize: 'cover', backgroundPosition: 'center', filter:hover&&zIndex===3?'brightness(0.5)': hover&&zIndex!==3?'blur(8px)':'brightness(1)'}}
+      className={` ${window.innerWidth<768? 'w-full h-56 mx-4':'w-96 h-68'}  flex flex-col border rounded-lg backdrop-blur-2xl shadow-md overflow-hidden transform transition-all duration-300 hover:shadow-2xl`}
+      style={{backgroundImage: `url(${photo})`, backgroundSize: 'cover', backgroundPosition: 'center', filter:(hover&&zIndex===3)||(window.innerWidth<768)?'brightness(0.5)': hover&&zIndex!==3?'blur(8px)':'brightness(1)'}}
       onMouseEnter={hoveref}
       onMouseLeave={hoveref}
       

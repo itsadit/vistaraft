@@ -71,13 +71,13 @@ function Home() {
       </h1>
 
       {/* Sliding Cards Carousel */}
-      <div className="relative h-110 w-full flex items-center justify-center overflow-hidden">
+      <div className="relative h-110  w-full flex items-center justify-center overflow-hidden">
         {destinations.map((destination, i) => {
           const pos = generatePositions()[(i - index + destinations.length) % destinations.length];
           return (
             <motion.div
               key={destination.id}
-              className="absolute w-[90%] w-48 lg:w-80  rounded-xl shadow-lg"
+              className={`absolute ${window.innerWidth<768? 'w-3/5 h-56 mx-4':'w-80'}  rounded-xl shadow-lg`}
               initial={{ opacity: 0 }}
               animate={{ scale: pos.scale, x: pos.x, zIndex: pos.zIndex, opacity: pos.opacity }}
               transition={{ duration: 0.5 }}
