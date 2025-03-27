@@ -50,7 +50,7 @@ function Card({ photo, heading, description, zIndex }) {
     <motion.div
       whileHover={{ scale: 1.05 }}
       transition={{ duration: 0.3 }}
-      className={` ${window.innerWidth<768? 'w-full h-56 mx-4':'w-96 h-68'}  flex flex-col border rounded-lg backdrop-blur-2xl shadow-md overflow-hidden transform transition-all duration-300 hover:shadow-2xl`}
+      className={` ${window.innerWidth<768? 'w-full h-56':'w-96 h-68'}  flex flex-col border rounded-lg backdrop-blur-2xl shadow-md overflow-hidden transform transition-all duration-300 hover:shadow-2xl`}
       style={{backgroundImage: `url(${photo})`, backgroundSize: 'cover', backgroundPosition: 'center', filter:(hover&&zIndex===3)||(window.innerWidth<768)?'brightness(0.5)': hover&&zIndex!==3?'blur(8px)':'brightness(1)'}}
       onMouseEnter={hoveref}
       onMouseLeave={hoveref}

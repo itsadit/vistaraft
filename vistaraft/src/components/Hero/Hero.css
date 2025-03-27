@@ -1,0 +1,15 @@
+.swiper-button-prev{
+    margin: 0px 0px;
+}
+.swiper-button-next {
+  margin: 0px 15px;
+}
+
+@media (max-width: 768px) {
+    .swiper-button-prev {
+      margin-left: 0px;
+    }
+    .swiper-button-next {
+      margin-right: 0px;
+    }
+  }
