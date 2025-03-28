@@ -170,287 +170,110 @@ const Destination = mongoose.model(
   destinationSchema,
   "destinations"
 );
-// const destinations = [
-//   {
-//     heading: "Delhi - Leh - Ladakh - Srinagar Road Trip Package (7N/8D)",
-//     description:
-//       "Manali to Leh via Sarchu & Return via Srinagar for a Complete Circuit",
-//     photo: "leh_ladakh.jpg",
-//     quadPrice: 24999,
-//     triPrice: 26999,
-//     doubPrice: 28999,
-//     singlePrice: null,
-//     inclusions: [
-//       "Accommodation (Hotels/Campsites/Houseboat) on double/triple sharing basis",
-//       "Meals : Breakfast & Dinner",
-//       "Transport : Comfortable SUV/Tempo Traveller with driver",
-//       "Experienced Guide/Trip Captain",
-//       "Inner Line Permits for Ladakh",
-//       "Environmental & Wildlife Fees",
-//       "Oxygen Cylinder & First Aid Kit for emergencies",
-//     ],
-//     exclusions: [
-//       "Any Airfare/Train tickets",
-//       "Lunch & personal expenses (snacks, drinks, shopping)",
-//       "Adventure activities (camel ride, ATV rides, rafting)",
-//       "Travel insurance",
-//       "Extra costs due to landslides, weather, or political closures",
-//       "Any medical or evacuation charges",
-//     ],
-//     itenary: [
-//       {
-//         day: 1,
-//         heading: "Delhi to Manali (530 km / 12-14 hrs)",
-//         description: [
-//           "Early morning departure from Delhi.",
-//           "En route breakfast & lunch at Chandigarh/Mandi.",
-//           "Arrive in Manali, check-in, and explore Mall Road.",
-//           "Overnight stay in Manali (Hotel).",
-//         ],
-//       },
-//       {
-//         day: 2,
-//         heading: "Manali to Sarchu (230 km / 8-10 hrs)",
-//         description: [
-//           "Drive via Atal Tunnel, Keylong, Jispa & Baralacha La Pass.",
-//           "En route visit Deepak Tal & Suraj Tal Lakes.",
-//           "Check-in at Sarchu Camps, acclimatize.",
-//           "Overnight stay in Sarchu (Campsite).",
-//         ],
-//       },
-//       {
-//         day: 3,
-//         heading: "Sarchu to Leh (250 km / 8-10 hrs)",
-//         description: [
-//           "Drive via Gata Loops, Nakee La, Lachung La & Tanglang La.",
-//           "Visit More Plains & Tso Kar Lake.",
-//           "Reach Leh by evening, check-in at the hotel.",
-//           "Overnight stay in Leh (Hotel).",
-//         ],
-//       },
-//       {
-//         day: 4,
-//         heading: "Leh Local Sightseeing",
-//         description: [
-//           "Visit Magnetic Hill, Hall of Fame, Gurudwara Pathar Sahib & Sangam.",
-//           "Explore Thiksey Monastery, Shey Palace & Shanti Stupa.",
-//           "Enjoy Leh Market shopping & café hopping.",
-//           "Overnight stay in Leh (Hotel).",
-//         ],
-//       },
-//       {
-//         day: 5,
-//         heading: "Leh to Nubra Valley via Khardung La (160 km / 5-6 hrs)",
-//         description: [
-//           "Drive via Khardung La (World’s Highest Motorable Road - 18,379 ft).",
-//           "Visit Diskit Monastery & Hunder Sand Dunes.",
-//           "Enjoy Bactrian Camel Ride at Nubra.",
-//           "Overnight stay in Nubra (Campsite/Hotel).",
-//         ],
-//       },
-//       {
-//         day: 6,
-//         heading: "Nubra to Pangong Lake (200 km / 6-7 hrs)",
-//         description: [
-//           "Scenic drive via Shyok Valley.",
-//           "Explore Pangong Lake (3 Idiots Shooting Spot).",
-//           "Enjoy sunset by the lake, photography.",
-//           "Overnight stay in Pangong (Campsite).",
-//         ],
-//       },
-//       {
-//         day: 7,
-//         heading: "Pangong to Srinagar (450 km / 12-14 hrs)",
-//         description: [
-//           "Early morning departure via Chang La Pass.",
-//           "Visit Lamayuru Monastery & Kargil War Memorial (Drass).",
-//           "Reach Srinagar, check-in at Houseboat/Hotel.",
-//           "Overnight stay in Srinagar.",
-//         ],
-//       },
-//       {
-//         day: 8,
-//         heading: "Srinagar to Delhi (800 km / 14-16 hrs)",
-//         description: [
-//           "Early morning departure for Delhi via Jammu & Pathankot.",
-//           "Reach Delhi by night, concluding the trip.",
-//         ],
-//       },
-//     ],
-//   },
-//   {
-//     heading: "Spiti Valley Road Trip (7N/8D)",
-//     description:
-//       "Shimla - Chitkul - Kalpa - Kaza - Chandratal - Manali Circuit",
-//     photo: "spiti_valley.jpg",
-//     quadPrice: 21999,
-//     triPrice: 23999,
-//     doubPrice: 25999,
-//     singlePrice: null,
-//     inclusions: [
-//       "Accommodation for 7 Nights (Hotels, Camps & Guesthouses)",
-//       "Meals : Breakfast & Dinner (As per itinerary)",
-//       "Transportation : SUV/Tempo Traveler/Bike",
-//       "Inner Line Permits & Environmental Fees",
-//       "Oxygen Cylinder & First-Aid Kit",
-//     ],
-//     exclusions: [
-//       "Airfare/Train Tickets to Delhi",
-//       "Lunch & Any Personal Expenses",
-//       "Fuel (for Bike Rentals)",
-//       "Adventure Activities (Rafting, Ziplining, ATV Rides)",
-//       "5% GST",
-//     ],
-//     itenary: [
-//       {
-//         day: 1,
-//         heading: "Delhi to Manali to Sethan (Approx. 12-14 hrs, 550 km)",
-//         description: [
-//           "6:00 PM (Previous Night) : Overnight journey from Delhi to Manali by SUV/Tempo Traveler/Volvo Bus.",
-//           "6:00 AM : Arrive in Manali, freshen up at a café.",
-//           "9:00 AM : Breakfast at Old Manali (Café 1947, Drifter’s Café).",
-//           "11:00 AM : Depart for Sethan (15 km uphill from Manali) via Hampta Valley.",
-//           "1:00 PM : Check-in at a cozy Wooden Cabin/Homestay.",
-//           "3:00 PM : Explore snow-covered meadows & Igloos (Winters) / short hikes (Summers).",
-//           "5:00 PM : Sunset View & Bonfire with tea.",
-//           "8:00 PM : Dinner & Stargazing in the mountains.",
-//         ],
-//       },
-//       {
-//         day: 2,
-//         heading: "Snow Activities & Exploration",
-//         description: [
-//           "8:00 AM : Breakfast at the homestay.",
-//           "10:00 AM : Snow Trek or Snowboarding/Skiing (Winters).",
-//           "12:00 PM : Hampta Valley Hike & enjoy 360° views of Pir Panjal Ranges.",
-//           "2:00 PM : Lunch at the homestay.",
-//           "4:00 PM : Igloo Stay Experience (seasonal) or just relax in nature.",
-//           "6:00 PM : Bonfire & Music Session.",
-//           "8:00 PM : Dinner and overnight stay.",
-//         ],
-//       },
-//       {
-//         day: 3,
-//         heading: "Sethan to Manali to Delhi",
-//         description: [
-//           "7:00 AM : Breakfast & check-out.",
-//           "9:00 AM : Drive back to Manali, explore Mall Road & Hidimba Temple.",
-//           "12:00 PM : Lunch at a café in Old Manali.",
-//           "4:00 PM : Board an overnight bus/private vehicle back to Delhi.",
-//           "6:00 AM (Next Morning) : Reach Delhi.",
-//         ],
-//       },
-//     ],
-//   },
-//   {
-//     heading: "Spiti Valley Adventure Trip (6N/7D)",
-//     description:
-//       "Delhi - Narkanda - Chitkul - Kalpa - Kaza - Chandratal - Manali - Delhi",
-//     photo: "spiti_valley_adventure.jpg",
-//     quadPrice: 20999,
-//     triPrice: 22999,
-//     doubPrice: 24999,
-//     singlePrice: null,
-//     inclusions: [
-//       "Accommodation for 6 Nights (Hotels, Camps & Guesthouses)",
-//       "Meals – Breakfast & Dinner (As per itinerary)",
-//       "Transportation: Delhi to Spiti Valley & Return (SUV/Tempo Traveler/Bike)",
-//       "Inner Line Permits & Environmental Fees",
-//       "Wildlife & Entry Fees (Key Monastery, Chandratal)",
-//       "Experienced Road Captain & Backup Vehicle (for bike trips)",
-//       "Oxygen Cylinder & First-Aid Kit (for emergencies)",
-//       "Bonfire & Group Activities (where applicable)",
-//     ],
-//     exclusions: [
-//       "Airfare/Train Tickets to Delhi",
-//       "Lunch & Any Personal Expenses",
-//       "Fuel (for Bike Rentals)",
-//       "Bike Rental Charges (if opted separately)",
-//       "Adventure Activities (Rafting, Ziplining, ATV Rides)",
-//       "Any Medical or Emergency Evacuation Costs",
-//       "5% GST",
-//     ],
-//     itenary: [
-//       {
-//         day: 1,
-//         heading: "Delhi to Narkanda (Approx. 10-12 hrs, 400 km)",
-//         description: [
-//           "4:00 AM – Depart from Delhi.",
-//           "9:00 AM – Breakfast stop at Chandigarh/Dhaba en route.",
-//           "1:00 PM – Lunch at Kufri/Shimla.",
-//           "5:00 PM – Reach Narkanda, check-in at the hotel.",
-//           "8:00 PM – Dinner & rest.",
-//         ],
-//       },
-//       {
-//         day: 2,
-//         heading: "Narkanda to Chitkul (Approx. 7-8 hrs, 180 km)",
-//         description: [
-//           "7:00 AM – Breakfast & depart for Chitkul via Rampur & Sangla Valley.",
-//           "2:00 PM – Reach Chitkul (India’s Last Village), explore Baspa River.",
-//           "4:00 PM – Check-in at a riverside homestay.",
-//           "8:00 PM – Bonfire & dinner.",
-//         ],
-//       },
-//       {
-//         day: 3,
-//         heading: "Chitkul to Kalpa (Approx. 3-4 hrs, 60 km)",
-//         description: [
-//           "9:00 AM – Depart for Kalpa via Kinnaur Valley.",
-//           "12:00 PM – Check-in at a hotel in Kalpa.",
-//           "2:00 PM – Visit Suicide Point & Roghi Village.",
-//           "5:00 PM – Sunset view of Kinner Kailash Range.",
-//           "8:00 PM – Dinner & rest.",
-//         ],
-//       },
-//       {
-//         day: 4,
-//         heading: "Kalpa to Kaza (Approx. 8-10 hrs, 200 km)",
-//         description: [
-//           "6:00 AM – Depart via Nako & Tabo.",
-//           "12:00 PM – Visit Gue Monastery (Mummy of Lama Monk).",
-//           "3:00 PM – Explore Tabo Monastery & reach Kaza by evening.",
-//           "8:00 PM – Dinner & overnight stay.",
-//         ],
-//       },
-//       {
-//         day: 5,
-//         heading: "Kaza Local Sightseeing",
-//         description: [
-//           "8:00 AM – Breakfast & explore:",
-//           "Key Monastery (Oldest & Largest Monastery in Spiti)",
-//           "Hikkim (World’s Highest Post Office)",
-//           "Komic (World’s Highest Village with a Motorable Road)",
-//           "Langza (Fossil Village & Giant Buddha Statue)",
-//           "6:00 PM – Return to Kaza, explore the local market.",
-//           "8:00 PM – Dinner & rest.",
-//         ],
-//       },
-//       {
-//         day: 6,
-//         heading: "Kaza to Chandratal (Approx. 6-7 hrs, 160 km)",
-//         description: [
-//           "7:00 AM – Depart via Kunzum Pass (4,551m).",
-//           "2:00 PM – Reach Chandratal Lake, check-in at camps.",
-//           "4:00 PM – Explore the mesmerizing lake, photography.",
-//           "8:00 PM – Dinner & stargazing.",
-//         ],
-//       },
-//       {
-//         day: 7,
-//         heading: "Chandratal to Manali to Delhi (Approx. 14-16 hrs, 570 km)",
-//         description: [
-//           "6:00 AM – Early departure via Atal Tunnel & Rohtang Pass.",
-//           "12:00 PM – Lunch at Manali.",
-//           "2:00 PM – Start the return journey to Delhi.",
-//           "12:00 AM (Midnight) – Reach Delhi.",
-//         ],
-//       },
-//     ],
-//   },
-// ];
 
-// Destination.insertMany(destinations)
+// const destinations = {
+//   heading: "Jibhi & Tirthan Valley",
+//   description:
+//     "A 4-night, 5-day trip to Jibhi & Tirthan Valley covering scenic waterfalls, treks, and local sightseeing.",
+//   photo: "jibhi_trip_photo.jpg", // Add actual image URL
+//   cover: "jibhi_cover_photo.jpg", // Add actual image URL
+//   quadPrice: 6700,
+//   TriPrice: 7200,
+//   doubPrice: 7700,
+//   singlePrice: 0, // Not mentioned in the PDF
+//   inclusions: [
+//     "Travelling by AC Bus/Traveller",
+//     "2-night Jibhi/Tirthan Hotel Stay",
+//     "All Local Sightseeing",
+//     "Trek to YJHD point and Serolsar lake/Raghupur Trek",
+//     "Choie Waterfall trek",
+//     "Snow point Trek",
+//     "Meals (3 Breakfast & 2 Dinner)",
+//     "Best & crazy Music Night & Bonfire",
+//     "Trip Coordinator",
+//     "All toll taxes, parking included",
+//   ],
+//   exclusions: [
+//     "Any personal expenses",
+//     "Anything not mentioned in the itinerary",
+//     "Any meals/drinks other than inclusions",
+//     "Any meal during travelling",
+//     "5% GST charge",
+//     "Any entry/activity fees",
+//   ],
+//   itenary: [
+//     {
+//       day: 1,
+//       heading: "Departure from Delhi",
+//       description: [
+//         "Departure from Delhi at 7 PM in an AC vehicle.",
+//         "Dinner and breakfast during travel.",
+//         "Overnight journey to Jibhi.",
+//         "Carry a light blanket for night journey.",
+//       ],
+//     },
+//     {
+//       day: 2,
+//       heading: "Arrival at Jibhi",
+//       description: [
+//         "Reach Jibhi by morning.",
+//         "Freshen up and take rest at the hotel.",
+//         "Visit Jibhi waterfall and mini Thailand pool.",
+//         "Explore lush green areas and Jibhi River on your own.",
+//         "Dinner with music and bonfire at the hotel.",
+//         "Overnight stay at Jibhi/Tirthan hotel.",
+//       ],
+//     },
+//     {
+//       day: 3,
+//       heading: "Jalori Pass & Serolsar Lake Trek",
+//       description: [
+//         "Breakfast at the hotel.",
+//         "Leave for Jalori Pass and visit the temple.",
+//         "Trek to Serolsar Lake/Raghupur Fort.",
+//         "Enjoy panoramic views from the top.",
+//         "Return to hotel for dinner and DJ music.",
+//         "Play group games and enjoy the evening.",
+//         "Overnight stay at hotel in Jibhi/Tirthan.",
+//       ],
+//     },
+//     {
+//       day: 4,
+//       heading: "Choie Waterfall Trek & Departure",
+//       description: [
+//         "Morning walk and breakfast.",
+//         "Check out from the hotel.",
+//         "Trek to Choie Waterfall (1.5 km).",
+//         "Relax at Tirthan River.",
+//         "Evening departure for Delhi.",
+//         "Overnight journey to Delhi.",
+//       ],
+//     },
+//     {
+//       day: 5,
+//       heading: "Arrival at Delhi",
+//       description: [
+//         "Reach Delhi in the morning/noon (depending on traffic).",
+//         "Click group pictures/selfies.",
+//         "Say goodbye to the trip captain and bus driver.",
+//         "Head home.",
+//       ],
+//     },
+//   ],
+//   things: [
+//     "Jibhi Waterfall",
+//     "Mini Thailand Pool",
+//     "Jalori Pass",
+//     "Serolsar Lake",
+//     "Raghupur Fort Trek",
+//     "Choie Waterfall",
+//     "Tirthan River",
+//   ],
+//   nights: 4,
+//   days: 5,
+// };
+
+// Destination.insertOne(destinations)
 //   .then(() => {
 //     console.log("Data inserted successfully!");
 //     mongoose.connection.close();
