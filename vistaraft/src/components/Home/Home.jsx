@@ -27,7 +27,8 @@ function Home() {
     { scale: 0, x: 0, zIndex: 0, opacity: 0 }, 
     { scale: 0, x: 0, zIndex: 0, opacity: 0 },
     { scale: 0, x: 0, zIndex: 0, opacity: 0 },
-    { scale: 0, x: 0, zIndex: 0, opacity: 0 },// Hidden card
+    { scale: 0, x: 0, zIndex: 0, opacity: 0 },
+    { scale: 0, x: 0, zIndex: 0, opacity: 0 }// Hidden card
   ];
 
   const nextSlide = () => {
