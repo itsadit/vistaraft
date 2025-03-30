@@ -160,6 +160,17 @@ const destinationSchema = new mongoose.Schema({
       description: [String],
     },
   ],
+  hotels:[
+    {
+      heading: String,
+      description:[
+        {
+          imagelink:String,
+          name:String,
+        }
+      ]
+    },
+  ],
   things: [String],
   nights: Number,
   days: Number,

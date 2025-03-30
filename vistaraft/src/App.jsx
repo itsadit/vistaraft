@@ -18,6 +18,7 @@ import ThemeProvider from "./components/ThemeContext/ThemeContext";
 import { useTheme } from "./components/ThemeContext/ThemeContext";
 import DialogBtn from "./components/DialogBtn/DialogBtn";
 import ModeBtn from "./components/ModeBtn/ModeBtn";
+import { ToastContainer } from "react-toastify";
 function App() {
   const mode = useTheme();
  
@@ -28,6 +29,7 @@ function App() {
         <Router>
           <Header />
           <ModeBtn />
+          <ToastContainer/>
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/payment" element={<Payment />} />

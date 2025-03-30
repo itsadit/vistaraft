@@ -4,6 +4,7 @@ import Card from "../Card/Card";
 import Hero from "../Hero/Hero";
 import SubHero from "../../components/SubHero/SubHero";
 import { useTheme } from "../ThemeContext/ThemeContext";
+import Hotel from "../Hotels/Hotels";
 
 function Home() {
   const [destinations, setDestinations] = useState([]);
@@ -62,7 +63,7 @@ function Home() {
       <br />
       <SubHero />
       <br />
-
+      
       {/* Section Title */}
       <h1 className="text-center mb-2 text-4xl font-extrabold md:text-5xl lg:text-6xl">
         <span className="text-transparent bg-clip-text bg-gradient-to-r from-teal-400 to-blue-500">
@@ -115,6 +116,9 @@ function Home() {
           Next
         </button>
       </div>
+      <br />
+      <Hotel/>
+      <br  />
     </div>
   );
 }

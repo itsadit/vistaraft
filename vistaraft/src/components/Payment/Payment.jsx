@@ -5,10 +5,46 @@ import { IoLocation, IoTime } from "react-icons/io5";
 import { ChevronDown, ChevronUp } from "lucide-react";
 // import TripDetail from "../Tripdetail/Tripdetail";
 import { useTheme } from "../ThemeContext/ThemeContext";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 
 
 
 function Payment() {
+  const handlePayment = () => {
+    if (totalPrice === 0) {
+      toast.warn("Please select a package to proceed!", {
+        position: "top-center",
+        autoClose: 3000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        theme: "colored",
+      });
+      return;
+    }
+  
+    toast.success( `Please pay ₹${totalPrice} to proceed!`, {
+      position: "top-center",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      theme: "colored",
+    });
+    const queryParams = new URLSearchParams({
+      heading: selectedDestination.heading,
+      totalPrice,
+      quad: pricing.quad,
+      triple: pricing.triple,
+      double: pricing.double,
+      single: pricing.single,
+    }).toString();
+    navigate(`/process?${queryParams}`);
+  };
   const navigate = useNavigate();
   const { mode } = useTheme();
   const location = useLocation();
@@ -157,6 +193,12 @@ function Payment() {
       { x: -pieceSize.width, y: 0, top: pieceSize.height, left: 0 }, // Bottom-left
       { x: 0, y: 0, top: pieceSize.height, left: pieceSize.width }, // Bottom-right
     ];
+
+    const [openSections, setOpenSections] = useState({});
+
+  const toggleSections = (heading) => {
+    setOpenSections((prev) => ({ ...prev, [heading]: !prev[heading] }));
+  };
   return (
 
     <div className={`${mode === "light" ? "!bg-gray-100" : "bg-gray-900 text-white"}`}>
@@ -250,6 +292,9 @@ function Payment() {
                 Day Wise Plan
               </button>
               <button id="inde" className="bg-gray-700 px-4 py-2 rounded-lg" onClick={() => setOpenSection(openSection === "inclusions_exclusions" ? "inclusions_exclusions" : "inclusions_exclusions")}>Inclusions & Excl.</button>
+              <button id="dwp" className="bg-blue-600 px-4  py-2 rounded-lg" onClick={() => setOpenSection(openSection === "hotels" ? "hotels" : "hotels")}>
+                Hotels Available
+              </button>
             </div>
           </div>
 
@@ -313,6 +358,49 @@ function Payment() {
           </div>
         </div>
       )}
+      {openSection === "hotels" && (
+        <div className="border border-gray-300 w-full sm:mx-2 md:mx-2 shadow-lg rounded-2xl overflow-hidden">
+        <div className={`p-6 ${mode === "dark" ? "bg-gray-800 text-gray-200" : "bg-gray-50 text-gray-700"}`}>
+          {selectedDestination?.hotels.map((item, index) => (
+            <div key={index} className="pt-2">
+              <button
+                onClick={() => toggleSections(item.heading)}
+                className="w-full border rounded-2xl border-gray-500 text-white bg-gradient-to-r from-blue-500 to-purple-600 flex justify-between items-center text-lg font-semibold focus:outline-none px-4 py-2"
+              >
+                {`${item.heading}`}
+                <span className="transform transition-transform duration-300">
+                  {openSections[item.heading] ? "▲" : "▼"}
+                </span>
+              </button>
+  
+              <motion.div
+                initial={{ opacity: 0, height: 0 }}
+                animate={openSections[item.heading] ? { opacity: 1, height: "auto" } : { opacity: 0, height: 0 }}
+                exit={{ opacity: 0, height: 0 }}
+                className="overflow-hidden px-4 pt-4"
+              >
+                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 gap-4">
+                  {item.description.map((desc, i) => (
+                    <div key={i} className="relative group">
+                      <img
+                        src={desc.imagelink}
+                        alt={desc.name}
+                        className="w-full h-72 object-cover rounded-lg shadow-md"
+                      />
+                      <motion.div initial={{ opacity: 0, y: 20 }}
+                      whileHover={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.3, ease: "easeInOut" }} className="text-center absolute inset-0 backdrop-blur-md bg-opacity-50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+                        <span className="text-white text-lg font-semibold">{desc.name}</span>
+                      </motion.div>
+                    </div>
+                  ))}
+                </div>
+              </motion.div>
+            </div>
+          ))}
+        </div>
+      </div>
+      )}
     </div>
         </div>
 
@@ -351,22 +439,7 @@ function Payment() {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               className="mt-6 w-full px-6 py-3 text-lg font-medium text-white bg-gradient-to-r from-blue-500 to-purple-600 rounded-lg shadow-lg"
-              onClick={() => {
-                if (totalPrice === 0) {
-                  alert("Please select a package to proceed");
-                  return;
-                }
-                alert("Please pay ₹" + totalPrice + " to proceed");
-                const queryParams = new URLSearchParams({
-                  heading: selectedDestination.heading,
-                  totalPrice,
-                  quad: pricing.quad,
-                  triple: pricing.triple,
-                  double: pricing.double,
-                  single: pricing.single,
-                }).toString();
-                navigate(`/process?${queryParams}`);
-              }}
+              onClick={handlePayment}
             >
               Proceed to Payment
             </motion.button>

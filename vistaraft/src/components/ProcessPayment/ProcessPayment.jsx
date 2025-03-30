@@ -54,7 +54,7 @@ function ProcessPayment() {
       total_price: `${totalPrice}`,
     };
   
-    console.log("Sending Email with Data:", templateParams); // Debugging
+    // console.log("Sending Email with Data:", templateParams); // Debugging
   
     emailjs.send(import.meta.env.VITE_SERVICE_ID, import.meta.env.VITE_TEMPLATE_ID, templateParams,import.meta.env.VITE_PUBLIC_KEY)
       .then((response) => {
