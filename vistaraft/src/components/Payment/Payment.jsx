@@ -389,7 +389,7 @@ function Payment() {
                       />
                       <motion.div initial={{ opacity: 0, y: 20 }}
                       whileHover={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.3, ease: "easeInOut" }} className="text-center absolute inset-0 backdrop-blur-md bg-opacity-50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+                      transition={{ duration: 0.3, ease: "easeInOut" }} className="p-4 text-center absolute inset-0 backdrop-blur-md bg-opacity-50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
                         <span className="text-white text-lg font-semibold">{desc.name}</span>
                       </motion.div>
                     </div>
