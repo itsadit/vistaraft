@@ -45,6 +45,7 @@ function Header() {
               to="https://www.joobiragalaxy.in"
               className={`nav-link text-lg transition duration-300 ${mode === "dark" ? "text-white" : "!text-gray-900"
                 } hover:text-gray-500`}
+              target="_blank"
             >
               Our Hotels
             </Link>
