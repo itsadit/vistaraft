@@ -263,8 +263,8 @@ function Payment() {
       <div className={`flex lg:flex-row justify-around flex-col items-start min-h-screen p-2 pt-8 gap-1 ${mode === "light" ? "!bg-gray-100" : "bg-gray-900 text-white"}`}>
         {/* Left Side - Trip Details */}
         <div className="lg:mx-20 w-full lg:w-1/2 space-y-8">
-          <div className={`lg:flex justify-around ${mode === 'dark' ? 'bg-gray-900 text-white' : '!bg-white !text-gray-900'} p-6 rounded-2xl`}>
-            <div className="flex justify-around gap-11">
+          <div className={`lg:flex justify-around ${mode === 'dark' ? 'bg-gray-900 text-white' : '!bg-white !text-gray-900'} p-4 rounded-2xl`}>
+            <div className="flex justify-around gap-2">
               {/* Days of Trip Block */}
               <div className="flex flex-col items-center space-y-1">
                 {/* Clock Icon */}
@@ -287,13 +287,13 @@ function Payment() {
             </div>
 
             {/* Buttons */}
-            <div className="flex mt-4 justify-center space-x-4">
+            <div className="flex mt-4 justify-center space-x-2">
               <button id="dwp" className="bg-blue-600 px-4  py-2 rounded-lg" onClick={() => setOpenSection(openSection === "itinerary" ? "itinerary" : "itinerary")}>
                 Day Wise Plan
               </button>
               <button id="inde" className="bg-gray-700 px-4 py-2 rounded-lg" onClick={() => setOpenSection(openSection === "inclusions_exclusions" ? "inclusions_exclusions" : "inclusions_exclusions")}>Inclusions & Excl.</button>
               <button id="dwp" className="bg-blue-600 px-4  py-2 rounded-lg" onClick={() => setOpenSection(openSection === "hotels" ? "hotels" : "hotels")}>
-                Hotels Available
+                Hotels
               </button>
             </div>
           </div>

@@ -1,5 +1,4 @@
 import { Link, useLocation } from "react-router-dom";
-import menu from "@/assets/menu.png";
 import { useState } from "react";
 import { useTheme } from "../ThemeContext/ThemeContext";
 
@@ -41,6 +40,13 @@ function Header() {
                 } hover:text-gray-500`}
             >
               Home
+            </Link>
+            <Link
+              to="https://www.joobiragalaxy.in"
+              className={`nav-link text-lg transition duration-300 ${mode === "dark" ? "text-white" : "!text-gray-900"
+                } hover:text-gray-500`}
+            >
+              Our Hotels
             </Link>
             <Link
               to="tel:8384076491"
