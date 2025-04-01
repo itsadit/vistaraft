@@ -97,6 +97,9 @@ function Header() {
       {isExpanded && (
         <div className={`md:hidden p-4 space-y-4 ${mode === 'light' ? 'bg-gray-100' : 'bg-black'}`}>
           <Link to="/" className={`block ${mode === 'dark' ? 'text-white' : 'text-gray-900'} hover:text-gray-500 transition duration-300`}>Home</Link>
+          <Link to="https://www.joobiragalaxy.in" className={`block ${mode === 'dark' ? 'text-white' : 'text-gray-900'} hover:text-gray-500 transition duration-300`}>
+            Our Hotels
+          </Link>
           <Link to="tel:+8384076491" className={`block ${mode === 'dark' ? 'text-white' : 'text-gray-900'} hover:text-gray-500 transition duration-300`}>
             Call Us
           </Link>
