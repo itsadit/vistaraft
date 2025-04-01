@@ -260,9 +260,9 @@ function Payment() {
         </div>
       </section>
 
-      <div className={`flex lg:flex-row justify-around flex-col items-start min-h-screen p-2 pt-8 gap-1 ${mode === "light" ? "!bg-gray-100" : "bg-gray-900 text-white"}`}>
+      <div className={`flex lg:flex-row justify-around text-center flex-col items-start min-h-screen p-2 pt-8 gap-1 ${mode === "light" ? "!bg-gray-100" : "bg-gray-900 text-white"}`}>
         {/* Left Side - Trip Details */}
-        <div className="lg:mx-20 w-full lg:w-1/2 space-y-8">
+        <div className="lg:mx-20 w-full lg:w-2/3 space-y-8">
           <div className={`lg:flex justify-around ${mode === 'dark' ? 'bg-gray-900 text-white' : '!bg-white !text-gray-900'} p-4 rounded-2xl`}>
             <div className="flex justify-around gap-2">
               {/* Days of Trip Block */}
