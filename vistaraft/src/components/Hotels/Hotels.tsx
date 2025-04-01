@@ -1,4 +1,3 @@
-
 import React from "react";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
@@ -24,9 +23,27 @@ const Hotel = () => {
     autoplay: true,
     autoplaySpeed: 3000,
     arrows: true, // Enable arrows for navigation
-    rows: 2, // Display 2 rows
+    rows: 2, // Default: Display 2 rows
     nextArrow: <SampleNextArrow />, // Custom next arrow
     prevArrow: <SamplePrevArrow />, // Custom previous arrow
+    responsive: [
+      {
+        breakpoint: 1024, // Medium devices
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 3,
+          rows: 1,
+        },
+      },
+      {
+        breakpoint: 768, // Small devices
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 2,
+          rows: 1,
+        },
+      },
+    ],
   };
 
   return (
@@ -67,4 +84,4 @@ const SamplePrevArrow = (props) => {
   );
 };
 
-export default Hotel;
+export default Hotel
