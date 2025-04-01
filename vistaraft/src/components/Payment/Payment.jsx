@@ -199,6 +199,15 @@ function Payment() {
   const toggleSections = (heading) => {
     setOpenSections((prev) => ({ ...prev, [heading]: !prev[heading] }));
   };
+  const [zoomedImage, setZoomedImage] = useState(null);
+
+const openImage = (image) => {
+  setZoomedImage(image);
+};
+
+const closeImage = () => {
+  setZoomedImage(null);
+};
   return (
 
     <div className={`${mode === "light" ? "!bg-gray-100" : "bg-gray-900 text-white"}`}>
@@ -323,7 +332,7 @@ function Payment() {
                 >
                   <ul className="list-disc py-4 list-inside pl-5">
                     {item.description.map((desc, i) => (
-                      <li key={i} className={` ${mode === "dark" ? "text-gray-300" : "text-gray-600"}`}>
+                      <li key={i} className={`text-justify ${mode === "dark" ? "text-gray-300" : "text-gray-600"}`}>
                         {desc}
                       </li>
                     ))}
@@ -342,7 +351,7 @@ function Payment() {
             <h2 className="text-xl font-bold text-green-500 mb-4">✔️ Trip Inclusions</h2>
             <ul className="list-disc list-inside pl-5">
               {selectedDestination?.inclusions.map((item, index) => (
-                <li key={index} className={` ${mode === "dark" ? "text-gray-300" : "text-gray-600"}`}>
+                <li key={index} className={`text-justify ${mode === "dark" ? "text-gray-300" : "text-gray-600"}`}>
                   {item}
                 </li>
               ))}
@@ -350,7 +359,7 @@ function Payment() {
             <h2 className="text-xl font-bold text-red-500 mt-6 mb-4">❌ Trip Exclusions</h2>
             <ul className="list-disc list-inside pl-5">
               {selectedDestination?.exclusions.map((item, index) => (
-                <li key={index} className={` ${mode === "dark" ? "text-gray-300" : "text-gray-600"}`}>
+                <li key={index} className={`text-justify ${mode === "dark" ? "text-gray-300" : "text-gray-600"}`}>
                   {item}
                 </li>
               ))}
@@ -382,16 +391,13 @@ function Payment() {
                 <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 gap-4">
                   {item.description.map((desc, i) => (
                     <div key={i} className="relative group">
-                      <img
+                      <motion.img
+                      initial={{scale:1}}
+                        whileTap={()=>{openImage(desc.imagelink)}}
                         src={desc.imagelink}
                         alt={desc.name}
-                        className="w-full h-72 object-cover rounded-lg shadow-md"
+                        className="w-full h-72 object-cover rounded-lg shadow-md cursor-pointer"
                       />
-                      <motion.div initial={{ opacity: 0, y: 20 }}
-                      whileHover={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.3, ease: "easeInOut" }} className="p-4 text-center absolute inset-0 backdrop-blur-md bg-opacity-50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
-                        <span className="text-white text-lg font-semibold">{desc.name}</span>
-                      </motion.div>
                     </div>
                   ))}
                 </div>
@@ -463,6 +469,24 @@ function Payment() {
           </motion.div>
         </div>
       </div>
+      {zoomedImage && (
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
+        className="fixed top-0 left-0 w-full h-full bg-black bg-opacity-80 flex items-center justify-center z-50"
+        onClick={closeImage}
+      >
+        <motion.img
+          initial={{ scale: 0.5 }}
+          animate={{ scale: 1 }}
+          exit={{ scale: 0.5 }}
+          transition={{ duration: 0.3 }}
+          src={zoomedImage}
+          className="w-auto h-auto max-w-screen-lg max-h-screen-lg rounded-lg shadow-lg"
+        />
+      </motion.div>
+    )}
     </div>
 
    

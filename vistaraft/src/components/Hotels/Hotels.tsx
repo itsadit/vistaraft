@@ -10,9 +10,10 @@ const image1 = import.meta.env.VITE_IMAGE;
 // import image4 from "../../assets/image4.jpg";
 // import image5 from "../../assets/image5.jpg";
 // import image6 from "../../assets/image6.jpg";
-
+import { useTheme } from "../ThemeContext/ThemeContext";
 const Hotel = () => {
   const images = [image1, image1, image1, image1, image1, image1];
+  const {mode} = useTheme();
 
   const settings = {
     dots: false,
@@ -47,7 +48,7 @@ const Hotel = () => {
   };
 
   return (
-    <div className="hotel-section">
+    <div className={`hotel-section ${mode === 'light' ? '!bg-gray-100' : 'bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900'} `}>
       <h2 className="text-4xl lg:text-6xl font-extrabold hotel-title text-transparent bg-clip-text bg-gradient-to-r from-teal-400 to-blue-500">Our Ho<span className="text-green-400">tels</span></h2>
       <Slider {...settings}>
         {images.map((image, index) => (
