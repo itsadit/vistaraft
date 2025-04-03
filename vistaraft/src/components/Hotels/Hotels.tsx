@@ -4,15 +4,28 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import "./Hotels.css"; // Custom styles for animations and layout
 
-const image1 = import.meta.env.VITE_IMAGE;
-// import image2 from "../../assets/image2.jpg";
-// import image3 from "../../assets/image3.jpg";
-// import image4 from "../../assets/image4.jpg";
-// import image5 from "../../assets/image5.jpg";
-// import image6 from "../../assets/image6.jpg";
+const image1 = import.meta.env.VITE_IMAGE1;
+const image2 = import.meta.env.VITE_IMAGE2;
+const image3 = import.meta.env.VITE_IMAGE3;
+const image4 = import.meta.env.VITE_IMAGE4;
+const image5 = import.meta.env.VITE_IMAGE5;
+const image6 = import.meta.env.VITE_IMAGE6;
+const image7 = import.meta.env.VITE_IMAGE7;
+const image8 = import.meta.env.VITE_IMAGE8;
+const image9 = import.meta.env.VITE_IMAGE9;
+const image10 = import.meta.env.VITE_IMAGE10;
+const image11 = import.meta.env.VITE_IMAGE11;
+const image12 = import.meta.env.VITE_IMAGE12;
+const image13 = import.meta.env.VITE_IMAGE13;
+const image14 = import.meta.env.VITE_IMAGE14;
+const image15 = import.meta.env.VITE_IMAGE15;
+const image16 = import.meta.env.VITE_IMAGE16;
+
+
+
 import { useTheme } from "../ThemeContext/ThemeContext";
 const Hotel = () => {
-  const images = [image1, image1, image1, image1, image1, image1];
+  const images = [image1, image2, image3, image4, image5, image6, image7, image8, image9, image10, image11, image12, image13, image14, image15, image16];
   const {mode} = useTheme();
 
   const settings = {
@@ -49,7 +62,7 @@ const Hotel = () => {
 
   return (
     <div className={`hotel-section ${mode === 'light' ? '!bg-gray-100' : 'bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900'} `}>
-      <h2 className="text-4xl lg:text-6xl font-extrabold hotel-title text-transparent bg-clip-text bg-gradient-to-r from-teal-400 to-blue-500">Our Ho<span className="text-green-400">tels</span></h2>
+      <h2 className="text-4xl lg:text-6xl font-extrabold hotel-title text-transparent bg-clip-text bg-gradient-to-r from-teal-400 to-blue-500">Our Ho<span className="text-green-400">tel</span></h2>
       <Slider {...settings}>
         {images.map((image, index) => (
           <div key={index} className="hotel-slide">

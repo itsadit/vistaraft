@@ -17,8 +17,8 @@ function SubHero() {
           whileInView={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.8 }}
           viewport={{ once: false, amount: 0.3 }} // Ensures animation triggers on scroll
-          src={import.meta.env.VITE_PUSHKAR}
-          alt="Hiking"
+          src={import.meta.env.VITE_LARGE}
+          alt="LARGE"
           className="w-60 h-106 rounded-[40px] object-cover shadow-xl"
         />
         {/* Overlapping Images */}
@@ -27,8 +27,8 @@ function SubHero() {
           whileInView={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
           viewport={{ once: false, amount: 0.3 }}
-          src={import.meta.env.VITE_PUSHKARHOLI}
-          alt="Bridge"
+          src={import.meta.env.VITE_MIDDLE}
+          alt="MIDDLE"
           className={`absolute w-40 h-32 rounded-[35px] object-cover top-20 left-30 lg:left-32 shadow-lg border-4 ${mode==='light'?'!border-gray-100': 'border-gray-900'}`}
         />
         <motion.img
@@ -36,8 +36,8 @@ function SubHero() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.4 }}
           viewport={{ once: false, amount: 0.3 }}
-          src={import.meta.env.VITE_HOLI}
-          alt="Venice"
+          src={import.meta.env.VITE_SMALL}
+          alt="SMALL"
           className={`absolute w-40 h-48 rounded-[30px] object-cover bottom-0 left-20 lg:left-14 shadow-lg border-4 ${mode==='light'?'!border-gray-100': 'border-gray-900'}`}
         />
       </div>
