@@ -115,3 +115,30 @@ button:focus-visible {
 .footer-link:hover::after {
   width: 100%; /* Expand underline on hover */
 }
+
+/* Optional: make dropdown items look like nav-links */
+.dropdown-item {
+  position: relative;
+  color: white;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.dropdown-item:hover {
+  color: #00CED1;
+}
+
+.dropdown-item::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: #00CED1;
+  transition: width 0.3s ease;
+}
+
+.dropdown-item:hover::after {
+  width: 100%;
+}
