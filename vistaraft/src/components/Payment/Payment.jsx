@@ -12,6 +12,7 @@ import "react-toastify/dist/ReactToastify.css";
 
 
 function Payment() {
+  const [is,setIs] = useState(false);
   const handlePayment = () => {
     if (totalPrice === 0) {
       toast.warn("Please select a package to proceed!", {
@@ -301,9 +302,9 @@ const closeImage = () => {
                 Day Wise Plan
               </button>
               <button id="inde" className="bg-gray-700 px-4 py-2 rounded-lg" onClick={() => setOpenSection(openSection === "inclusions_exclusions" ? "inclusions_exclusions" : "inclusions_exclusions")}>Inclusions & Excl.</button>
-              <button id="dwp" className="bg-blue-600 px-4  py-2 rounded-lg" onClick={() => setOpenSection(openSection === "hotels" ? "hotels" : "hotels")}>
+              {selectedDestination?.hotels.length !==0 && (<button id="dwp" className="bg-blue-600 px-4  py-2 rounded-lg" onClick={() => setOpenSection(openSection === "hotels" ? "hotels" : "hotels")}>
                 Hotels
-              </button>
+              </button>)}
             </div>
           </div>
 

@@ -1,23 +1,30 @@
 import { Link, useLocation } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { useTheme } from "../ThemeContext/ThemeContext";
+import Itenary from "../Itenary/Itenary";
 
 function Header() {
   const location = useLocation();
   const { mode, themeToggler } = useTheme();
   const [isExpanded, setIsExpanded] = useState(false);
 
-  const [isDropdownOpen, setIsDropdownOpen] = useState(false); // State for dropdown visibility
+// State for dropdown visibility
   const [itineraries, setItineraries] = useState([]); // State for itineraries
 
   const toggleNavbar = () => {
     setIsExpanded(!isExpanded);
   };
 
-  const toggleDropdown = () => {
-    setIsDropdownOpen(!isDropdownOpen);
-  };
+  const [anchorEl, setAnchorEl] = useState(null);
+    const isDropdownOpen = Boolean(anchorEl);
 
+    const handleClick = (event) => {
+        setAnchorEl(event.currentTarget);
+    };
+
+    const handleClose = () => {
+        setAnchorEl(null);
+    };
   // Fetch itineraries from the backend
   useEffect(() => {
     const fetchItineraries = async () => {
@@ -83,35 +90,13 @@ function Header() {
             {/* Itinerary Dropdown */}
             <div className="relative">
               <div
-                onClick={toggleDropdown}
+                onClick={handleClick}
                 className={`nav-link text-lg font-medium transition duration-300 ${mode === "dark" ? "text-white" : "!text-gray-900"
                   } hover:text-gray-500 cursor-pointer`}
               >
-                Itenary
+                Itienary
               </div>
-              {isDropdownOpen && (
-                <ul
-                  className={`absolute top-full mt-2 bg-white shadow-lg rounded-lg w-48 ${mode === "dark"
-                    ? "bg-gray-800 text-white"
-                    : "bg-white text-gray-900"
-                    }`}
-                >
-                  {itineraries.length > 0 ? (
-                    itineraries.map((itinerary) => (
-                      <li
-                        key={itinerary._id}
-                        className="px-4 py-2 text-lg font-medium hover:bg-gray-100 cursor-pointer"
-                      >
-                        {itinerary.heading}
-                      </li>
-                    ))
-                  ) : (
-                    <li className="px-4 py-2 text-lg font-medium">
-                      No itineraries available
-                    </li>
-                  )}
-                </ul>
-              )}
+              <Itenary  isDropdownOpen={isDropdownOpen} anchorEl={anchorEl} onClose={handleClose}/>
             </div>
             <Link
               to="tel:8384076491"
