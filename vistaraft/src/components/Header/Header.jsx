@@ -105,7 +105,26 @@ function Header() {
             >
               Our Hotels
             </Link>
-            {/* Itinerary Dropdown */}
+
+            {/* Domestic Button */}
+            <div
+              onClick={() => filterTrips("domestic")}
+              className={`nav-link text-lg font-medium transition duration-300 ${mode === "dark" ? "text-white" : "!text-gray-900"
+                } hover:text-gray-500`}
+            >
+              Domestic
+            </div>
+
+            {/* International Button */}
+            <div
+              onClick={() => filterTrips("international")}
+              className={`nav-link text-lg font-medium transition duration-300 ${mode === "dark" ? "text-white" : "!text-gray-900"
+                } hover:text-gray-500`}
+            >
+              International
+            </div>
+
+            {/* Itinerary Dropdown
             <div className="relative">
               <div
                 onClick={handleClick}
@@ -115,7 +134,7 @@ function Header() {
                 Itienary
               </div>
               <Itenary isDropdownOpen={isDropdownOpen} anchorEl={anchorEl} onClose={handleClose} />
-            </div>
+            </div> */}
             <Link
               to="tel:8384076491"
               className={`nav-link text-lg transition duration-300 ${mode === "dark" ? "text-white" : "!text-gray-900"
@@ -123,20 +142,20 @@ function Header() {
             >
               Call Us
             </Link>
-            <Link
+            {/* <Link
               to="/about"
               className={`nav-link text-lg transition duration-300 ${mode === "dark" ? "text-white" : "!text-gray-900"
                 } hover:text-gray-500`}
             >
               About Us
-            </Link>
-            <Link
+            </Link> */}
+            {/* <Link
               to="/contact"
               className={`nav-link text-lg transition duration-300 ${mode === "dark" ? "text-white" : "!text-gray-900"
                 } hover:text-gray-500`}
             >
               Contact Us
-            </Link>
+            </Link> */}
           </div>
 
           {/* Dark Mode Toggle Button */}
@@ -183,11 +202,11 @@ function Header() {
             Our Hotels
           </Link>
 
-          {/* Itinerary Dropdown for Mobile */}
+          {/* Itinerary Dropdown for Mobile
           <div className="relative">
             <div
               onClick={toggleMobileDropdown}
-              className={`block text-lg font-medium text-[#50a7ff]
+              className={`block text-lg font-medium text-[#00CED1]
                 } hover:text-gray-500 transition duration-300 cursor-pointer`}
             >
               Itineary
@@ -223,7 +242,7 @@ function Header() {
             )}
 
 
-          </div>
+          </div> */}
 
 
           <Link
@@ -233,7 +252,7 @@ function Header() {
           >
             Call Us
           </Link>
-          <Link
+          {/* <Link
             to="/about"
             className={`block ${mode === "dark" ? "text-white" : "text-gray-900"
               } hover:text-gray-500 transition duration-300`}
@@ -246,7 +265,7 @@ function Header() {
               } hover:text-gray-500 transition duration-300`}
           >
             Contact Us
-          </Link>
+          </Link> */}
         </div>
       )}
     </nav>

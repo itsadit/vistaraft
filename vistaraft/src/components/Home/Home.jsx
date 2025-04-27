@@ -122,7 +122,7 @@ function Home() {
         </button>
       </div>
       <br />
-      <Hotel/>
+      {/* <Hotel/> */}
       <br  />
     </div>
   );
