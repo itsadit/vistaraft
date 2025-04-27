@@ -2,13 +2,17 @@ import { Link, useLocation } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { useTheme } from "../ThemeContext/ThemeContext";
 import Itenary from "../Itenary/Itenary";
+import { motion, AnimatePresence } from 'framer-motion';
 
 function Header() {
+
   const location = useLocation();
   const { mode, themeToggler } = useTheme();
   const [isExpanded, setIsExpanded] = useState(false);
   const [destinations, setDestinations] = useState([]);
-
+  const filterTrips = (type) => {
+    const filteredDestinations = destinations.filter((destination) => destination.inter === type);
+  }
   useEffect(() => {
     const fetchDestinations = async () => {
       try {
@@ -24,7 +28,17 @@ function Header() {
   }, []);
   // State for dropdown visibility
   const [itineraries, setItineraries] = useState([]); // State for itineraries
+  const [openDropdown, setOpenDropdown] = useState(null); // "dom" or "international" or null
 
+  const handleMouseEnter = (event, inter) => {
+    setAnchorEl(event.currentTarget);
+    setOpenDropdown(inter); // Set which dropdown should open
+  };
+
+  const handleClose = () => {
+    setOpenDropdown(null);
+    setAnchorEl(null);
+  };
   const toggleNavbar = () => {
     setIsExpanded(!isExpanded);
   };
@@ -36,9 +50,6 @@ function Header() {
     setAnchorEl(event.currentTarget);
   };
 
-  const handleClose = () => {
-    setAnchorEl(null);
-  };
   // Fetch itineraries from the backend
   useEffect(() => {
     const fetchItineraries = async () => {
@@ -106,22 +117,30 @@ function Header() {
               Our Hotels
             </Link>
 
-            {/* Domestic Button */}
-            <div
-              onClick={() => filterTrips("domestic")}
-              className={`nav-link text-lg font-medium transition duration-300 ${mode === "dark" ? "text-white" : "!text-gray-900"
-                } hover:text-gray-500`}
-            >
-              Domestic
+            <div className="relative" onMouseLeave={handleClose}>
+              <div
+                onMouseEnter={(e) => handleMouseEnter(e, "dom")}
+                className={`nav-link cursor-pointer text-lg font-medium transition duration-300 ${mode === "dark" ? "text-white" : "!text-gray-900"
+                  } hover:text-gray-500`}
+              >
+                Domestic
+              </div>
+              {openDropdown === "dom" && (
+                <Itenary inter={"dom"} isDropdownOpen={true} anchorEl={anchorEl} onClose={handleClose} />
+              )}
             </div>
 
-            {/* International Button */}
-            <div
-              onClick={() => filterTrips("international")}
-              className={`nav-link text-lg font-medium transition duration-300 ${mode === "dark" ? "text-white" : "!text-gray-900"
-                } hover:text-gray-500`}
-            >
-              International
+            <div className="relative" onMouseLeave={handleClose}>
+              <div
+                onMouseEnter={(e) => handleMouseEnter(e, "international")}
+                className={`nav-link text-lg font-medium transition duration-300 ${mode === "dark" ? "text-white" : "!text-gray-900"
+                  } hover:text-gray-500`}
+              >
+                International
+              </div>
+              {openDropdown === "international" && (
+                <Itenary inter={"international"} isDropdownOpen={true} anchorEl={anchorEl} onClose={handleClose} />
+              )}
             </div>
 
             {/* Itinerary Dropdown

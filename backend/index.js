@@ -174,6 +174,7 @@ const destinationSchema = new mongoose.Schema({
   things: [String],
   nights: Number,
   days: Number,
+  inter: {type: Boolean, default: false}
 });
 
 const Destination = mongoose.model(

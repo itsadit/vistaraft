@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Menu, MenuItem, Divider, Typography, Box } from "@mui/material";
+import { useTheme } from "../ThemeContext/ThemeContext";
 
-const Itenary = ({ isDropdownOpen, anchorEl, onClose }) => {
+const Itenary = ({ isDropdownOpen, anchorEl, onClose ,inter}) => {
+    const {mode} = useTheme()
     const [destinations, setDestinations] = useState([]);
-
+    const [filteredDestinations, setFilteredDestinations] = useState([]);
     useEffect(() => {
         const fetchDestinations = async () => {
             try {
@@ -12,14 +14,27 @@ const Itenary = ({ isDropdownOpen, anchorEl, onClose }) => {
                     `${import.meta.env.VITE_HOST}/api/destinations`
                 );
                 const data = await response.json();
-                setDestinations(data);
+                setDestinations(data); 
             } catch (error) {
                 console.error("Error fetching destinations:", error);
             }
         };
+      
 
         fetchDestinations();
+        
     }, []);
+useEffect(() => {
+        const filtered = destinations.filter((destination) =>
+            {if(inter==="international"){
+                return destination?.inter===true
+            }else if(inter==="dom"){
+                return destination?.inter===false
+
+            }}
+        );
+        setFilteredDestinations(filtered);
+    }, [destinations, inter]);
 
     return (
         <Menu
@@ -27,12 +42,15 @@ const Itenary = ({ isDropdownOpen, anchorEl, onClose }) => {
             open={isDropdownOpen}
             onClose={onClose}
             PaperProps={{
-                sx: { width: 250, p: 1 },
+                sx: { width: 250, p: 1 , background: mode === "dark" 
+                    ? "linear-gradient(to right, #111827, #1f2937, #111827)" // your gradient
+                    : "white",},
             }}
+            
         >
-            {destinations.length > 0 ? (
-                destinations.map((destination, index) => (
-                    <Box key={destination._id}>
+            {filteredDestinations?.length > 0 ? (
+                filteredDestinations?.map((destination, index) => (
+                    <Box  key={destination._id}>
                         <MenuItem onClick={onClose}>
                             <Link
                                 to={`/payment?heading=${encodeURIComponent(
@@ -43,7 +61,7 @@ const Itenary = ({ isDropdownOpen, anchorEl, onClose }) => {
                             </Link>
                         </MenuItem>
                         {index < destinations.length - 1 && (
-                            <Divider sx={{ backgroundColor: "black", my: 0.5 }} />
+                            <Divider sx={{ backgroundColor: mode==='dark'?'white':"black", my: 0.5 }} />
                         )}
                     </Box>
                 ))
