@@ -27,6 +27,23 @@ function Header() {
     fetchDestinations();
   }, []);
   // State for dropdown visibility
+  const toggleDropdown = (type) => {
+    setMobileDropdown(mobileDropdown === type ? null : type);
+  };
+
+  const dropdownVariants = {
+    hidden: { opacity: 0, height: 0 },
+    visible: { opacity: 1, height: "auto" },
+    exit: { opacity: 0, height: 0 },
+  };
+
+  const dropdownStyle = `pl-4 space-y-2 border-l-2 ${
+    mode === "dark" ? "border-gray-600" : "border-gray-300"
+  }`;
+
+  const linkStyle = `block px-4 py-2 rounded-lg transition-colors duration-300 ${
+    mode === "dark" ? "bg-gray-700 text-white hover:bg-blue-600" : "bg-gray-100 text-gray-900 hover:bg-blue-100"
+  }`;
   const [itineraries, setItineraries] = useState([]); // State for itineraries
   const [openDropdown, setOpenDropdown] = useState(null); // "dom" or "international" or null
   const [mobileDropdown,setMobileDropdown] = useState(null); // "dom" or "international" or null
@@ -75,7 +92,7 @@ function Header() {
         ? "!bg-gray-100"
         : "bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900"
         } ${mode === "dark" ? "text-white" : "!text-gray-900"
-        } sticky top-0 left-0 w-full bg-white shadow-lg border-b border-gray-200 z-50`}
+        } sticky top-0 left-0 w-screen bg-white shadow-lg border-b border-gray-200 z-50`}
     >
       <div className="max-w-screen-xl flex justify-between items-center mx-auto p-1.5">
         {/* Logo and Brand Name */}
@@ -117,13 +134,23 @@ function Header() {
               Our Hotels
             </Link>
 
-            <div className="relative" onMouseLeave={handleClose}>
+            <div className="relative" onMouseLeave={()=>{setOpenDropdown(null)}}>
               <div
                 onMouseEnter={(e) => handleMouseEnter(e, "dom")}
-                className={`nav-link cursor-pointer text-lg font-medium transition duration-300 ${mode === "dark" ? "text-white" : "!text-gray-900"
+                className={`nav-link flex cursor-pointer text-lg font-medium transition duration-300 ${mode === "dark" ? "text-white" : "!text-gray-900"
                   } hover:text-gray-500`}
               >
                 Domestic
+                <motion.svg
+                animate={{ rotate: openDropdown === "dom" ? 180 : 0 }}
+                transition={{ duration: 0.3 }}
+                className="w-4 h-4 ml-1 mt-1"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" />
+              </motion.svg>
               </div>
               {openDropdown === "dom" && (
                 <Itenary inter={"dom"} isDropdownOpen={true} anchorEl={anchorEl} onClose={handleClose} />
@@ -133,10 +160,20 @@ function Header() {
             <div className="relative" onMouseLeave={handleClose}>
               <div
                 onMouseEnter={(e) => handleMouseEnter(e, "international")}
-                className={`nav-link text-lg font-medium transition duration-300 ${mode === "dark" ? "text-white" : "!text-gray-900"
+                className={`nav-link flex  text-lg font-medium transition duration-300 ${mode === "dark" ? "text-white" : "!text-gray-900"
                   } hover:text-gray-500`}
               >
                 International
+                <motion.svg
+                animate={{ rotate: openDropdown === "international" ? 180 : 0 }}
+                transition={{ duration: 0.3 }}
+                className="w-4 h-4 ml-1 mt-1"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" />
+              </motion.svg>
               </div>
               {openDropdown === "international" && (
                 <Itenary inter={"international"} isDropdownOpen={true} anchorEl={anchorEl} onClose={handleClose} />
@@ -200,141 +237,144 @@ function Header() {
         </button>
       </div>
 
-      {/* Mobile Navigation Menu */}
-      {isExpanded && (
-        <div
-          className={`md:hidden p-4 space-y-4 ${mode === "light" ? "bg-gray-100" : "bg-black"
-            }`}
-        >
-          <Link
-            to="/"
-            className={`block ${mode === "dark" ? "text-white" : "text-gray-900"
-              } hover:text-gray-500 transition duration-300`}
-          >
-            Home
-          </Link>
-          <Link
-            to="https://www.joobiragalaxy.in"
-            className={`block ${mode === "dark" ? "text-white" : "text-gray-900"
-              } hover:text-gray-500 transition duration-300`}
-          >
-            Our Hotels
-          </Link>
+     {/* Mobile Navigation Menu */}
+{isExpanded && (
+  <div
+    className={`md:hidden p-4 space-y-6 ${
+      mode === "light" ? "bg-gray-100" : "bg-black"
+    }`}
+  >
+    {/* Home */}
+    <Link
+      to="/"
+      className={`block text-lg font-semibold ${
+        mode === "dark" ? "text-white" : "text-gray-900"
+      } hover:text-gray-500 transition duration-300`}
+    >
+      Home
+    </Link>
 
-          {/* Itinerary Dropdown for Mobile
-          <div className="relative">
-            <div
-              onClick={toggleMobileDropdown}
-              className={`block text-lg font-medium text-[#00CED1]
-                } hover:text-gray-500 transition duration-300 cursor-pointer`}
-            >
-              Itineary
-            </div>
-            {isMobileDropdownOpen && (
-              <div className="pl-4 pr-4 mt-2 space-y-2">
-                {destinations?.length > 0 ? (
-                  <div className={`${mode=='dark'?'bg-gray-800':'!bg-white'} rounded-xl shadow-lg p-4`}>
-                    <h3 className="text-lg font-semibold mb-2 text-blue-600 dark:text-blue-400">Available Trips</h3>
-                    <ul className="space-y-2">
-                      {destinations?.map((destination) => (
-                        <li key={destination._id}>
-                          <Link
-                            to={`/payment?heading=${encodeURIComponent(destination?.heading)}&description=${encodeURIComponent(destination?.description)}`}
-                            onClick={() => {
-                              setIsExpanded(false);
-                              setIsMobileDropdownOpen(false);
-                            }}
-                            className={`block px-4 py-2 rounded-lg ${mode==='dark'?'bg-gray-700':'!bg-gray-100'} text-gray-800 dark:text-white bg-gray-100 dark:bg-gray-700 hover:bg-blue-100 dark:hover:bg-blue-600 transition-colors duration-200`}
-                          >
-                            {destination.heading}
-                          </Link>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                ) : (
-                  <div className="bg-white dark:bg-gray-800 rounded-lg shadow p-4">
-                    <p className="text-sm text-gray-500 dark:text-gray-300 italic">No itineraries available</p>
-                  </div>
-                )}
-              </div>
-            )}
-
-
-          </div> */}
-
-<div>
-      <div
-        onClick={() => setMobileDropdown(mobileDropdown === "dom" ? null : "dom")}
-        className="text-lg font-semibold cursor-pointer text-[#2ad4d7] mb-2"
-      >
-        Domestic
-      </div>
-      {mobileDropdown === "dom" && (
-        <div className="pl-4 space-y-2">
-          {destinations?.filter((d) => d.inter === false)?.map((destination) => (
-            <Link
-              key={destination._id}
-              to={`/payment?heading=${encodeURIComponent(destination?.heading)}&description=${encodeURIComponent(destination?.description)}`}
-              
-              className={`block px-3 py-2 rounded-md ${mode === 'dark' ? 'bg-gray-700 text-white' : 'bg-gray-200 text-gray-900'} hover:bg-blue-100 dark:hover:bg-blue-600`}
-            >
-              {destination.heading}
-            </Link>
-          ))}
-        </div>
-      )}
-    </div>
+    {/* Our Hotels */}
+    <Link
+      to="https://www.joobiragalaxy.in"
+      className={`block text-lg font-semibold ${
+        mode === "dark" ? "text-white" : "text-gray-900"
+      } hover:text-gray-500 transition duration-300`}
+    >
+      Our Hotels
+    </Link>
 
     <div>
-      <div
-        onClick={() => setMobileDropdown(mobileDropdown === "international" ? null : "international")}
-        className="text-lg font-semibold cursor-pointer text-[#2ad4d7] mb-2 mt-4"
-      >
-        International
-      </div>
-      {mobileDropdown === "international" && (
-        <div className="pl-4 space-y-2">
-          {destinations?.filter((d) => d.inter === true)?.map((destination) => (
-            <Link
-              key={destination._id}
-              to={`/payment?heading=${encodeURIComponent(destination?.heading)}&description=${encodeURIComponent(destination?.description)}`}
-              onClick={() => {
-                setIsExpanded(false);
-                setOpenDropdown(null);
-              }}
-              className={`block px-3 py-2 rounded-md ${mode === 'dark' ? 'bg-gray-700 text-white' : 'bg-gray-200 text-gray-900'} hover:bg-blue-100 dark:hover:bg-blue-600`}
-            >
-              {destination.heading}
-            </Link>
-          ))}
-        </div>
-      )}
-    </div>
+  <div
+    onClick={() => setMobileDropdown(mobileDropdown === "dom" ? null : "dom")}
+    className="text-lg flex font-semibold cursor-pointer text-[#2ad4d7] mb-2"
+  >
+    Domestic
+    <motion.svg
+                animate={{ rotate: mobileDropdown === "dom" ? 180 : 0 }}
+                transition={{ duration: 0.3 }}
+                className="w-4 h-4 ml-1 mt-1"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" />
+              </motion.svg>
+  </div>
 
-          <Link
-            to="tel:+8384076491"
-            className={`block ${mode === "dark" ? "text-white" : "text-gray-900"
-              } hover:text-gray-500 transition duration-300`}
-          >
-            Call Us
-          </Link>
-          {/* <Link
-            to="/about"
-            className={`block ${mode === "dark" ? "text-white" : "text-gray-900"
-              } hover:text-gray-500 transition duration-300`}
-          >
-            About Us
-          </Link>
-          <Link
-            to="/contact"
-            className={`block ${mode === "dark" ? "text-white" : "text-gray-900"
-              } hover:text-gray-500 transition duration-300`}
-          >
-            Contact Us
-          </Link> */}
-        </div>
-      )}
+  {/* Dropdown for Domestic */}
+  {mobileDropdown === "dom" && (
+    <div className={`${mode==='dark'?'bg-gray-800':'bg-gray-200'} rounded-lg shadow-md p-4 mt-2 space-y-2`}>
+      {destinations?.filter((d) => d.inter === false)?.map((destination) => (
+        <Link
+          key={destination._id}
+          to={`/payment?heading=${encodeURIComponent(destination?.heading)}&description=${encodeURIComponent(destination?.description)}`}
+          onClick={() => {
+            setIsExpanded(false);
+            setMobileDropdown(null);
+          }}
+          className="block px-4 py-2 border border-black rounded-md text-gray-700 dark:text-gray-100 hover:bg-blue-100 dark:hover:bg-blue-700 transition duration-300"
+        >
+          {destination.heading}
+        </Link>
+      ))}
+    </div>
+  )}
+</div>
+
+{/* International Button */}
+<div className="mt-4">
+  <div
+    onClick={() => setMobileDropdown(mobileDropdown === "international" ? null : "international")}
+    className="text-lg flex font-semibold cursor-pointer text-[#2ad4d7] mb-2"
+  >
+    International
+    <motion.svg
+                animate={{ rotate: mobileDropdown === "international" ? 180 : 0 }}
+                transition={{ duration: 0.3 }}
+                className="w-4 h-4 ml-1 mt-1"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" />
+              </motion.svg>
+  </div>
+
+  {/* Dropdown for International */}
+  {mobileDropdown === "international" && (
+    <div className={`${mode==='dark'?'bg-gray-800':'bg-gray-200'} rounded-lg shadow-md p-4 mt-2 space-y-2`}>
+      {destinations?.filter((d) => d.inter === true)?.map((destination) => (
+        <Link
+          key={destination._id}
+          to={`/payment?heading=${encodeURIComponent(destination?.heading)}&description=${encodeURIComponent(destination?.description)}`}
+          onClick={() => {
+            setIsExpanded(false);
+            setMobileDropdown(null);
+          }}
+          className="block px-4 py-2 border border-black rounded-md text-gray-700 dark:text-gray-100 hover:!bg-blue-100 dark:hover:bg-blue-700 transition duration-300"
+        >
+          {destination.heading}
+        </Link>
+      ))}
+    </div>
+  )}
+</div>
+
+
+    {/* Call Us */}
+    <Link
+      to="tel:+8384076491"
+      className={`block text-lg font-semibold ${
+        mode === "dark" ? "text-white" : "text-gray-900"
+      } hover:text-gray-500 transition duration-300`}
+    >
+      Call Us
+    </Link>
+
+    {/* Uncomment About/Contact if needed later */}
+    {/* 
+    <Link
+      to="/about"
+      className={`block text-lg font-semibold ${
+        mode === "dark" ? "text-white" : "text-gray-900"
+      } hover:text-gray-500 transition duration-300`}
+    >
+      About Us
+    </Link>
+
+    <Link
+      to="/contact"
+      className={`block text-lg font-semibold ${
+        mode === "dark" ? "text-white" : "text-gray-900"
+      } hover:text-gray-500 transition duration-300`}
+    >
+      Contact Us
+    </Link>
+    */}
+  </div>
+)}
+
     </nav>
   );
 }
