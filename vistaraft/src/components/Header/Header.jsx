@@ -266,9 +266,9 @@ function Header() {
 <div>
       <div
         onClick={() => setMobileDropdown(mobileDropdown === "dom" ? null : "dom")}
-        className="text-lg font-semibold cursor-pointer text-blue-500 dark:text-blue-400 mb-2"
+        className="text-lg font-semibold cursor-pointer text-[#2ad4d7] mb-2"
       >
-        Domestic Trips
+        Domestic
       </div>
       {mobileDropdown === "dom" && (
         <div className="pl-4 space-y-2">
@@ -289,9 +289,9 @@ function Header() {
     <div>
       <div
         onClick={() => setMobileDropdown(mobileDropdown === "international" ? null : "international")}
-        className="text-lg font-semibold cursor-pointer text-blue-500 dark:text-blue-400 mb-2 mt-4"
+        className="text-lg font-semibold cursor-pointer text-[#2ad4d7] mb-2 mt-4"
       >
-        International Trips
+        International
       </div>
       {mobileDropdown === "international" && (
         <div className="pl-4 space-y-2">
