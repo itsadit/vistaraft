@@ -29,7 +29,7 @@ function Header() {
   // State for dropdown visibility
   const [itineraries, setItineraries] = useState([]); // State for itineraries
   const [openDropdown, setOpenDropdown] = useState(null); // "dom" or "international" or null
-
+  const [mobileDropdown,setMobileDropdown] = useState(null); // "dom" or "international" or null
   const handleMouseEnter = (event, inter) => {
     setAnchorEl(event.currentTarget);
     setOpenDropdown(inter); // Set which dropdown should open
@@ -263,6 +263,54 @@ function Header() {
 
           </div> */}
 
+<div>
+      <div
+        onClick={() => setMobileDropdown(mobileDropdown === "dom" ? null : "dom")}
+        className="text-lg font-semibold cursor-pointer text-blue-500 dark:text-blue-400 mb-2"
+      >
+        Domestic Trips
+      </div>
+      {mobileDropdown === "dom" && (
+        <div className="pl-4 space-y-2">
+          {destinations?.filter((d) => d.inter === false)?.map((destination) => (
+            <Link
+              key={destination._id}
+              to={`/payment?heading=${encodeURIComponent(destination?.heading)}&description=${encodeURIComponent(destination?.description)}`}
+              
+              className={`block px-3 py-2 rounded-md ${mode === 'dark' ? 'bg-gray-700 text-white' : 'bg-gray-200 text-gray-900'} hover:bg-blue-100 dark:hover:bg-blue-600`}
+            >
+              {destination.heading}
+            </Link>
+          ))}
+        </div>
+      )}
+    </div>
+
+    <div>
+      <div
+        onClick={() => setMobileDropdown(mobileDropdown === "international" ? null : "international")}
+        className="text-lg font-semibold cursor-pointer text-blue-500 dark:text-blue-400 mb-2 mt-4"
+      >
+        International Trips
+      </div>
+      {mobileDropdown === "international" && (
+        <div className="pl-4 space-y-2">
+          {destinations?.filter((d) => d.inter === true)?.map((destination) => (
+            <Link
+              key={destination._id}
+              to={`/payment?heading=${encodeURIComponent(destination?.heading)}&description=${encodeURIComponent(destination?.description)}`}
+              onClick={() => {
+                setIsExpanded(false);
+                setOpenDropdown(null);
+              }}
+              className={`block px-3 py-2 rounded-md ${mode === 'dark' ? 'bg-gray-700 text-white' : 'bg-gray-200 text-gray-900'} hover:bg-blue-100 dark:hover:bg-blue-600`}
+            >
+              {destination.heading}
+            </Link>
+          ))}
+        </div>
+      )}
+    </div>
 
           <Link
             to="tel:+8384076491"
