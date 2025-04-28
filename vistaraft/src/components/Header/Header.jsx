@@ -250,6 +250,8 @@ function Header() {
       className={`block text-lg font-semibold ${
         mode === "dark" ? "text-white" : "text-gray-900"
       } hover:text-gray-500 transition duration-300`}
+      style={{ textDecoration: "none", color:'inherit' }}
+      
     >
       Home
     </Link>
@@ -260,6 +262,7 @@ function Header() {
       className={`block text-lg font-semibold ${
         mode === "dark" ? "text-white" : "text-gray-900"
       } hover:text-gray-500 transition duration-300`}
+      style={{ textDecoration: "none", color:'inherit' }}
     >
       Our Hotels
     </Link>
@@ -268,6 +271,7 @@ function Header() {
   <div
     onClick={() => setMobileDropdown(mobileDropdown === "dom" ? null : "dom")}
     className="text-lg flex font-semibold cursor-pointer text-[#2ad4d7] mb-2"
+    style={{ textDecoration: "none", color:'inherit' }}
   >
     Domestic
     <motion.svg
@@ -293,7 +297,8 @@ function Header() {
             setIsExpanded(false);
             setMobileDropdown(null);
           }}
-          className="block px-4 py-2 border border-black rounded-md text-gray-700 dark:text-gray-100 hover:bg-blue-100 dark:hover:bg-blue-700 transition duration-300"
+          className={`block px-4 py-2 border border-black rounded-lg shadow-md focus:bg-[#2ad4d7] active:bg-[#2ad4d7] ${mode==='dark'?'bg-gray-700 ':'bg-gray-100 !text-black'}`}
+          style={{ textDecoration: "none", color:'white' }}
         >
           {destination.heading}
         </Link>
@@ -307,6 +312,7 @@ function Header() {
   <div
     onClick={() => setMobileDropdown(mobileDropdown === "international" ? null : "international")}
     className="text-lg flex font-semibold cursor-pointer text-[#2ad4d7] mb-2"
+    style={{ textDecoration: "none", color:'inherit' }}
   >
     International
     <motion.svg
@@ -332,7 +338,8 @@ function Header() {
             setIsExpanded(false);
             setMobileDropdown(null);
           }}
-          className="block px-4 py-2 border border-black rounded-md text-gray-700 dark:text-gray-100 hover:!bg-blue-100 dark:hover:bg-blue-700 transition duration-300"
+          className={`block px-4 py-2 border border-black rounded-lg shadow-md focus:bg-[#2ad4d7] active:bg-[#2ad4d7] ${mode==='dark'?'bg-gray-700 ':'bg-gray-100 !text-black'}`}
+          style={{ textDecoration: "none", color:'white' }}
         >
           {destination.heading}
         </Link>
@@ -348,6 +355,7 @@ function Header() {
       className={`block text-lg font-semibold ${
         mode === "dark" ? "text-white" : "text-gray-900"
       } hover:text-gray-500 transition duration-300`}
+      style={{ textDecoration: "none", color:'inherit' }}
     >
       Call Us
     </Link>

@@ -50,17 +50,24 @@ useEffect(() => {
         >
             {filteredDestinations?.length > 0 ? (
                 filteredDestinations?.map((destination, index) => (
-                    <Box  key={destination._id}>
-                        <MenuItem onClick={onClose}>
+                    <Box key={destination._id}>
+                        <MenuItem sx={{'&:hover':{
+                            backgroundColor: '#2ad4d7',
+                            border:'round',
+                            borderRadius:'5px',
+                            color:mode==='dark'?'white':'black'
+                        },
+                        color:'#2ad4d7'}} onClick={onClose}>
                             <Link
                                 to={`/payment?heading=${encodeURIComponent(
                                     destination?.heading
                                 )}&description=${encodeURIComponent(destination?.description)}`}
+                                style={{ textDecoration: "none", color: "inherit" }}
                             >
-                                <Typography>{destination.heading}</Typography>
+                                <Typography  style={{ wordBreak: 'break-word', whiteSpace: 'normal' }}>{destination.heading}</Typography>
                             </Link>
                         </MenuItem>
-                        {index < destinations.length - 1 && (
+                        {index < filteredDestinations.length - 1 && (
                             <Divider sx={{ backgroundColor: mode==='dark'?'white':"black", my: 0.5 }} />
                         )}
                     </Box>
