@@ -28,6 +28,8 @@ function Card({ photo, heading, description, zIndex }) {
     <Link
             to={zIndex!==3 ?  null:`/payment?heading=${encodeURIComponent(heading)}&description=${encodeURIComponent(description)}`}
             className=""
+            onMouseEnter={hoveref}
+      onMouseLeave={hoveref}
           >
             {((hover && zIndex === 3) || window.innerWidth <= 768) && (<motion.div className="absolute p-5 z-20 flex flex-col flex-grow">
         <motion.h5 
@@ -52,8 +54,7 @@ function Card({ photo, heading, description, zIndex }) {
       transition={{ duration: 0.3 }}
       className={` ${window.innerWidth<768? 'w-full h-56':'w-96 h-68'}  flex flex-col border rounded-lg backdrop-blur-2xl shadow-md overflow-hidden transform transition-all duration-300 hover:shadow-2xl`}
       style={{backgroundImage: `url(${photo})`, backgroundSize: 'cover', backgroundPosition: 'center', filter:(hover&&zIndex===3)||(window.innerWidth<768)?'brightness(0.5)': hover&&zIndex!==3?'blur(8px)':'brightness(1)'}}
-      onMouseEnter={hoveref}
-      onMouseLeave={hoveref}
+      
       
     >
       
