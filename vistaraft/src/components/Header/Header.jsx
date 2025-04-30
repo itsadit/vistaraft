@@ -92,9 +92,9 @@ function Header() {
         ? "!bg-gray-100"
         : "bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900"
         } ${mode === "dark" ? "text-white" : "!text-gray-900"
-        } sticky top-0 left-0 w-screen bg-white shadow-lg border-b border-gray-200 z-50`}
+        } sticky top-0 left-0 max-w-screen bg-white shadow-lg border-b border-gray-200 z-50`}
     >
-      <div className="max-w-screen-xl flex justify-between items-center mx-auto p-1.5">
+      <div className="max-w-screen flex justify-between items-center mx-4 p-1.5">
         {/* Logo and Brand Name */}
         <Link to="/" className="flex items-center space-x-3">
           <img
@@ -240,7 +240,7 @@ function Header() {
      {/* Mobile Navigation Menu */}
 {isExpanded && (
   <div
-    className={`md:hidden p-4 space-y-6 ${
+    className={`lg:hidden p-4 space-y-6 ${
       mode === "light" ? "bg-gray-100" : "bg-black"
     }`}
   >
