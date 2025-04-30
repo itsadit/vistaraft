@@ -42,7 +42,7 @@ useEffect(() => {
             open={isDropdownOpen}
             onClose={onClose}
             PaperProps={{
-                sx: { width: 250, p: 1 , background: mode === "dark" 
+                sx: { width: 235, p: 1 ,maxHeight:400, background: mode === "dark" 
                     ? "linear-gradient(to right, #111827, #1f2937, #111827)" // your gradient
                     : "white",},
             }}
@@ -55,9 +55,9 @@ useEffect(() => {
                             backgroundColor: '#2ad4d7',
                             border:'round',
                             borderRadius:'5px',
-                            color:mode==='dark'?'white':'black'
+                            color:'white'
                         },
-                        color:'#2ad4d7'}} onClick={onClose}>
+                        color:mode==='dark'?'#2ad4d7':'black'}} onClick={onClose}>
                             <Link
                                 to={`/payment?heading=${encodeURIComponent(
                                     destination?.heading
