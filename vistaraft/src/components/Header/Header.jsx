@@ -94,7 +94,7 @@ function Header() {
         } ${mode === "dark" ? "text-white" : "!text-gray-900"
         } sticky top-0 left-0 max-w-screen bg-white shadow-lg border-b border-gray-200 z-50`}
     >
-      <div className="max-w-screen flex justify-between items-center mx-16 p-1.5">
+      <div className="max-w-screen flex justify-between items-center mx-4 p-1.5">
         {/* Logo and Brand Name */}
         <Link to="/" className="flex items-center space-x-3">
           <img
@@ -115,7 +115,7 @@ function Header() {
         </Link>
 
         {/* Navigation Links and Buttons */}
-        <div className="hidden md:flex items-center space-x-8">
+        <div className="hidden lg:flex items-center space-x-8 mr-8">
           {/* Navigation Links */}
           <div className="flex items-center space-x-8">
             <Link
@@ -219,7 +219,7 @@ function Header() {
 
         {/* Mobile Menu Button */}
         <button
-          className={`md:hidden ml-4 p-2 focus:outline-none ${mode === "light"
+          className={`lg:hidden ml-4 p-2 focus:outline-none ${mode === "light"
             ? "bg-gray-200 hover:bg-gray-300"
             : "bg-gray-700 hover:bg-gray-800"
             }`}
