@@ -94,7 +94,7 @@ function Header() {
         } ${mode === "dark" ? "text-white" : "!text-gray-900"
         } sticky top-0 left-0 max-w-screen bg-white shadow-lg border-b border-gray-200 z-50`}
     >
-      <div className="max-w-screen flex justify-between items-center mx-4 p-1.5">
+      <div className="max-w-screen flex justify-between items-center mx-16 p-1.5">
         {/* Logo and Brand Name */}
         <Link to="/" className="flex items-center space-x-3">
           <img
